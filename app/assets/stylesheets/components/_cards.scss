@@ -1,0 +1,70 @@
+// product-card
+.card-create {
+  position: absolute;
+  display: flex;
+  justify-content: end;
+  bottom: 0;
+  right: 0;
+}
+
+.btn-create {
+  position: sticky;
+  margin-right: 3px;
+  font-size: 50px;
+}
+
+.cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+}
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  padding: 3px;
+  position: relative;
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip-link {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+}
+
+.card-trip h2 {
+  font-size: 10px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 8px;
+  opacity: .7;
+  margin: 0;
+}
+
+.card-trip .card-trip-infos {
+  height: 40px;
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
