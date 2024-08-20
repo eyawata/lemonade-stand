@@ -2,7 +2,7 @@ class Product < ApplicationRecord
   belongs_to :user
   has_many :order_products
   has_many :orders, through: :order_products
-  has_attached_one :photo
+  has_one_attached :photo
 
   validates :name, presence: true
   validates :price, presence: true
