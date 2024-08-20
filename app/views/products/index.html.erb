@@ -1,2 +1,11 @@
-<div class="products-container">
+<div class="card-trip">
+  <div class="products-container">
+    <% @products.each do |product| %>
+      <%= cl_image_tag product.photo.key, class:"" %>
+      <div class="card-trip-infos">
+        <h5><%= product.name %></h5>
+        <h2 class="card-trip-pricing"><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></h2>
+      </div>
+    <% end %>
+  </div>
 </div>
