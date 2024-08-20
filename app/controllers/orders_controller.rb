@@ -3,8 +3,8 @@ class OrdersController < ApplicationController
     # find order by params id
     # for each order_product, display it in a list
     # aggregate the total and display end of the list
-
     @order = Order.find(params[:id])
+    raise
   end
 
   def index

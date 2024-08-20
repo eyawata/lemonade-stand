@@ -1,0 +1,7 @@
+<div class="order-products row">
+  <% @order.order_products.each do |product| %>
+    <p class="col"><%= product.name %></p>
+    <p class="col">X <%= product.quantity %></p>
+    <p class="col"><%= product.price * product.quantity %></p>
+  <% end %>
+</div>
