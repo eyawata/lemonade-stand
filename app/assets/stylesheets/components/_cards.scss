@@ -1,16 +1,16 @@
 // product-card
 .card-create {
-  position: absolute;
+  position: fixed;
   display: flex;
   justify-content: end;
-  bottom: 0;
-  right: 0;
+  top: 830px;
+  right: 20px;
 }
 
 .btn-create {
   position: sticky;
   margin-right: 3px;
-  font-size: 50px;
+  font-size: 70px;
 }
 
 .cards {

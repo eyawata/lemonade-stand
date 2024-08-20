@@ -1,8 +1,25 @@
-<body class="bg-white position-relative">
+<div class="bg-white position-relative">
   <div class="d-flex justify-content-center text-align-center my-2">
     <h3><strong>Set Up</strong></h5>
   </div>
   <div class="cards">
+    <% @products.each do |product| %>
+      <div class="row">
+        <div class="col-12">
+        <div class="card-trip">
+              <%= cl_image_tag product.photo.key, class:"" %>
+              <div class="card-trip-infos">
+                <h2><%= product.name %></h2>
+                <h2 class="card-trip-pricing"><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></h2>
+              </div>
+          </div>
+          <%# <%= link_to edit_product_path, class:"card-trip-link" do %>
+            <%# <i class="fa-solid fa-pen-to-square"></i> %>
+          <%# <% end %>
+        </div>
+      </div>
+    <% end %>
+
     <% @products.each do |product| %>
       <div class="row">
         <div class="col-12">
@@ -25,4 +42,4 @@
       <i class="fa-solid fa-circle-plus" style="color: #f2c218;"></i>
     <% end %>
   </div>
-</body>
+</div>
