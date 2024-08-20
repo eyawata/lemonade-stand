@@ -31,7 +31,7 @@ if User.any?
   user = User.last
   user.update(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
 else
-  User.create!(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
+  user = User.create!(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
 end
 
 puts "Created #{User.count} user"
