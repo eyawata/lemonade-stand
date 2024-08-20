@@ -6,4 +6,8 @@ class OrderProductsController < ApplicationController
   def index
     @order_products = OrderProduct.all
   end
+
+  def edit
+    # In construction
+  end
 end
