@@ -27,8 +27,14 @@ items = ["Blue Pot", "Yellow Ceramic Vase", "White Ceramic Vase", "Purple Floral
 
 puts "Creating user seed"
 
-user = User.last
-user.update(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
+if User.any?
+  user = User.last
+  user.update(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
+else
+  User.create!(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
+end
+
+puts "Created #{User.count} user"
 
 puts "Creating products"
 
