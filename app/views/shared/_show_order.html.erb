@@ -1,0 +1,7 @@
+<h1>Confirm Order</h1>
+<ul class="order-list">
+  <%= @order.order_products.each do |product| %>
+    <li>
+      <%= product.name %>
+    </li>
+  </ul>
