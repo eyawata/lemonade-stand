@@ -2,11 +2,13 @@
   <div class="d-flex justify-content-center text-align-center my-2">
     <h2><strong>SET UP</strong></h5>
   </div>
+
+  <%# product cards %>
   <div class="cards">
     <% @products.each do |product| %>
       <div class="row">
         <div class="col-12">
-          <div class="card-trip">
+          <div class="card-trip position-relative">
             <% if product.photo.attached? %>
               <%= cl_image_tag product.photo.key, class:"" %>
             <% else %>
@@ -16,17 +18,21 @@
               <h2><%= product.name %></h2>
               <h2 class="card-trip-pricing"><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></h2>
             </div>
-          </div>
-          <%# <%= link_to edit_product_path, class:"card-trip-link" do %>
-            <%# <i class="fa-solid fa-pen-to-square"></i> %>
-            <%# <% end %>
+            <div class="card-edit">
+              <%= link_to products_path, class:"btn-edit text-decoration-none" do %>
+                <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
+              <% end %>
+            </div>
           </div>
         </div>
-      <% end %>
-    </div>
-    <div class="card-create">
-      <%= link_to new_product_path, class:"btn-create" do %>
-        <i class="fa-solid fa-circle-plus" style="color: #f2c218;"></i>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%# product button %>
+  <div class="card-create">
+    <%= link_to new_product_path, class:"btn-create" do %>
+      <i class="fa-solid fa-circle-plus" style="color: #f2c218;"></i>
+    <% end %>
+  </div>
   </body>

@@ -1,14 +1,24 @@
 // product-card
+.card-edit {
+  position: absolute;
+  top: 2px;
+  right: 0;
+}
+
+.btn-edit {
+  font-size: 12px;
+  background-color: $medium-gray;
+  border-radius: 50%;
+  padding: 8px;
+}
+
 .card-create {
   position: fixed;
-  display: flex;
-  justify-content: end;
-  top: 830px;
+  bottom: 30px;
   right: 20px;
 }
 
 .btn-create {
-  position: sticky;
   margin-right: 3px;
   font-size: 70px;
 }
@@ -24,7 +34,7 @@
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 3px;
+  padding: 5px;
   position: relative;
 }
 
