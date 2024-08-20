@@ -25,10 +25,14 @@ urls = {
 
 items = ["Blue Pot", "Yellow Ceramic Vase", "White Ceramic Vase", "Purple Floral Ceramic Teapot", "Grey Short Vase", "Shell and Handmade Vase"]
 
-puts "Creating user seed"
+puts "Creating a user seed"
 
-user = User.last
-user.update(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
+if User.any?
+  user = User.last
+  user.update(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
+else
+  User.create!(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
+end
 
 puts "Creating products"
 
