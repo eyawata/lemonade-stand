@@ -1,2 +1,8 @@
 <h1>Confirm Order</h1>
-<%= render order_list %>
+<div class="orders">
+  <%= render "order_list", order: @order %>
+  <div class="order-total row justify-content-center">
+    <h3 class="col-3">Subtotal</h3>
+    <h3 class="col-6 text-end"><%= @order_subtotal %></h3>
+  </div>
+</div>
