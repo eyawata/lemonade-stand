@@ -128,6 +128,7 @@ GEM
     erubi (1.13.0)
     execjs (2.9.1)
     ffi (1.17.0)
+    ffi (1.17.0-x86_64-darwin)
     font-awesome-sass (6.5.2)
       sassc (~> 2.0)
     globalid (1.2.1)
@@ -171,6 +172,8 @@ GEM
       net-protocol
     nio4r (2.7.3)
     nokogiri (1.16.7-aarch64-linux)
+      racc (~> 1.4)
+    nokogiri (1.16.7-x86_64-darwin)
       racc (~> 1.4)
     nokogiri (1.16.7-x86_64-linux)
       racc (~> 1.4)
@@ -284,6 +287,7 @@ GEM
 
 PLATFORMS
   aarch64-linux
+  x86_64-darwin-23
   x86_64-linux
 
 DEPENDENCIES
