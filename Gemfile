@@ -78,3 +78,4 @@ end
 
 # Team Add-ons
 gem "cloudinary"
+gem "faker"
