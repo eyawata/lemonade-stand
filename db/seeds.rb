@@ -11,31 +11,30 @@ Product.destroy_all
 puts "Updating and deleting all events"
 Event.destroy_all
 
-
 urls = {
   "Blue Pot" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724159438/pexels-cottonbro-9120824_j07myx.jpg",
   "Yellow Ceramic Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724159511/pexels-ron-lach-8767270_aglkvs.jpg",
-  "White Ceramic Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145337/pexels-karolina-grabowska-4219038_lkx9cr.jpg",
-  "Purple Floral Ceramic Teapot" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724151922/755179536_max_wzmitq.jpg",
-  "Grey Short Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724125280/pexels-cup-of-couple-7302795_jiovse.jpg",
-  "Shell and Handmade Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724156722/pexels-karolina-grabowska-6958755_z8j4hx.jpg",
-  "White Ceramic Teapot" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145341/pexels-n-voitkevich-9863683_bjm8px.jpg",
+  "White Ceramic Teapot" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145340/pexels-n-voitkevich-9863583_rzulg6.jpg",
   "Yellow Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145335/pexels-daria-liudnaya-7354520_whvh9g.jpg",
+  "White Ceramic Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145337/pexels-karolina-grabowska-4219038_lkx9cr.jpg",
+  "Glass Teapot" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145752/pexels-anna-pou-8330319_kpr2zx.jpg",
+  "Shell and Handmade Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724156722/pexels-karolina-grabowska-6958755_z8j4hx.jpg",
+  "Grey Short Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724125280/pexels-cup-of-couple-7302795_jiovse.jpg",
   "White Rounded Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145336/pexels-karolina-grabowska-4207892_a5bklk.jpg",
-  "Orange Round Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145341/pexels-makaroff-aleksandr-114409006-10401476_rsrapc.jpg",
+  "Black Short Japanese Teapot" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145336/pexels-eva-bronzini-6945183_v5osvh.jpg"
 }
 
 items = [
   "Blue Pot",
   "Yellow Ceramic Vase",
-  "White Ceramic Vase",
-  "Purple Floral Ceramic Teapot",
-  "Grey Short Vase",
-  "Shell and Handmade Vase",
   "White Ceramic Teapot",
   "Yellow Vase",
+  "White Ceramic Vase",
+  "Glass Teapot",
+  "Shell and Handmade Vase",
+  "Grey Short Vase",
   "White Rounded Vase",
-  "Orange Round Vase"
+  "Black Short Japanese Teapot"
 ]
 
 # User seeds #
