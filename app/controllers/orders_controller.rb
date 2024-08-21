@@ -34,7 +34,7 @@ class OrdersController < ApplicationController
     # mark order as complete and order's total price
     @order.update(status: "completed", total_price: @order.subtotal)
 
-    @last_order = Order.new
+    @last_order = Order.new(total_price: 0)
     @last_order.save
     redirect_to edit_order_path(@last_order)
     # flash order "order confirmed"
