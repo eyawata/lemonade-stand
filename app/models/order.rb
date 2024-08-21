@@ -17,7 +17,12 @@ class Order < ApplicationRecord
     return subtotal
   end
 
-  # def sum_quantity
-  #   order_pdts = OrderProduct.where(order: self).group_by(&:product)
-  # end
+  def update_inventory
+    self.order_products.each do |op|
+      qty_bought = op.product_quantity
+      product_to_update = op.product
+      qty_to_update = product_to_update.quantity
+      product_to_update.update(quantity: qty_to_update - qty_bought)
+    end
+  end
 end
