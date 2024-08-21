@@ -19,36 +19,26 @@
               <h2 class="card-trip-pricing"><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></h2>
             </div>
           </div>
-          <%# <%= link_to edit_product_path, class:"card-trip-link" do %>
-            <%# <i class="fa-solid fa-pen-to-square"></i> %>
-            <%# <% end %>
-          </div>
         </div>
-      <% end %>
-    </div>
-    <div class="card-create">
-      <%= link_to new_product_path, class:"btn-create" do %>
-        <i class="fa-solid fa-circle-plus" style="color: #f2c218;"></i>
-      <% end %>
-    </div>
-    <%# Modal Start %>
-    <!-- Button trigger modal -->
-    <button type="button" class="fa-solid fa-circle-plus" style="color: $primary-color" data-bs-toggle="modal" data-bs-target="#exampleModal">
+      </div>
+    <% end %>
+  </div>
+  <div class="card-create">
+    <button type="button" class="fa-solid fa-circle-plus btn-create" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
     </button>
     <!-- Modal -->
-    <div class="modal fade slide-up-modal" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade slide-up-modal" id="CreateProductModal" tabindex="-1" aria-labelledby="CreateProductModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-slide-up">
         <div class="modal-content">
           <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+            <h1 class="modal-title fs-5" id="CreateProductModalLabel">Create Product</h1>
             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
           <div class="modal-body">
-            ...
+            <%= render 'new_form' %>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-            <button type="button" class="btn btn-primary">Save changes</button>
+            <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
           </div>
         </div>
       </div>
