@@ -1,0 +1,37 @@
+<%# Add buttons for each card. This is the unchanged code from mint. %>
+<body class="bg-white position-relative">
+  <div class="d-flex justify-content-center text-align-center my-2">
+    <h3><strong>Set Up</strong></h5>
+  </div>
+  <div class="cards">
+    <% @products.each do |product| %>
+      <div class="row">
+        <div class="col-12">
+          <div class="card-trip">
+           <div class="quantity-buttons", data-controller="quantity" >
+                 <%= link_to "+", "#", class: "btn-ghost left-button", style: "text-decoration: none", target: "_blank" %>
+                <%= link_to "-", "#", class: "btn-ghost right-button", style: "text-decoration: none", target: "_blank" %>
+              </div>
+            <% if product.photo.attached? %>
+              <%= cl_image_tag product.photo.key, class:"" %>
+            <% else %>
+              <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"%>
+            <% end %>
+            <div class="card-trip-infos">
+              <h2><%= product.name %></h2>
+              <h2 class="card-trip-pricing"><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></h2>
+            </div>
+          </div>
+          <%# <%= link_to edit_product_path, class:"card-trip-link" do %>
+            <%# <i class="fa-solid fa-pen-to-square"></i> %>
+            <%# <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="card-create">
+      <%= link_to new_product_path, class:"btn-create" do %>
+        <i class="fa-solid fa-circle-plus" style="color: #f2c218;"></i>
+      <% end %>
+    </div>
+  </body>

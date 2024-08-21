@@ -1,0 +1,3 @@
+<% unless @orders.last&.status == "complete" || @orders.count == 0 %>
+<%= render "form" %>
+<% end %>
