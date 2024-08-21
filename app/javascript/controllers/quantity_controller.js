@@ -2,21 +2,21 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="quantity"
 export default class extends Controller {
-  static targets = ["productQuantity", "showProductQuantity"]
+  static targets = ["showProductQuantity"]
 
   connect() {
     console.log("Welcome back Stimulus!")
+    this.selectedQuantity = parseInt(this.showProductQuantityTarget.innerText)
+    this.stockQuantity = parseInt(this.showProductQuantityTarget.innerText);
   }
 
   add(event) {
     event.preventDefault();
     console.log("Add button clicked");
 
-    let quantity = parseInt(this.productQuantityTarget.innerText);
-    let orderProductQuantity = parseInt(this.showProductQuantityTarget.innerText);
-
-    if (orderProductQuantity < quantity) {
-      this.showProductQuantityTarget.innerText = orderProductQuantity + 1;
+    if (this.selectedQuantity < this.stockQuantity) {
+      this.selectedQuantity += 1
+      this.showProductQuantityTarget.innerText = this.selectedQuantity
     } else {
       console.log("No Item to add");
       }
@@ -25,11 +25,11 @@ export default class extends Controller {
   subtract(event) {
     event.preventDefault();
     console.log("Subtract button clicked");
+    console.log(this.selectedQuantity)
 
-     let orderProductQuantity = parseInt(this.showProductQuantityTarget.innerText);
-
-    if (orderProductQuantity > 0) {
-      this.showProductQuantityTarget.innerText = orderProductQuantity - 1;
+    if (this.selectedQuantity > 0) {
+      this.selectedQuantity -= 1
+      this.showProductQuantityTarget.innerText = this.selectedQuantity
       } else {
       console.log("No Item to subtract");
       }

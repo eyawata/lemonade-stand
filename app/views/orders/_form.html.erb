@@ -1,5 +1,5 @@
 <%# Add buttons for each card. This is the unchanged code from mint. %>
-<body class="bg-white position-relative">
+<div class="bg-white position-relative">
   <div class="d-flex justify-content-center text-align-center my-2">
     <h3><strong>Set Up</strong></h3>
   </div>
@@ -9,9 +9,8 @@
         <div class="col-12">
           <div class="card-trip" data-controller="quantity">
             <div class="quantity-buttons">
-              <span data-quantity-target="productQuantity"><% product.quantity %></span>
-              <%= link_to "+", "#", class: "btn-ghost left-button", data: { action: "click->quantity#add" }, style: "text-decoration: none" %>
-              <%= link_to "-", "#", class: "btn-ghost right-button", data: { action: "click->quantity#subtract" }, style: "text-decoration: none" %>
+              <%= link_to "+", "#", class: "btn-ghost right-button", data: { action: "click->quantity#add" }, style: "text-decoration: none" %>
+              <%= link_to "-", "#", class: "btn-ghost left-button ", data: { action: "click->quantity#subtract" }, style: "text-decoration: none" %>
             </div>
             <% if product.photo.attached? %>
               <%= cl_image_tag product.photo.key, class:"" %>
@@ -36,4 +35,4 @@
       <i class="fa-solid fa-circle-plus" style="color: #f2c218;"></i>
     <% end %>
   </div>
-</body>
+</div>
