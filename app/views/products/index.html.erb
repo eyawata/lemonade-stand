@@ -28,7 +28,7 @@
             </div>
             <%# edit button %>
             <div class="card-edit">
-              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal">
+              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal" data-action="click->product-modal#fetchProductData(<%=product.id%>)">
               </div>
             </div>
           </div>
