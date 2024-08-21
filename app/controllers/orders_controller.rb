@@ -1,6 +1,9 @@
 class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
+
+    # subtotal is an instance method in order.rb
+    @order_subtotal = @order.subtotal
   end
 
   def index
@@ -14,4 +17,5 @@ class OrdersController < ApplicationController
 
     redirect_to order_path(order.last) if @orders.last&.status == "incomplete"
   end
+
 end

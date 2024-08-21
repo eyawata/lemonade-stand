@@ -93,8 +93,7 @@ puts "Creating orders!"
 if Order.any? == false
   5.times do
     Order.create!(
-      total_price: rand(500..2000),
-      status: rand(1..2)
+      total_price: rand(500..2000)
     )
   end
 end
@@ -105,15 +104,33 @@ puts "Creating order_products!"
 Order.all.each do |order|
   1..3.times do
     @product = Product.all.sample
-    order.order_products.create!(
-        product: @product,
-        product_quantity: 1,
-        product_price_at_sale: @product.price
-      )
+    # if order already has sampled product, then add qty to that op
+    if order.products.include?(@product)
+      product_to_add = order.order_products.find_by(product: @product)
+      product_qty = product_to_add.product_quantity
+      product_to_add.update(product_quantity: product_qty += 1)
+    else
+      # else create a new op for the order
+      order.order_products.create!(
+          product: @product,
+          product_quantity: 1,
+          product_price_at_sale: @product.price
+        )
+    end
   end
 end
 puts "Created #{OrderProduct.count} order_products!"
 
+puts "Adding random status to orders"
+
+total_orders = Order.count
+orders_except_last = Order.limit(total_orders - 1)
+
+orders_except_last.each do |order|
+  order.update(status: "completed")
+end
+
+puts "Completed updating status"
 # events = [
 #   "Clay Creations Expo",
 #   "Pottery Passion Fest",
