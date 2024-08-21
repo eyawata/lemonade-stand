@@ -13,6 +13,10 @@ require 'faker'
 #   end
 puts "Updating user and deleting all products"
 Product.destroy_all
+puts "Updating and deleting all orders"
+Order.destroy_all
+puts "Updating and deleting all events"
+Event.destroy_all
 
 urls = {
   "Blue Pot" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724125280/pexels-cottonbro-9120824_fqyjil.jpg",
@@ -52,3 +56,53 @@ items.each do |item|
 end
 
 puts "Created #{Product.count} products"
+
+# events = [
+#   "Clay Creations Expo",
+#   "Pottery Passion Fest",
+#   "Ceramic Art Showcase",
+#   "Wheel Throwing Workshop",
+#   "Glaze & Fire Festival"
+# ]
+
+# puts "Creating events!"
+
+# 5.times do
+#   events.each do |event|
+#     Event.create!(
+#       event_name: event,
+#       user: user
+#   )
+#   end
+# end
+
+# puts "Created #{Event.count} events"
+
+puts "Creating orders!"
+
+5.times do
+  Order.create!(
+    total_price: rand(500..2000),
+    status: rand(1..2)
+  )
+end
+
+puts "Created #{Order.count} orders!"
+
+puts "Creating order_products!"
+
+
+  Order.all.each do |order|
+    @product = Product.all.sample
+    order.order_products.create!(
+      product: @product,
+      product_quantity: 1,
+      product_price_at_sale: @product.price
+    )
+  end
+
+# choose a random product from all products
+# choose a number between 0 and product.quantity
+# for that random number, add it to a random order(?)
+
+puts "Created #{Order.count} orders!"
