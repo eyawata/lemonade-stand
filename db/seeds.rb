@@ -93,8 +93,7 @@ puts "Creating orders!"
 if Order.any? == false
   5.times do
     Order.create!(
-      total_price: rand(500..2000),
-      status: rand(1..2)
+      total_price: rand(500..2000)
     )
   end
 end
@@ -122,6 +121,16 @@ Order.all.each do |order|
 end
 puts "Created #{OrderProduct.count} order_products!"
 
+puts "Adding random status to orders"
+
+total_orders = Order.count
+orders_except_last = Order.limit(total_orders - 1)
+
+orders_except_last.each do |order|
+  order.update(status: "completed")
+end
+
+puts "Completed updating status"
 # events = [
 #   "Clay Creations Expo",
 #   "Pottery Passion Fest",
