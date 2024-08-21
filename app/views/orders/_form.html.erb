@@ -1,17 +1,18 @@
 <%# Add buttons for each card. This is the unchanged code from mint. %>
 <body class="bg-white position-relative">
   <div class="d-flex justify-content-center text-align-center my-2">
-    <h3><strong>Set Up</strong></h5>
+    <h3><strong>Set Up</strong></h3>
   </div>
-  <div class="cards">
+  <div class="cards" >
     <% @products.each do |product| %>
       <div class="row">
         <div class="col-12">
-          <div class="card-trip">
-           <div class="quantity-buttons", data-controller="quantity" >
-                 <%= link_to "+", "#", class: "btn-ghost left-button", style: "text-decoration: none", target: "_blank" %>
-                <%= link_to "-", "#", class: "btn-ghost right-button", style: "text-decoration: none", target: "_blank" %>
-              </div>
+          <div class="card-trip" data-controller="quantity">
+            <div class="quantity-buttons">
+              <span data-quantity-target="productQuantity"><% product.quantity %></span>
+              <%= link_to "+", "#", class: "btn-ghost left-button", data: { action: "click->quantity#add" }, style: "text-decoration: none" %>
+              <%= link_to "-", "#", class: "btn-ghost right-button", data: { action: "click->quantity#subtract" }, style: "text-decoration: none" %>
+            </div>
             <% if product.photo.attached? %>
               <%= cl_image_tag product.photo.key, class:"" %>
             <% else %>
@@ -19,19 +20,20 @@
             <% end %>
             <div class="card-trip-infos">
               <h2><%= product.name %></h2>
-              <h2 class="card-trip-pricing"><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></h2>
+              <h2 class="card-trip-pricing"><%= number_to_currency(product.price, { unit: '¥', precision: 0 }) %></h2>
+              <span data-quantity-target="showProductQuantity"><%= product.quantity %></span>
             </div>
           </div>
           <%# <%= link_to edit_product_path, class:"card-trip-link" do %>
-            <%# <i class="fa-solid fa-pen-to-square"></i> %>
-            <%# <% end %>
-          </div>
+          <%# <i class="fa-solid fa-pen-to-square"></i> %>
+          <%# <% end %>
         </div>
-      <% end %>
-    </div>
-    <div class="card-create">
-      <%= link_to new_product_path, class:"btn-create" do %>
-        <i class="fa-solid fa-circle-plus" style="color: #f2c218;"></i>
-      <% end %>
-    </div>
-  </body>
+      </div>
+    <% end %>
+  </div>
+  <div class="card-create">
+    <%= link_to new_product_path, class:"btn-create" do %>
+      <i class="fa-solid fa-circle-plus" style="color: #f2c218;"></i>
+    <% end %>
+  </div>
+</body>
