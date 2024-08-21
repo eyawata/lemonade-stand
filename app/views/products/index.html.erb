@@ -27,21 +27,6 @@
     <button type="button" class="fa-solid fa-circle-plus btn-create" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
     </button>
     <!-- Modal -->
-    <div class="modal fade slide-up-modal" id="CreateProductModal" tabindex="-1" aria-labelledby="CreateProductModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-slide-up">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="CreateProductModalLabel">Create Product</h1>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          </div>
-          <div class="modal-body">
-            <%= render 'new_form' %>
-          </div>
-          <div class="modal-footer">
-            <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
-          </div>
-        </div>
-      </div>
-    </div>
+    <%= render 'new_modal' %>
     <%# Model End %>
   </body>
