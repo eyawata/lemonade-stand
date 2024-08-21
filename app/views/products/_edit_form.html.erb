@@ -1,6 +1,6 @@
-<div class="container">
-  <h2>Create Product</h2>
-  <%= simple_form_for [@product] do |f| %>
+<div class="container"> <!--- add a target here -->
+  <h2>Edit Product</h2>
+  <%= simple_form_for(@product) do |f| %>
     <%= f.input :name %>
     <%= f.input :price %>
     <div>

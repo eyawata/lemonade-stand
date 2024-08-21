@@ -6,11 +6,12 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @product = Product.new
-  end
-
-  def edit
     @edit_product = Product.find(params[:id])
   end
+
+  # def edit
+  #   @edit_product = Product.find(params[:id])
+  # end
 
   def update
     @edit_product = Product.find(params[:id])
