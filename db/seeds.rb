@@ -111,7 +111,7 @@ Order.all.each do |order|
       product_qty = product_to_add.product_quantity
       product_to_add.update(product_quantity: product_qty += 1)
     else
-      # else create a new op
+      # else create a new op for the order
       order.order_products.create!(
           product: @product,
           product_quantity: 1,
