@@ -1,0 +1,31 @@
+.quantity-buttons {
+  position: relative;
+}
+
+.left-button {
+  position: absolute;
+  top: 0;
+  left: 0
+}
+
+.right-button {
+  position: absolute;
+  top: 0;
+  right: 0
+}
+
+.btn-ghost {
+  color: white; /* Make the text (plus and minus) white */
+  background-color: #4A4A4A; /* Dark grey background */
+  border: 1px solid #4A4A4A;
+  padding: 4px; /* Adjust padding to maintain the circle */
+  border-radius: 50%; /* Make it a perfect circle */
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  width: 40px; /* Set a fixed width */
+  height: 40px; /* Set a fixed height */
+  display: flex; /* Center the content */
+  align-items: center; /* Center the content vertically */
+  justify-content: center; /* Center the content horizontally */
+}
