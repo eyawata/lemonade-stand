@@ -1,9 +1,9 @@
 class OrdersController < ApplicationController
   def show
-    # find order by params id
-    # aggregate the total and display end of the list
     @order = Order.find(params[:id])
-    @order_subtotal = subtotal
+
+    # subtotal is an instance method in order.rb
+    @order_subtotal = @order.subtotal
   end
 
   def index
@@ -14,14 +14,4 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-  private
-
-  def subtotal
-    subtotal = 0
-    @order.order_products.each do |op|
-      product_total = op.product_price_at_sale * op.product_quantity
-      subtotal = subtotal + product_total
-    end
-    return subtotal
-  end
 end
