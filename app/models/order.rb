@@ -5,10 +5,8 @@ class Order < ApplicationRecord
 
   validates :total_price, presence: true
   validates :status, presence: true
-
-  enum status: [ :pending, :completed, :incomplete ]
-
-  # after_create_commit: sum_quantity
+  OPTIONS = ["incomplete", "completed"]
+  validates :status, inclusion: { in: OPTIONS }
 
   def subtotal
     subtotal = 0
