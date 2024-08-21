@@ -8,6 +8,7 @@ class Order < ApplicationRecord
 
   enum status: [ :pending, :completed, :incomplete ]
 
+  # after_create_commit: sum_quantity
 
   def subtotal
     subtotal = 0
@@ -17,4 +18,8 @@ class Order < ApplicationRecord
     end
     return subtotal
   end
+
+  # def sum_quantity
+  #   order_pdts = OrderProduct.where(order: self).group_by(&:product)
+  # end
 end
