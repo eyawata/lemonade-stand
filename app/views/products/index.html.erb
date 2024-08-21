@@ -1,10 +1,9 @@
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+<%# <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script> %>
 <%# This needs to be put somewhere else %>
 <div class="bg-white position-relative">
   <div class="d-flex justify-content-center text-align-center my-2">
     <h2><strong>SET UP</strong></h5>
   </div>
-
   <%# product cards %>
   <div class="cards">
     <% @products.each do |product| %>
@@ -20,25 +19,21 @@
               <h2><%= product.name %></h2>
               <p class="card-trip-pricing"><strong><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></strong></p>
             </div>
-
             <%# edit button %>
             <div class="card-edit">
-              <%= link_to products_path, class:"btn-edit text-decoration-none" do %>
-                <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
-              <% end %>
+              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal">
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+    <%# product button %>
+    <div class="card-create">
+      <button type="button" class="fa-solid fa-circle-plus btn-create bg-transparent" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
+      </button>
+      <!-- Modal -->
+      <!--  <%= render "edit_modal" %> -->
+      <%# Model End %>
+    </div>
   </div>
-
-  <%# product button %>
-  <div class="card-create">
-    <button type="button" class="fa-solid fa-circle-plus btn-create bg-transparent" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
-    </button>
-    <!-- Modal -->
-    <%= render 'new_modal' %>
-    <%# Model End %>
-  </div>
-</div>
