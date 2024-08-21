@@ -18,6 +18,7 @@
               <h2><%= product.name %></h2>
               <h2 class="card-trip-pricing"><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></h2>
             </div>
+            <%# edit button %>
             <div class="card-edit">
               <%= link_to products_path, class:"btn-edit text-decoration-none" do %>
                 <i class="fa-solid fa-pencil" style="color: #ffffff;"></i>
