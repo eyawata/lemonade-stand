@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-11">
+      <!-- table headers -->
+      <table class="bg-white">
+        <thead>
+          <tr>
+            <th>Event Name</th>
+            <th>Total Price</th>
+            <th>Discounts</th>
+            <th>Order Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% @orders.each do |order| %>
+            <tr>
+              <th>Event Name</th>
+              <th><%= number_to_currency(order.total_price, { unit: '¥', precision: 0 }) %></th>
+              <% if order.order_discount.present? %>
+                <th><%= number_to_currency(order.order_discount, { unit: '¥', precision: 0 }) %></th>
+              <% else %>
+                <th>-</th>
+              <% end %>
+              <th><%= order.status.capitalize %></th>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
