@@ -18,8 +18,4 @@ class Order < ApplicationRecord
     end
     return subtotal
   end
-
-  # def sum_quantity
-  #   order_pdts = OrderProduct.where(order: self).group_by(&:product)
-  # end
 end
