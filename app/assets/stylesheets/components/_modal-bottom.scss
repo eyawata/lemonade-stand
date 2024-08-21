@@ -1,0 +1,39 @@
+/* Custom Modal Classes */
+.slide-up-modal .modal-dialog {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  width: 100%;
+  max-width: none;
+  height: auto;
+  min-height: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(100%);
+}
+
+.slide-up-modal.show .modal-dialog {
+  transform: translateY(0);
+}
+
+.slide-up-modal .modal-content {
+  border-radius: 0;
+  width: 100%;
+  height: auto;
+  overflow-y: auto;
+}
+
+.slide-up-modal .modal-header,
+.slide-up-modal .modal-footer {
+  flex-shrink: 0;
+}
+
+.slide-up-modal .modal-body {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 1rem;
+}
