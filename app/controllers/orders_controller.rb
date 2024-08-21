@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   def show
     @order = Order.find(params[:id])
+    @products = Product.all
 
     # subtotal is an instance method in order.rb
     @order_subtotal = @order.subtotal
@@ -10,22 +11,17 @@ class OrdersController < ApplicationController
     @orders = Order.all
   end
 
-  def new
-    @order = Order.new
-  end
+  def edit
+    @products = Product.all
+    @orders = Order.all
 
-  def update
-    @order = Order.find(params[:id])
+    if @orders.last&.status == "incomplete"
+      @order = @orders.last
+    else
+      @order = Order.new
+      @order.save
+    end
 
-    # update_inventory is an instance method in order.rb
-    @order.update_inventory
-
-    # mark order as complete and order's total price
-    @order.update(status: "completed", total_price: @order.subtotal)
-
-    # redirect to orders/new
-    redirect_to new_order_path
-
-    # flash order "order confirmed"
+    # redirect_to order_path(@orders.last) if @orders.last&.status == "incomplete"
   end
 end

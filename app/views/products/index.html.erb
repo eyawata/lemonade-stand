@@ -4,6 +4,13 @@
   <div class="d-flex justify-content-center text-align-center my-2">
     <h2><strong>SET UP</strong></h5>
   </div>
+  <!-- Toggle button start -->
+  <div class="d-flex flex-row-reverse me-4 mb-3">
+    <%= link_to new_order_path, class:"text-decoration-none" do %>
+      <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
+    <% end %>
+  </div>
+  <!-- Toggle button end -->
   <%# product cards %>
   <div class="cards">
     <% @products.each do |product| %>
@@ -11,7 +18,7 @@
         <div class="col-12">
           <div class="card-trip position-relative">
             <% if product.photo.attached? %>
-              <%= cl_image_tag product.photo.key, class:"" %>
+              <%= cl_image_tag product.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and qualitity here -->
             <% else %>
               <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"%>
             <% end %>
