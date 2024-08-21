@@ -14,13 +14,14 @@
 
 .card-create {
   position: fixed;
-  bottom: 30px;
+  top: 800px;
   right: 20px;
 }
 
 .btn-create {
   margin-right: 3px;
-  font-size: 70px;
+  font-size: 100px;
+  border-color: transparent;
 }
 
 .cards {
@@ -28,18 +29,20 @@
   display: grid;
   grid-template-columns: 1fr 1fr;
   justify-content: center;
+  grid-gap: 40px;
+  padding: 0 40px;
+  border-radius: 5px;
 }
 
 .card-trip {
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  padding: 5px;
   position: relative;
 }
 
 .card-trip > img {
-  height: 200px;
+  height: 120px;
   width: 100%;
   object-fit: cover;
 }
@@ -68,6 +71,7 @@
   padding: 16px;
   display: flex;
   justify-content: space-between;
+  text-align: center;
   align-items: flex-end;
   position: relative;
 }

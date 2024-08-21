@@ -1,0 +1,19 @@
+<div class="container">
+  <%# <h2>Create Product</h2> %>
+  <%= simple_form_for [@product] do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price %>
+    <div>
+      <div class="row">
+        <div class="col">
+          <%= f.input :category %>
+        </div>
+        <div class="col">
+          <%= f.input :quantity %>
+        </div>
+      </div>
+    </div>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
