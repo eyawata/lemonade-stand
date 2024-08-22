@@ -1,6 +1,7 @@
-<div class="container"> <!--- add a target here -->
+<div class="container" > <!--- add a target here -->
+  <%# <% edit_product = Product.find(id) %>
   <h2>Edit Product</h2>
-  <%= simple_form_for(@product) do |f| %>
+  <%= simple_form_for(product) do |f| %>
     <%= f.input :name %>
     <%= f.input :price %>
     <div>

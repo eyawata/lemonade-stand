@@ -26,11 +26,14 @@
             </div>
             <%# edit button %>
             <div class="card-edit">
-              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal" data-action="click->product-modal#fetchProductData(<%=product.id%>)">
+              <% @product_edit = product %>
+              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal" data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>">
               </div>
             </div>
           </div>
         </div>
+        <%# <%  edit_product = product %>
+        <%= render "edit_modal", product: product %>
       <% end %>
     </div>
     <%# product button %>
