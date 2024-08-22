@@ -1,9 +1,9 @@
 <h1 class="text-center">Confirm Order</h1>
 <div class="orders">
-  <%= render "order_list", order: @order %>
+  <%= render "orders/order_list", order: order %>
   <%# calculate subtotal of current order %>
   <div class="order-total row justify-content-center">
     <h3 class="col-3">Subtotal</h3>
-    <h3 class="col-6 text-end"><%= number_to_currency(@order.subtotal, { unit: '¥', precision: 0 }) %></h3>
+    <h3 class="col-6 text-end"><%= number_to_currency(order.subtotal, { unit: '¥', precision: 0 }) %></h3>
   </div>
 </div>

@@ -25,4 +25,12 @@ class Order < ApplicationRecord
       product_to_update.update(quantity: qty_to_update - qty_bought)
     end
   end
+
+  def add_one_to_cart(product, current_cart_qty)
+    if product.quantity > current_cart_qty.to_i
+      return current_cart_qty + 1
+    else
+      "cannot add"
+    end
+  end
 end
