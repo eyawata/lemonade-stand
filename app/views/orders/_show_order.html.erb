@@ -6,7 +6,9 @@
     <h3 class="col-3">Subtotal</h3>
     <h3 class="col-6 text-end"><%= @order_subtotal %></h3>
   </div>
-  <%= simple_form_for(@order) do |f| %>
-    <%= f.submit "Checkout" %>
-  <% end %>
+  <div class="d-flex justify-content-center">
+    <%= simple_form_for(@order) do |f| %>
+      <%= f.submit "Checkout", class: "btn btn-primary" %>
+    <% end %>
+  </div>
 </div>
