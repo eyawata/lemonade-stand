@@ -2,12 +2,14 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="quantity"
 export default class extends Controller {
-  static targets = ["showProductQuantity"]
+  static targets = ["showProductQuantity","displayQuantity" ]
 
   connect() {
     console.log("Welcome back Stimulus!")
-    this.selectedQuantity = parseInt(this.showProductQuantityTarget.innerText)
+    this.selectedQuantity = 0
     this.stockQuantity = parseInt(this.showProductQuantityTarget.innerText);
+    this.displayQuantityTarget.innerText = parseInt("0");
+
   }
 
   add(event) {
