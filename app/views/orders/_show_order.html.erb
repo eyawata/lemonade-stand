@@ -4,9 +4,6 @@
   <%# calculate subtotal of current order %>
   <div class="order-total row justify-content-center">
     <h3 class="col-3">Subtotal</h3>
-    <h3 class="col-6 text-end"><%= @order_subtotal %></h3>
+    <h3 class="col-6 text-end"><%= number_to_currency(@order.subtotal, { unit: '¥', precision: 0 }) %></h3>
   </div>
-  <%= simple_form_for(@order) do |f| %>
-    <%= f.submit "Checkout" %>
-  <% end %>
 </div>
