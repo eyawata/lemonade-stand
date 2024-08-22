@@ -5,7 +5,7 @@ export default class extends Controller {
   connect() {
     console.log("Hello")
   }
-  // fetchProductData(productId){
-  //   fetch
+  fetchProductData(productId){
+    fetch
   }
 }
