@@ -15,17 +15,55 @@
 }
 
 .btn-ghost {
-  color: white; /* Make the text (plus and minus) white */
-  background-color: #4A4A4A; /* Dark grey background */
+  color: white;
+  background-color: #4A4A4A;
   border: 1px solid #4A4A4A;
-  padding: 4px; /* Adjust padding to maintain the circle */
-  border-radius: 50%; /* Make it a perfect circle */
+  padding: 4px;
+  border-radius: 50%;
   font-weight: lighter;
   opacity: 0.6;
   transition: opacity 0.3s ease;
-  width: 40px; /* Set a fixed width */
-  height: 40px; /* Set a fixed height */
-  display: flex; /* Center the content */
-  align-items: center; /* Center the content vertically */
-  justify-content: center; /* Center the content horizontally */
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+ .btn-stretch {
+      width: 200px;
+    }
+
+  .centered-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 16px;
+  margin-bottom: 16px;
+
+}
+
+  .btn-outline-warning {
+    color: #f0e68c;
+    border-color: #f0e68c;
+    background-color: transparent;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+    width: 250px;
+    border-radius: 12px;
+  }
+
+  .btn-outline-warning:hover {
+    background-color: #f0e68c;
+    color: #fff;
+    border-color: #f0e68c;
+  }
+
+  .btn-outline-warning .fa-cart-shopping {
+    font-size: 1.5em;
+    color: #ffd700;
+  }
+
+  .btn-outline-warning:hover .fa-cart-shopping {
+    color: #fff;
+  }
