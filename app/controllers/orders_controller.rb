@@ -24,4 +24,24 @@ class OrdersController < ApplicationController
 
     # redirect_to order_path(@orders.last) if @orders.last&.status == "incomplete"
   end
+
+  def update
+    @order = Order.find(params[:id])
+
+    # update_inventory is an instance method in order.rb
+    @order.update_inventory
+
+    # mark order as complete and order's total price
+    @order.update(status: "completed", total_price: @order.subtotal)
+
+    # create a new empty order
+    @last_order = Order.new(total_price: 0)
+    @last_order.save
+
+    # flash message in redirected page
+    flash[:notice] = "Checked out successfully!"
+
+    # redirect to new order
+    redirect_to edit_order_path(@last_order)
+  end
 end
