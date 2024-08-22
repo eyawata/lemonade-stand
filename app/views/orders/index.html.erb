@@ -1,0 +1,32 @@
+<div class="main-container">
+  <h2 class="text-center my-3">Order History</h2>
+  <div class="row justify-content-center">
+    <div class="col-11">
+      <div class="order-table-container">
+      <!-- table headers -->
+        <div class="table-header-container px-3 ms-1">
+            <div class="table-header-event"><p>Date  </p></div>
+            <div class="table-header-price"><p>Total_Price </p></div>
+            <div class="table-header-discount"><p>Discounts </p></div>
+            <div class="table-header-status"><p>Order Status</p></div>
+        </div>
+      <!-- table body -->
+        <% @orders.each do |order| %>
+          <div class="table-body d-flex justify-content-between pt-2 px-3">
+              <div class="table-body-event"><p><%= order.updated_at.strftime("%d-%b") %></p></div>
+              <div class="table-body-price"><p><%= number_to_currency(order.total_price, { unit: '¥', precision: 0 }) %></p></div>
+              <div class="table-body-discount">
+                <% if order.order_discount.present? %>
+                  <p><%= number_to_currency(order.order_discount, { unit: '¥', precision: 0 }) %></p>
+                <% else %>
+                  <p> - </p>
+                <% end %>
+              </div>
+              <div class="<%= order.status == 'incomplete' ? 'table-body-red' : 'table-body-green' %>"><p><%= order.status.capitalize %></p></div>
+          </div>
+        <% end %>
+      </div>
+      <!-- table ends -->
+    </div>
+  </div>
+</div>

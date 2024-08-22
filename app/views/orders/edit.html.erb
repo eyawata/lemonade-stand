@@ -1,2 +1,6 @@
+<%= render 'shared/flashes' %>
 <%= render "form" %>
 <%= render "show_order" %>
+<div class="d-flex justify-content-center">
+  <%= link_to "Confirm Order", order_path(@order), class:"btn btn-primary" %>
+</div>

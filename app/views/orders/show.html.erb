@@ -1,0 +1,13 @@
+<%= render "show_order" %>
+<div class="d-flex justify-content-center mt-5">
+  <%= simple_form_for(@order) do |f| %>
+    <%= f.input :order_discount,
+      collection: @discount_options,
+      label_method: :first,
+      value_method: :last,
+      prompt: "Select Discount",
+      label: "Discount"
+    %>
+    <%= f.submit "Checkout", class: "btn btn-primary w-100" %>
+  <% end %>
+</div>

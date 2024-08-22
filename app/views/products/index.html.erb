@@ -4,7 +4,7 @@
   </div>
   <!-- Toggle button start -->
   <div class="d-flex flex-row-reverse me-4 mb-3">
-    <%= link_to new_order_path, class:"text-decoration-none" do %>
+    <%= link_to edit_order_path(Order.last), class:"text-decoration-none" do %>
       <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
     <% end %>
   </div>
