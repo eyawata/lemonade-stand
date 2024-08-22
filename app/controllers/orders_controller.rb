@@ -5,6 +5,7 @@ class OrdersController < ApplicationController
 
     # subtotal is an instance method in order.rb
     @order_subtotal = @order.subtotal
+    @discount_options = [['5%', 5], ['10%', 10], ['20%', 20]]
   end
 
   def index
@@ -31,8 +32,10 @@ class OrdersController < ApplicationController
     # update_inventory is an instance method in order.rb
     @order.update_inventory
 
-    # mark order as complete and order's total price
-    @order.update(status: "completed", total_price: @order.subtotal)
+    # mark order as complete and order's total price (inclusive of discount selected)
+    @discount = params[:order][:order_discount].to_i.fdiv(100) * @order.subtotal
+    @order_total_price = @order.subtotal - @discount
+    @order.update(status: "completed", total_price: @order_total_price, order_discount: @discount)
 
     # create a new empty order
     @last_order = Order.new(total_price: 0)
