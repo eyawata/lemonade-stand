@@ -1,2 +1,20 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<body style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dxarsyyur/image/upload/v1724315520/pexels-tara-winstead-6489663_mdssvu.jpg')">
+  <div class="home-background">
+    <div class="home-text">
+      <h1 id="header-first">Say Hi to Your Lemonade Stand</h1>
+      <!-- buttons -->
+      <div class="landing-button">
+        <p class="m-0 mt-2">
+          <%= link_to products_path, class:"text-decoration-none" do %>
+            <button class="switch-button" style="vertical-align:middle"><span> Setup Store</span></button>
+          <% end %>
+        </p>
+        <p>
+          <%= link_to products_path do %>
+            <button class="switch-button" style="vertical-align:middle"><span> Go to My Store</span></button>
+          <% end %>
+        </p>
+      </div>
+    </div>
+  </div>
+</body>

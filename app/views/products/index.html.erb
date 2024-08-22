@@ -2,33 +2,36 @@
   <div class="d-flex justify-content-center text-align-center my-2">
     <h2><strong>SET UP</strong></h5>
   </div>
-  <!-- Toggle button start -->
-  <div class="d-flex flex-row-reverse me-4 mb-3">
-    <%= link_to edit_order_path(Order.last), class:"text-decoration-none" do %>
-      <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
-    <% end %>
-  </div>
-  <!-- Toggle button end -->
-  <%# product cards %>
-  <div class="cards">
-    <% @products.each do |product| %>
-      <div class="row">
-        <div class="col-12">
-          <div class="card-trip position-relative">
-            <% if product.photo.attached? %>
-              <%= cl_image_tag product.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and qualitity here -->
-            <% else %>
-              <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"%>
-            <% end %>
-            <div class="card-trip-infos">
-              <h2><%= product.name %></h2>
-              <p class="card-trip-pricing"><strong><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></strong></p>
-            </div>
-            <%# edit button %>
-            <div class="card-edit">
-              <% @product_edit = product %>
-              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal" data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>">
+  <!-- Selling-page linking button start -->
+  <% if Product.any? %>
+    <div class="d-flex flex-row-reverse me-4 mb-3">
+      <%= link_to edit_order_path(Order.last), class:"text-decoration-none" do %>
+        <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
+      <% end %>
+    </div>
+    <!-- Selling-page linking button end -->
+    <%# product cards %>
+    <div class="cards">
+      <% @products.each do |product| %>
+        <div class="row">
+          <div class="col-12">
+            <div class="card-trip position-relative">
+              <% if product.photo.attached? %>
+                <%= cl_image_tag product.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and qualitity here -->
+              <% else %>
+                <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"%>
+              <% end %>
+              <div class="card-trip-infos">
+                <h2><%= product.name %></h2>
+                <p class="card-trip-pricing"><strong><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></strong></p>
               </div>
+              <%# edit button %>
+              <% if Product.any? %>
+                <div class="card-edit">
+                  <% @product_edit = product %>
+                  <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal" data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>">
+                </div>
+              <% end %>
             </div>
           </div>
         </div>
@@ -36,12 +39,17 @@
         <%= render "edit_modal", product: product %>
       <% end %>
     </div>
-    <%# product button %>
-    <div class="card-create">
-      <button type="button" class="fa-solid fa-circle-plus btn-create bg-transparent" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
-      </button>
-      <!-- Modal -->
-      <%# Model End %>
+  <% else %>
+    <div class="alert alert-danger d-flex align-items-top">
+      There are no products yet. Let's create one!
     </div>
-    <%= render 'shared/modal' %>
+  <% end %>
+    <%# product button %>
+  <div class="card-create">
+    <button type="button" class="fa-solid fa-circle-plus btn-create bg-transparent" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
+    </button>
+    <!-- Modal -->
+    <%# Model End %>
   </div>
+  <%= render 'shared/modal' %>
+</div>
