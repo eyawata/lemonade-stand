@@ -6,24 +6,25 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @product = Product.new
+    # @edit_product = Product.find(params[:id])
   end
 
-  def edit
-    @edit_product = Product.find(params[:id])
-  end
+  # def edit
+  #   @edit_product = Product.find(params[:id])
+  # end
 
   def update
     @edit_product = Product.find(params[:id])
     if @edit_product.update(product_params)
-      redirect_to @edit_product, notice: 'Product was successfully updated.'
+      redirect_to products_path, notice: 'Product was successfully updated.'
     else
       render :edit, status: :unprocessable_entity
     end
   end
 
-  def new
-    @product = Product.new
-  end
+  # def new
+  #   @product = Product.new
+  # end
 
   def create
     @product = Product.new(product_params)
