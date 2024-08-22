@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_20_071917) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_21_062105) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -68,7 +68,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_20_071917) do
     t.float "total_price"
     t.bigint "event_id"
     t.integer "order_discount"
-    t.string "status"
+    t.string "status", default: "incomplete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["event_id"], name: "index_orders_on_event_id"

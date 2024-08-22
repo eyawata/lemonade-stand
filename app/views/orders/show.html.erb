@@ -1,13 +1,13 @@
-<h1 class="text-center">Confirm Order</h1>
-<div class="orders">
-  <%= render "order_list", order: @order %>
-  <%# calculate subtotal of current order %>
-  <div class="order-total row justify-content-center">
-    <h3 class="col-3">Subtotal</h3>
-    <h3 class="col-6 text-end"><%= @order_subtotal %></h3>
-  </div>
-  <%# checkout button %>
-  <btn class="btn btn-primary d-flex m-5">
-    Checkout
-  </btn>
+<%= render "show_order" %>
+<div class="d-flex justify-content-center mt-5">
+  <%= simple_form_for(@order) do |f| %>
+    <%= f.input :order_discount,
+      collection: @discount_options,
+      label_method: :first,
+      value_method: :last,
+      prompt: "Select Discount",
+      label: "Discount"
+    %>
+    <%= f.submit "Checkout", class: "btn btn-primary w-100" %>
+  <% end %>
 </div>

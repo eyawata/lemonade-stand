@@ -5,10 +5,8 @@ class Order < ApplicationRecord
 
   validates :total_price, presence: true
   validates :status, presence: true
-
-  enum status: [ :pending, :completed, :incomplete ]
-
-  # after_create_commit: sum_quantity
+  OPTIONS = ["incomplete", "completed"]
+  validates :status, inclusion: { in: OPTIONS }
 
   def subtotal
     subtotal = 0
@@ -17,5 +15,14 @@ class Order < ApplicationRecord
       subtotal = subtotal + product_total
     end
     return subtotal
+  end
+
+  def update_inventory
+    self.order_products.each do |op|
+      qty_bought = op.product_quantity
+      product_to_update = op.product
+      qty_to_update = product_to_update.quantity
+      product_to_update.update(quantity: qty_to_update - qty_bought)
+    end
   end
 end

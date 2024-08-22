@@ -2,14 +2,8 @@
   <% order.order_products.each do |order_product| %>
     <div class="order-products row justify-content-center">
       <p class="col-3"><%= order_product.product.name %></p>
-      <div class="col-4">
-        <div class="product-quantity d-flex justify-content-evenly align-items-center">
-          <i class="fa-regular fa-square-minus"></i>
-          <p class="text-center mb-0"><%= order_product.product_quantity %></p>
-          <i class="fa-regular fa-square-plus"></i>
-        </div>
-      </div>
-      <p class="col-3 text-end"><%= order_product.product_price_at_sale * order_product.product_quantity %></p>
+      <p class="col-3">X <%= order_product.product_quantity %></p>
+      <p class="col-3 text-end"><%= number_to_currency(order_product.product_price_at_sale * order_product.product_quantity, { unit: '¥', precision: 0 }) %></p>
     </div>
   <% end %>
 </div>
