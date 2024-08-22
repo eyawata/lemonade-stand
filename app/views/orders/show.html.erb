@@ -1,1 +1,6 @@
 <%= render "show_order" %>
+<div class="d-flex justify-content-center">
+  <%= simple_form_for(@order) do |f| %>
+    <%= f.submit "Checkout", class: "btn btn-primary" %>
+  <% end %>
+</div>
