@@ -34,9 +34,14 @@ class OrdersController < ApplicationController
     # mark order as complete and order's total price
     @order.update(status: "completed", total_price: @order.subtotal)
 
+    # create a new empty order
     @last_order = Order.new(total_price: 0)
     @last_order.save
+
+    # flash message in redirected page
+    flash[:notice] = "Checked out successfully!"
+
+    # redirect to new order
     redirect_to edit_order_path(@last_order)
-    # flash order "order confirmed"
   end
 end
