@@ -123,14 +123,14 @@ puts "Created #{OrderProduct.count} order_products!"
 
 puts "Adding random status to orders"
 
-# total_orders = Order.count
-# orders_except_last = Order.limit(total_orders - 1)
+total_orders = Order.count
+orders_except_last = Order.limit(total_orders - 1)
 
-# orders_except_last.each do |order|
-#   order.update(status: "completed")
-# end
+orders_except_last.each do |order|
+  order.update(status: "completed")
+end
 
-# puts "Completed updating status"
+puts "Completed updating status"
 # events = [
 #   "Clay Creations Expo",
 #   "Pottery Passion Fest",
