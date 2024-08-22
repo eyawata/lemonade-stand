@@ -1,31 +1,32 @@
-<div class="container">
+<div class="main-container">
+  <h2 class="text-center">Order History</h2>
   <div class="row justify-content-center">
     <div class="col-11">
+      <div class="order-table-container">
       <!-- table headers -->
-      <table class="bg-white">
-        <thead>
-          <tr>
-            <th>Event Name</th>
-            <th>Total Price</th>
-            <th>Discounts</th>
-            <th>Order Status</th>
-          </tr>
-        </thead>
-        <tbody>
-          <% @orders.each do |order| %>
-            <tr>
-              <th>Event Name</th>
-              <th><%= number_to_currency(order.total_price, { unit: '¥', precision: 0 }) %></th>
-              <% if order.order_discount.present? %>
-                <th><%= number_to_currency(order.order_discount, { unit: '¥', precision: 0 }) %></th>
-              <% else %>
-                <th>-</th>
-              <% end %>
-              <th><%= order.status.capitalize %></th>
-            </tr>
-          <% end %>
-        </tbody>
-      </table>
+        <div class="table-header-container d-flex justify-content-between">
+            <div class="table-header-box"><p>Event Name</p></div>
+            <div class="table-header-box"><p>Total Price</p></div>
+            <div class="table-header-box"><p>Discounts</p></div>
+            <div class="table-header-box"><p>Order Status</p></div>
+        </div>
+      <!-- table body -->
+        <% @orders.each do |order| %>
+          <div class="table-body d-flex justify-content-between">
+              <div class="table-body-box"><p>Name</p></div>
+              <div class="table-body-box"><p><%= number_to_currency(order.total_price, { unit: '¥', precision: 0 }) %></p></div>
+              <div class="table-body-box">
+                <% if order.order_discount.present? %>
+                  <p><%= number_to_currency(order.order_discount, { unit: '¥', precision: 0 }) %></p>
+                <% else %>
+                  <p> - </p>
+                <% end %>
+              </div>
+              <div class="table-body-box"><p><%= order.status.capitalize %></p></div>
+          </div>
+        <% end %>
+      </div>
+      <!-- table ends -->
     </div>
   </div>
 </div>
