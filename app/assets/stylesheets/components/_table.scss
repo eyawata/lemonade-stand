@@ -1,4 +1,30 @@
+.order-table-container {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 10px;
+}
+
 .table-header-container {
-  background-color: $primary-yellow;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 12px;
+  background-color: $light-yellow;
   width: 100%;
+}
+
+.table-body {
+  background-color: white;
+  align-items: center;
+  border-radius: 5px;
+}
+
+.table-body-green {
+  color: $complete;
+  border-radius: 5px;
+}
+
+.table-body-red {
+  color: $incomplete;
+  border-radius: 5px;
 }
