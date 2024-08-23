@@ -1,9 +1,9 @@
 <h1 class="text-center my-3">Confirm Order</h1>
-<div class="orders">
+<div class="orders" data-controller="discount">
   <%= render "orders/order_list", order: @order %>
   <%# calculate subtotal of current order %>
   <div class="order-total row justify-content-center">
     <h4 class="col-3" style="color: #858789;">Subtotal</h4>
-    <h4 class="col-6 text-end" style="color: #858789;"><%= number_to_currency(@order.subtotal, { unit: '¥', precision: 0 }) %></h4>
+    <h4 class="col-6 text-end" style="color: #858789;" data-discount-target="partial"><%= number_to_currency(@order.subtotal, { unit: '¥', precision: 0 }) %></h4>
   </div>
 </div>
