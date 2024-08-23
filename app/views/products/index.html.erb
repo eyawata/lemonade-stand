@@ -1,12 +1,12 @@
 <div class="bg-white position-relative" data-controller="product-modal">
-  <div class="d-flex justify-content-center text-align-center my-2">
-    <h2><strong>SET UP</strong></h5>
+  <div class="text-center my-2">
+    <h2><strong>Setup Your Stand</strong></h2>
   </div>
   <!-- Toggle button start -->
   <!-- Toggle button end -->
   <%# product cards %>
   <% if Product.any? %>
-    <div class="d-flex flex-row-reverse me-4 mb-3">
+    <div class="d-flex flex-row-reverse me-3 mb-3">
       <%= link_to edit_order_path(@order), class:"text-decoration-none" do %>
         <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
       <% end %>
