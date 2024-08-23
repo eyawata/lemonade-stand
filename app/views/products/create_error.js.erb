@@ -1,0 +1,3 @@
+console.log("Rendering form with errors in the modal");
+$('#CreateProductModal .modal-body').html("<%= j(render 'new_form') %>");
+$('#CreateProductModal').modal('show'); // Re-open the modal if it's closed
