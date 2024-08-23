@@ -1,17 +1,20 @@
-.quantity-buttons {
-  position: relative;
-}
+
 
 .left-button {
   position: absolute;
   top: 0;
-  left: 0
+  left: 0;
+  margin-left: -16px;
+  margin-top: -21px
+
 }
 
 .right-button {
   position: absolute;
   top: 0;
-  right: 0
+  right: 0;
+  margin-right: -16px;
+  margin-top: -21px
 }
 
 .btn-ghost {
@@ -21,7 +24,7 @@
   padding: 4px;
   border-radius: 50%;
   font-weight: lighter;
-  opacity: 0.6;
+  opacity: 0.8;
   transition: opacity 0.3s ease;
   width: 40px;
   height: 40px;
@@ -44,26 +47,26 @@
 
 }
 
-  .btn-outline-warning {
-    color: #f0e68c;
-    border-color: #f0e68c;
-    background-color: transparent;
-    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
-    width: 250px;
-    border-radius: 12px;
-  }
+.btn-outline-warning {
+  color: #f0e68c;
+  border-color: #f0e68c;
+  background-color: transparent;
+  transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+  width: 250px;
+  border-radius: 12px;
+}
 
-  .btn-outline-warning:hover {
-    background-color: #f0e68c;
-    color: #fff;
-    border-color: #f0e68c;
-  }
+.btn-outline-warning:hover {
+  background-color: #f0e68c;
+  color: #fff;
+  border-color: #f0e68c;
+}
 
-  .btn-outline-warning .fa-cart-shopping {
-    font-size: 1.5em;
-    color: #ffd700;
-  }
+.btn-outline-warning .fa-cart-shopping {
+  font-size: 1.5em;
+  color: #ffd700;
+}
 
-  .btn-outline-warning:hover .fa-cart-shopping {
-    color: #fff;
-  }
+.btn-outline-warning:hover .fa-cart-shopping {
+  color: #fff;
+}
