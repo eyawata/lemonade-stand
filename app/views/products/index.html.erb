@@ -2,15 +2,15 @@
   <div class="d-flex justify-content-center text-align-center my-2">
     <h2><strong>SET UP</strong></h5>
   </div>
-  <!-- Switch button start -->
+  <!-- Toggle button start -->
+  <!-- Toggle button end -->
+  <%# product cards %>
   <% if Product.any? %>
     <div class="d-flex flex-row-reverse me-4 mb-3">
       <%= link_to edit_order_path(@order), class:"text-decoration-none" do %>
         <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
       <% end %>
     </div>
-    <!-- Switch button end -->
-    <%# product cards %>
     <div class="cards">
       <% @products.each do |product| %>
         <div class="row">
@@ -32,32 +32,26 @@
               </div>
               <%# edit button %>
               <div class="card-edit">
-                <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>">
+                <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" > <!--data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>" -->
                 </div>
               </div>
+              <%= render "edit_modal", product: product %>
             </div>
-            <%# edit button %>
-            <div class="card-edit">
-              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" > <!--data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>" -->
-              </div>
-            </div>
-            <%= render "edit_modal", product: product %>
           </div>
-        </div>
-        <%# <%  edit_product = product %>
-      <% end %>
+          <%# <%  edit_product = product %>
+        <% end %>
+      </div>
+    <% else %>
+      <div class="alert alert-warning d-flex align-items-top">
+        There are no products yet. Let's create one!
+      </div>
+    <% end %>
+    <%# product button %>
+    <div class="card-create">
+      <button type="button" class="fa-solid fa-circle-plus btn-create bg-transparent" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
+      </button>
+      <!-- Modal -->
+      <%# Model End %>
     </div>
-  <% else %>
-    <div class="alert alert-warning d-flex align-items-top">
-      There are no products yet. Let's create one!
-    </div>
-  <% end %>
-  <%# product button %>
-  <div class="card-create">
-    <button type="button" class="fa-solid fa-circle-plus btn-create bg-transparent" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
-    </button>
-    <!-- Modal -->
-    <%# Model End %>
+    <%= render 'shared/modal' %>
   </div>
-  <%= render 'shared/modal' %>
-</div>
