@@ -9,8 +9,8 @@
         <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
       <% end %>
     </div>
-  <!-- Switch button end -->
-  <%# product cards %>
+    <!-- Switch button end -->
+    <%# product cards %>
     <div class="cards">
       <% @products.each do |product| %>
         <div class="row">
@@ -35,7 +35,6 @@
                 <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>">
                 </div>
               </div>
-<<<<<<< HEAD
             </div>
             <%# edit button %>
             <div class="card-edit">
@@ -43,9 +42,6 @@
               </div>
             </div>
             <%= render "edit_modal", product: product %>
-=======
-              <%= render "edit_modal", product: product %>
->>>>>>> master
           </div>
         </div>
         <%# <%  edit_product = product %>
@@ -56,12 +52,12 @@
       There are no products yet. Let's create one!
     </div>
   <% end %>
-    <%# product button %>
-    <div class="card-create">
-      <button type="button" class="fa-solid fa-circle-plus btn-create bg-transparent" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
-      </button>
-      <!-- Modal -->
-      <%# Model End %>
-    </div>
-    <%= render 'shared/modal' %>
+  <%# product button %>
+  <div class="card-create">
+    <button type="button" class="fa-solid fa-circle-plus btn-create bg-transparent" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
+    </button>
+    <!-- Modal -->
+    <%# Model End %>
   </div>
+  <%= render 'shared/modal' %>
+</div>
