@@ -26,7 +26,7 @@
             </div>
             <%# edit button %>
             <div class="card-edit">
-              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>">
+              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" > <!--data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>" -->
               </div>
             </div>
             <%= render "edit_modal", product: product %>

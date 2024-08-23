@@ -27,11 +27,11 @@ class ProductsController < ApplicationController
   # end
 
   def create
+    @products = Product.all
     @product = Product.new(product_params)
     @product.user = current_user
     if @product.save
-      redirect_to products_path
-      # redirect_to @product, notice: "Product #{@product.name} was successfully created."
+      redirect_to products_path, notice: 'Product was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end
