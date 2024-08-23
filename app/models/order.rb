@@ -25,4 +25,6 @@ class Order < ApplicationRecord
       product_to_update.update(quantity: qty_to_update - qty_bought)
     end
   end
+
+
 end
