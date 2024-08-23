@@ -2,7 +2,7 @@
   <%# <% edit_product = Product.find(id) %>
   <%= simple_form_for(product) do |f| %>
     <%= f.input :name %>
-    <%= f.input :price %>
+    <%= f.input :price, label: "Price (¥)" %>
     <div>
       <div class="row">
         <div class="col">

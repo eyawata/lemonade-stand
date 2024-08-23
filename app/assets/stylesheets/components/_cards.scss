@@ -1,12 +1,12 @@
 // product-card
 .card-edit {
   position: absolute;
-  top: 2px;
-  right: 0;
+  top: -10px;
+  right: -10px;
 }
 
 .btn-edit {
-  font-size: 12px;
+  font-size: 16px;
   background-color: $medium-gray;
   border-radius: 50%;
   padding: 8px;
@@ -14,13 +14,12 @@
 
 .card-create {
   position: fixed;
-  top: 750px;
-  right: 20px;
+  top: 79%;
+  right: 2%;
 }
 
 .btn-create {
-  margin-right: 3px;
-  font-size: 150px;
+  font-size: 900%;
   border-color: transparent;
 }
 
@@ -35,7 +34,6 @@
 }
 
 .card-trip {
-  overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   position: relative;
@@ -101,4 +99,11 @@
   justify-content: space-between;
   text-align: center;
   align-items: end;
+}
+
+.no-product-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70vh;
 }
