@@ -2,15 +2,33 @@
   <i class="fa-solid fa-arrow-left fa-lg mt-3 ms-3" style="color: #e2ab2d;"></i>
 <% end %>
 <%= render "show_order" %>
-<div class="d-flex justify-content-center mt-5">
-  <%= simple_form_for(@order) do |f| %>
-    <%= f.input :order_discount,
+<div data-controller="discount">
+  <div class="order-total row justify-content-center">
+    <h4 class="col-3" style="color: #858789;">Subtotal</h4>
+    <h4 class="col-6 text-end" style="color: #858789;" data-discount-target="subtotal"><%= number_to_currency(@order.subtotal, { unit: '¥', precision: 0 }) %></h4>
+  </div>
+  <div class="order-total row justify-content-center">
+    <h3 class="col-3 fw-bold" style="color: #E2AB2D;">Total</h3>
+    <h3 class="col-6 text-end fw-bold" style="color: #E2AB2D;" data-discount-target="total">
+      <%= number_to_currency(@order.subtotal, { unit: '¥', precision: 0 }) %>
+    </h3>
+  </div>
+  <div class="d-flex justify-content-center mt-5">
+    <%= simple_form_for(@order) do |f| %>
+      <%= f.input :order_discount,
       collection: @discount_options,
       label_method: :first,
       value_method: :last,
       prompt: "Select Discount",
-      label: "Discount"
+      label: "Discount",
+      input_html: {
+        data: {
+          discount_target: "discount",
+          action: "change->discount#updateTotal"
+        }
+      }
     %>
-    <%= f.submit "Checkout", class: "btn btn-primary w-100" %>
-  <% end %>
+      <%= f.submit "Checkout", class: "btn btn-primary w-100", style:"color:white" %>
+    <% end %>
+  </div>
 </div>
