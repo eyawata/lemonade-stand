@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @product = Product.new
-    # @edit_product = Product.find(params[:id])
+    if Order.any?
+      @order = Order.last
+    else
+      @order = Order.create(total_price: 0)
+    end
   end
 
   # def edit
@@ -27,11 +31,11 @@ class ProductsController < ApplicationController
   # end
 
   def create
+    @products = Product.all
     @product = Product.new(product_params)
     @product.user = current_user
     if @product.save
-      redirect_to products_path
-      # redirect_to @product, notice: "Product #{@product.name} was successfully created."
+      redirect_to products_path, notice: 'Product was successfully created.'
     else
       render :new, status: :unprocessable_entity
     end

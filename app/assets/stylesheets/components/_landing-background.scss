@@ -1,0 +1,44 @@
+// Specific CSS for your home-page
+
+body {
+  // background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://images.pexels.com/photos/20343478/pexels-photo-20343478/free-photo-of-senso-ji-temple-in-tokyo.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  height: 100vh;
+}
+
+.home-background {
+  display: grid;
+  justify-content: center;
+  align-items: start;
+  margin-top: 35%;
+  width: 100%;
+  padding: 6%;
+}
+
+#header-first {
+  font-size: 320%;
+  font-weight: 700;
+}
+
+.home-text h1 {
+  text-align: left;
+  color: rgb(240, 240, 240);
+  margin: 0;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+}
+
+#header-second {
+  font-weight:600;
+}
+
+#index {
+  margin-top: 20px;
+  margin-bottom: 20px
+}
+
+.landing-button p {
+  color: white;
+}
