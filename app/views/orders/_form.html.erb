@@ -14,8 +14,12 @@
         <div class="col-12">
           <div class="card-trip" data-controller="quantity">
             <div class="quantity-buttons">
-              <%= link_to "+", "#", class: "btn-ghost right-button", data: { action: "click->quantity#add" }, style: "text-decoration: none" %>
-              <%= link_to "-", "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract" }, style: "text-decoration: none" %>
+            <% order_product = @order.order_products.find_by(product: product) %>
+              <% if product.quantity.positive? && order_product.nil? || order_product.product_quantity < product.quantity %>
+
+              <%= link_to "+", "#", class: "btn-ghost right-button", data: { action: "click->quantity#add", order_id: @order.id, product_id: product.id }, style: "text-decoration: none" %>
+              <% end %>
+              <%= link_to "-", "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract", order_id: @order.id, product_id: product.id  }, style: "text-decoration: none" %>
             </div>
             <% if product.photo.attached? %>
               <%= cl_image_tag product.photo.key, class:"" %>
@@ -26,7 +30,8 @@
               <div class="card-trip-info-details">
                 <h2 class="card-trip-info-name"><%= product.name %></h2>
                 <h2 class="card-trip-pricing m-sm-1"><%= number_to_currency(product.price, { unit: '¥', precision: 0 }) %></h2>
-                <div data-quantity-target="showProductQuantity displayQuantity" class="product-quantity"><%= product.quantity %></div>
+                <div class="product-quantity"><%= order_product&.product_quantity || 0 %></div>
+                <small class="text-secondary"><%= product.quantity %> in stock</small>
               </div>
             </div>
           </div>
@@ -37,9 +42,5 @@
       </div>
     <% end %>
   </div>
-  <div class="centered-button">
-    <button class="btn btn-outline-warning btn-block btn-stretch">
-      <i class="fa-solid fa-cart-shopping"></i>
-    </button>
-  </div>
+
 </div>
