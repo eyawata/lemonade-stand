@@ -1,4 +1,6 @@
-<%= link_to "Edit Order", edit_order_path(@order), class:"btn btn-primary ms-2 mt-3" %>
+<%= link_to edit_order_path(@order) do %>
+  <i class="fa-solid fa-arrow-left mt-3 ms-3" style="color: #e2ab2d;"></i>
+<% end %>
 <%= render "show_order" %>
 <div class="d-flex justify-content-center mt-5">
   <%= simple_form_for(@order) do |f| %>
