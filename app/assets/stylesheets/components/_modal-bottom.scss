@@ -21,7 +21,8 @@
 }
 
 .slide-up-modal .modal-content {
-  border-radius: 0;
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
   width: 100%;
   height: auto;
   overflow-y: auto;

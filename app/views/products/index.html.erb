@@ -21,19 +21,23 @@
               <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"%>
             <% end %>
             <div class="card-trip-infos">
-              <h2><%= product.name %></h2>
-              <p class="card-trip-pricing"><strong><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></strong></p>
+              <div class="card-infos-left">
+                <p><%= product.name %></p>
+                <p class="card-trip-pricing"><strong><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></strong></p>
+              </div>
+              <div class="card-infos-right">
+                <p><%= product.quantity %> pcs</p>
+              </div>
             </div>
             <%# edit button %>
             <div class="card-edit">
-              <% @product_edit = product %>
-              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal" data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>">
+              <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>">
               </div>
             </div>
+            <%= render "edit_modal", product: product %>
           </div>
         </div>
         <%# <%  edit_product = product %>
-        <%= render "edit_modal", product: product %>
       <% end %>
     </div>
     <%# product button %>
