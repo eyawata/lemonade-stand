@@ -30,7 +30,7 @@
               <div class="card-trip-info-details">
                 <h2 class="card-trip-info-name"><%= product.name %></h2>
                 <h2 class="card-trip-pricing m-sm-1"><%= number_to_currency(product.price, { unit: '¥', precision: 0 }) %></h2>
-                <div class="product-quantity"><%= order_product&.product_quantity || 0 %><%@order.add_one_to_cart(product, product.quantity) %></div>
+                <div class="product-quantity"><%= order_product&.product_quantity || 0 %></div>
                 <small class="text-secondary"><%= product.quantity %> in stock</small>
               </div>
             </div>
