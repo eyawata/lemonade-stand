@@ -6,7 +6,11 @@ class ProductsController < ApplicationController
   def index
     @products = Product.all
     @product = Product.new
-    # @edit_product = Product.find(params[:id])
+    if Order.any?
+      @order = Order.last
+    else
+      @order = Order.create(total_price: 0)
+    end
   end
 
   # def edit

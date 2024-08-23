@@ -13,8 +13,9 @@ class OrdersController < ApplicationController
   end
 
   def edit
-    @products = Product.all
+    @products = current_user.products
     @orders = Order.all
+    @order = Order.find(params[:id])
 
     if @orders.last&.status == "incomplete"
       @order = @orders.last
