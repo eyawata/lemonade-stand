@@ -61,19 +61,27 @@
 }
 
 .card-trip p {
-  font-size: 8px;
+  font-size: 9px;
   opacity: .7;
   margin: 0;
 }
 
 .card-trip .card-trip-infos {
-  height: 40px;
-  padding: 16px;
+  height: 50px;
+  padding: 5px;
   display: flex;
   justify-content: space-between;
-  text-align: center;
-  align-items: flex-end;
+  align-items: center;
   position: relative;
+}
+
+.card-trip-infos .card-infos-left {
+  text-align: start;
+}
+
+.card-trip-infos .card-infos-right {
+  text-align: end;
+  width: 30px;
 }
 
 .card-trip-infos .card-trip-user {
