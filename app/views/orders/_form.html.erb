@@ -4,23 +4,23 @@
     <h3><strong>Selling page</strong></h3>
   </div>
   <div class="d-flex flex-row-reverse me-4 mb-3">
-    <%= link_to new_order_path, class:"text-decoration-none" do %>
-      <button class="switch-button" style="vertical-align:middle"><span> Selling mode </span></button>
+    <%= link_to products_path, class:"text-decoration-none" do %>
+      <button class="switch-button mb-3" style="vertical-align:middle"><span> Return to edit mode </span>
+      </button>
     <% end %>
   </div>
   <div class="cards">
     <% @products.each do |product| %>
       <div class="row">
         <div class="col-12">
-          <div class="card-trip" data-controller="quantity">
-            <div class="quantity-buttons">
+          <div class="card-trip " data-controller="quantity">
+
             <% order_product = @order.order_products.find_by(product: product) %>
               <% if product.quantity.positive? && order_product.nil? || order_product.product_quantity < product.quantity %>
 
               <%= link_to "+", "#", class: "btn-ghost right-button", data: { action: "click->quantity#add", order_id: @order.id, product_id: product.id }, style: "text-decoration: none" %>
               <% end %>
               <%= link_to "-", "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract", order_id: @order.id, product_id: product.id  }, style: "text-decoration: none" %>
-            </div>
             <% if product.photo.attached? %>
               <%= cl_image_tag product.photo.key, class:"" %>
             <% else %>
@@ -29,7 +29,7 @@
             <div class="row">
               <div class="card-trip-info-details">
                 <h2 class="card-trip-info-name"><%= product.name %></h2>
-                <h2 class="card-trip-pricing m-sm-1"><%= number_to_currency(product.price, { unit: '¥', precision: 0 }) %></h2>
+                <h2 class="card-trip-pricing m-sm-1 m-t-1"><%= number_to_currency(product.price, { unit: '¥', precision: 0 }) %></h2>
                 <div class="product-quantity"><%= order_product&.product_quantity || 0 %></div>
                 <small class="text-secondary"><%= product.quantity %> in stock</small>
               </div>
@@ -42,5 +42,4 @@
       </div>
     <% end %>
   </div>
-
 </div>

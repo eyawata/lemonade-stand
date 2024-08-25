@@ -1,7 +1,9 @@
 <body style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('https://res.cloudinary.com/dxarsyyur/image/upload/v1724315520/pexels-tara-winstead-6489663_mdssvu.jpg')">
   <div class="home-background">
     <div class="home-text text-center">
-      <h1 id="header-first">Say Hi to Your Lemonade Stand</h1>
+      <h1 id="header-first">👋 Say Hi to Your<br>
+        Lemonade🍋<br>
+        Stand</h1>
       <!-- buttons -->
       <div class="landing-button">
         <p class="m-0 mt-5">
@@ -10,11 +12,14 @@
           <% end %>
         </p>
         <p>
-          <%= link_to products_path do %>
-            <button class="switch-button-landing" style="vertical-align:middle"><span> Go to My Store</span></button>
-          <% end %>
-        </p>
-      </div>
+          <% if current_user && current_user.products.any? %>
+            <%= link_to edit_order_path(@order)do %>
+              <button class="switch-button-landing" style="vertical-align:middle"><span> Start Selling</span></button>
+            <% end %>
+          </p>
+        <% end %>
+      </p>
     </div>
   </div>
+</div>
 </body>
