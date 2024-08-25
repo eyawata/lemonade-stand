@@ -1,12 +1,9 @@
 <%= link_to edit_order_path(@order) do %>
   <i class="fa-solid fa-arrow-left fa-lg mt-3 ms-3" style="color: #e2ab2d;"></i>
 <% end %>
-<%= render "show_order" %>
+<%# discount controller applies discount to total if dropdown is selected %>
 <div data-controller="discount">
-  <div class="order-total row justify-content-center">
-    <h4 class="col-3" style="color: #858789;">Subtotal</h4>
-    <h4 class="col-6 text-end" style="color: #858789;"><%= number_to_currency(@order.subtotal, { unit: '¥', precision: 0 }) %></h4>
-  </div>
+  <%= render "show_order" %>
   <div class="order-total row justify-content-center">
     <h3 class="col-3 fw-bold" style="color: #E2AB2D;">Total</h3>
     <h3 class="col-6 text-end fw-bold" style="color: #E2AB2D;" data-discount-target="total">
