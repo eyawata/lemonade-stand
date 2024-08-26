@@ -5,6 +5,7 @@
   left: 0;
   right: 0;
   margin: 0;
+  padding: 0;
   width: 100%;
   max-width: none;
   height: auto;
@@ -24,6 +25,7 @@
   border-top-left-radius: 40px;
   border-top-right-radius: 40px;
   width: 100%;
+  margin: 0;
   height: auto;
   overflow-y: auto;
 }
@@ -56,4 +58,13 @@
 
 .modal.fade.show .modal-dialog-bottom {
   transform: translateY(0);
+}
+
+.modal {
+  padding: 0;
+}
+
+.slide-up-modal .modal-footer {
+  margin-bottom: 0;
+  padding-bottom: 0;
 }
