@@ -26,8 +26,8 @@
   font-weight: lighter;
   opacity: 0.8;
   transition: opacity 0.3s ease;
-  width: 40px;
-  height: 40px;
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,4 +83,20 @@
 
 .background-color-secondary-yellow {
   background-color: $primary-yellow;
+}
+
+// Products page button
+
+.plus-btn-create {
+  font-size: 900%;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.btn-edit {
+  font-size: 16px;
+  background-color: $medium-gray;
+  border-radius: 50%;
+  padding: 8px;
+  border-color: transparent;
 }
