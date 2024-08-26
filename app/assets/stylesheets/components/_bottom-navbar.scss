@@ -1,8 +1,9 @@
 .bottom-navbar {
   background-color: $primary-yellow;
   margin: auto;
-  position: sticky;
+  position: fixed;
   bottom: 0vh;
+  width: 100%;
 }
 
 .bottom-navbar ul {

@@ -16,6 +16,6 @@
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
     <%= yield %>
-    <%= render "shared/bottom_navbar" %>
+    <%= render "shared/bottom_navbar", order: @order, orders: @orders %>
   </body>
 </html>
