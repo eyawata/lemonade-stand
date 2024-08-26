@@ -79,3 +79,5 @@ end
 # Team Add-ons
 gem "cloudinary"
 gem "faker"
+# For PayPay
+gem 'httpclient'

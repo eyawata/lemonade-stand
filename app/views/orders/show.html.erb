@@ -25,6 +25,18 @@
         }
       }
     %>
+    <%= f.input :payment_method,
+      collection: @payment_options,
+      label_method: :first,
+      value_method: :last,
+      prompt: "Select Payment Method",
+      label: "Payment Method",
+      input_html: {
+        data: {
+          action: "change->discount#updateTotal"
+        }
+      }
+    %>
       <%= f.submit "Checkout", class: "btn btn-primary w-100", style:"color:white" %>
     <% end %>
   </div>

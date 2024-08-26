@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :orders, only: [:index, :edit, :show, :new, :create, :update] do
     resources :order_products, only: [:new, :create, :update, :edit, :destroy]
+    member do
+      post 'create_qr_code', to: 'payments#create_qr_code'
+    end
   end
   resources :events, only: [:edit, :show, :new, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
@@ -12,6 +15,9 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
+
+  # Paypay
+
 
   # Defines the root path route ("/")
   # root "posts#index"

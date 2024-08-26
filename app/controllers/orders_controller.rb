@@ -6,6 +6,9 @@ class OrdersController < ApplicationController
     # subtotal is an instance method in order.rb
     @order_subtotal = @order.subtotal
     @discount_options = [['5%', 5], ['10%', 10], ['20%', 20]]
+
+    # Payment options
+     @payment_options = ["Cash", "Paypay"]
   end
 
   def index
