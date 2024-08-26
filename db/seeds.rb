@@ -181,3 +181,12 @@ events.each do |event|
 end
 
 puts "Created #{Event.count} events"
+
+puts "Updating dates for orders..."
+
+orders_except_last.each do |order|
+  order_date = Date.today - rand(10..15)
+  order.update(updated_at: order_date, created_at: order_date)
+end
+
+puts "Changed the dates for all completed orders!"
