@@ -1,11 +1,7 @@
 class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
-    if @event.nil?
-      @orders = Order.all
-    else
-      @orders = Event.orders
-    end
+    @orders = @event.orders
   end
 
   def index
