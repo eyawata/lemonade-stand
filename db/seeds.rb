@@ -91,7 +91,7 @@ puts "Created #{Product.count} products"
 # Orders #
 puts "Creating orders!"
 if Order.any? == false
-  5.times do
+  15.times do
     Order.create!(
       total_price: rand(500..2000)
     )
@@ -143,11 +143,21 @@ events = [
 
 puts "Creating events!"
 
+start_date = Date.today - 10
+end_date = Date.today - 5
+
 events.each do |event|
   Event.create!(
     event_name: event,
-    user: user
+    user: user,
+    estimated_event_cost: rand(20..500),
+    start_date: start_date,
+    end_date: end_date
   )
+
+  # Adjust the start_date and end_date for the next event
+  start_date -= 5
+  end_date -= 5
 end
 
 puts "Created #{Event.count} events"
