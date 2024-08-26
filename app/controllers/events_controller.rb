@@ -15,8 +15,8 @@ class EventsController < ApplicationController
   def create
     @event = Event.new(event_params)
     @event.user = current_user
-    assign
     if @event.save
+      assign
       redirect_to events_path, notice: "Event was susuccessfully created"
     else
       render :new, status: :unprocessable_entity
@@ -26,9 +26,10 @@ class EventsController < ApplicationController
   private
 
   def assign
-    # todo
-    # iterate through the events
-    # calls order instance method
+    @events = Event.all
+    @events.each do |event|
+      event.assign_to_event
+    end
   end
 
   def event_params
