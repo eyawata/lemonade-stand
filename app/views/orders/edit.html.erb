@@ -3,8 +3,9 @@
 </div>
 <div data-controller="cart">
   <div class="centered-button sticky-bottom">
-    <button class="btn btn-outline-warning btn-block btn-stretch mb-3 background-color-secondary-yellow"
-     data-action="click->cart#show" >
+    <%# <button class="btn btn-outline-warning btn-block btn-stretch mb-3 background-color-secondary-yellow"
+     data-action="click->cart#show" > %> <!-- Old button opening cart below -->
+    <button type="button" class="btn btn-outline-warning btn-block btn-stretch mb-3 background-color-secondary-yellow style=" data-bs-toggle="modal" data-bs-target="#CartModal">
       <i class="fa-solid fa-cart-shopping"></i>
     </button >
   </div>
@@ -16,4 +17,5 @@
       <%= link_to "Confirm Order", order_path(@order), class:"btn btn-primary my-2", style:"color:white" %>
     </div>
   </div>
+  <%= render "cart_modal", order: @order %>
 </div>
