@@ -2,8 +2,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @orders = @event.orders
-    @cats = @orders.pluck
-    raise
+    @products = Product.joins(order_products: { order: :event }).where(events: { id: @event.id })
+    @products_names = @products.pluck(:name)
   end
 
   def index
