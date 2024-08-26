@@ -10,11 +10,10 @@
   </div>
   <div class="d-none" data-cart-target="showProductOrder" >
     <div id="show_order">
-    <%= render "show_order", order: @order %>
+      <%= render "show_order", order: @order %>
     </div>
-
     <div class="d-flex justify-content-center">
-      <%= link_to "Confirm Order", order_path(@order), class:"btn btn-primary" %>
+      <%= link_to "Confirm Order", order_path(@order), class:"btn btn-primary my-2", style:"color:white" %>
     </div>
   </div>
 </div>

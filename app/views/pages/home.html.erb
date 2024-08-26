@@ -12,7 +12,7 @@
           <% end %>
         </p>
         <p>
-          <% if current_user.products.any? %>
+          <% if current_user && current_user.products.any? %>
             <%= link_to edit_order_path(@order)do %>
               <button class="switch-button-landing" style="vertical-align:middle"><span> Start Selling</span></button>
             <% end %>
