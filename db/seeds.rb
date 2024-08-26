@@ -143,8 +143,8 @@ events = [
 
 puts "Creating events!"
 
-start_date = Date.today - 5
-end_date = Date.today - 10
+start_date = Date.today - 10
+end_date = Date.today - 5
 
 events.each do |event|
   Event.create!(
