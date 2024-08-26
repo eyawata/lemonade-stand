@@ -38,3 +38,22 @@
   overflow-y: auto;
   padding: 1rem;
 }
+
+.modal-dialog-bottom {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: 0;
+  max-width: none;
+  width: 100%;
+  transition: transform 0.3s ease-out;
+}
+
+.modal.fade .modal-dialog-bottom {
+  transform: translateY(100%);
+}
+
+.modal.fade.show .modal-dialog-bottom {
+  transform: translateY(0);
+}
