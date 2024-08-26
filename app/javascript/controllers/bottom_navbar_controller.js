@@ -15,7 +15,6 @@ export default class extends Controller {
 
   moveCircle(event) {
     const link = event.currentTarget;
-
     move(link)
   }
 
