@@ -23,8 +23,14 @@
 
 .card-trip {
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-trip:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(0, 0, 0, 0.3);
 }
 
 .card-trip > img {
@@ -36,8 +42,9 @@
 .card-trip-link {
   position: absolute;
   top: 0;
+  left: 0;
   bottom: 0;
-  right: 0;
+  width: 100%
 }
 
 .card-trip h2 {
@@ -96,6 +103,30 @@
   height: 70vh;
 }
 
+.tooltip {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+
+.tooltip .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+}
+
+.tooltip:hover .tooltiptext {
+  visibility: visible;
+  
+// Different screen size design 
 @media screen and (max-width: 1200px) {
   .cards {
     grid-template-columns: 1fr 1fr 1fr 1fr;

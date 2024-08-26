@@ -13,12 +13,11 @@
     <% @products.each do |product| %>
       <div class="row">
         <div class="col-12">
-          <div class="card-trip " data-controller="quantity">
-
+          <div class="card-trip"  data-controller="quantity">
             <% order_product = @order.order_products.find_by(product: product) %>
               <% if product.quantity.positive? && order_product.nil? || order_product.product_quantity < product.quantity %>
 
-              <%= link_to "+", "#", class: "btn-ghost right-button", data: { action: "click->quantity#add", order_id: @order.id, product_id: product.id }, style: "text-decoration: none" %>
+              <%= link_to "", "#", class: "card-trip-link", data: { action: "click->quantity#add", order_id: @order.id, product_id: product.id }, style: "text-decoration: none" %>
               <% end %>
               <%= link_to "-", "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract", order_id: @order.id, product_id: product.id  }, style: "text-decoration: none" %>
             <% if product.photo.attached? %>
