@@ -70,3 +70,19 @@
 .btn-outline-warning:hover .fa-cart-shopping {
   color: #fff;
 }
+
+// Products page button
+
+.plus-btn-create {
+  font-size: 900%;
+  border-color: transparent;
+  background-color: transparent;
+}
+
+.btn-edit {
+  font-size: 16px;
+  background-color: $medium-gray;
+  border-radius: 50%;
+  padding: 8px;
+  border-color: transparent;
+}

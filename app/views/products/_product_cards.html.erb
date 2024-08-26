@@ -1,0 +1,28 @@
+<% @products.each do |product| %>
+  <div class="row">
+    <div class="col-12">
+      <div class="card-trip position-relative">
+        <% if product.photo.attached? %>
+          <%= cl_image_tag product.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and qualitity here -->
+        <% else %>
+          <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"%>
+        <% end %>
+        <div class="card-trip-infos">
+          <div class="card-infos-left">
+            <p><%= product.name %></p>
+            <p class="card-trip-pricing"><strong><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></strong></p>
+          </div>
+          <div class="card-infos-right">
+            <p><%= product.quantity %> pcs</p>
+          </div>
+        </div>
+        <%# edit button %>
+        <div class="card-edit">
+          <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" > <!--data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>" -->
+          </div>
+      </div>
+        <%= render "edit_modal", product: product %>
+    </div>
+  </div>
+    <%# <%  edit_product = product %>
+<% end %>
