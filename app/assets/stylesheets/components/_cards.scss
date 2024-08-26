@@ -5,22 +5,10 @@
   right: -10px;
 }
 
-.btn-edit {
-  font-size: 16px;
-  background-color: $medium-gray;
-  border-radius: 50%;
-  padding: 8px;
-}
-
 .card-create {
   position: fixed;
-  bottom: 16px;
-  right: 12px;
-}
-
-.btn-create {
-  font-size: 900%;
-  border-color: transparent;
+  bottom: 1vh;
+  right: 1vh;
 }
 
 .cards {
@@ -106,4 +94,28 @@
   justify-content: center;
   align-items: center;
   height: 70vh;
+}
+
+@media screen and (max-width: 1200px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 900px) {
+  .cards {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .cards {
+    grid-template-columns: 1fr 1fr;
+  }
 }

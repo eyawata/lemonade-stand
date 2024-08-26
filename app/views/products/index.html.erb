@@ -2,53 +2,26 @@
   <div class="text-center my-2">
     <h2><strong>Setup Your Stand</strong></h2>
   </div>
-  <!-- Toggle button start -->
-  <!-- Toggle button end -->
-  <%# product cards %>
+  <!-- product cards -->
   <% if Product.any? %>
+    <!-- selling mode button -->
     <div class="d-flex flex-row-reverse me-3 mb-3">
       <%= link_to edit_order_path(@order), class:"text-decoration-none" do %>
         <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
       <% end %>
     </div>
+    <!-- cards display -->
     <div class="cards">
-      <% @products.each do |product| %>
-        <div class="row">
-          <div class="col-12">
-            <div class="card-trip position-relative">
-              <% if product.photo.attached? %>
-                <%= cl_image_tag product.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and qualitity here -->
-              <% else %>
-                <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"%>
-              <% end %>
-              <div class="card-trip-infos">
-                <div class="card-infos-left">
-                  <p><%= product.name %></p>
-                  <p class="card-trip-pricing"><strong><%= number_to_currency(product.price, { unit: '¥', precision: 0 })%></strong></p>
-                </div>
-                <div class="card-infos-right">
-                  <p><%= product.quantity %> pcs</p>
-                </div>
-              </div>
-              <%# edit button %>
-              <div class="card-edit">
-                <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" > <!--data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>" -->
-                </div>
-              </div>
-              <%= render "edit_modal", product: product %>
-            </div>
-          </div>
-          <%# <%  edit_product = product %>
-        <% end %>
-      </div>
-    <% else %>
-      <div class="no-product-container">
-        <p class="no-product">There are no products yet. Let's create one! </p>
-      </div>
-    <% end %>
-    <%# product button %>
+      <%= render 'product_cards', products: @products %>
+    </div>
+  <% else %>
+    <div class="no-product-container">
+      <p class="no-product">There are no products yet. Let's create one! </p>
+    </div>
+  <% end %>
+    <!-- create button -->
     <div class="card-create">
-      <button type="button" class="fa-solid fa-circle-plus btn-create bg-transparent" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
+      <button type="button" class="fa-solid fa-circle-plus plus-btn-create" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateProductModal">
       </button>
       <!-- Modal -->
       <%# Model End %>
