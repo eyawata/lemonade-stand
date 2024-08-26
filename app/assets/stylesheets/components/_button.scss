@@ -70,3 +70,17 @@
 .btn-outline-warning:hover .fa-cart-shopping {
   color: #fff;
 }
+
+.sticky-bottom {
+  position: fixed;
+  bottom: 2%;
+  left: 0;
+  right: 0;
+  z-index: 1030;
+  padding: 10px;
+  // background-color: white;
+}
+
+.background-color-secondary-yellow {
+  background-color: $secondary-yellow;
+}
