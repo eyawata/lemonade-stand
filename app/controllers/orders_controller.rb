@@ -10,6 +10,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    @order = Order.where(status: "incomplete").last
   end
 
   def edit
