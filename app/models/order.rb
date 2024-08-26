@@ -26,5 +26,9 @@ class Order < ApplicationRecord
     end
   end
 
+  def assign_to_event
+    # todo
+  end
+
 
 end
