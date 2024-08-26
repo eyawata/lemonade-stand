@@ -3,7 +3,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="discount"
 export default class extends Controller {
-static targets = ["discount", "total", "subtotal"];
+static targets = ["discount", "total", "subtotal", "payment"];
 
   connect() {
     this.observeDOMChanges();
@@ -21,6 +21,11 @@ static targets = ["discount", "total", "subtotal"];
 
     const formattedYen = yenFormatter.format(newTotal);
     this.totalTarget.textContent = `${formattedYen}`;
+  }
+
+  selectPayment() {
+    const paymentOptionElement = this.paymentTarget;
+    console.log(paymentOptionElement)
   }
 
   observeDOMChanges() {

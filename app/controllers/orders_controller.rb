@@ -8,7 +8,7 @@ class OrdersController < ApplicationController
     @discount_options = [['5%', 5], ['10%', 10], ['20%', 20]]
 
     # Payment options
-     @payment_options = ["Cash", "Paypay"]
+    @payment_options = [['Cash', 'cash'], ['PayPay', 'paypay']]
   end
 
   def index
