@@ -1,9 +1,9 @@
-  <div class="d-flex flex-row-reverse me-4 mb-3">
-    <%= link_to products_path, class:"text-decoration-none" do %>
-      <button class="switch-button mb-3 mt-3" style="vertical-align:middle"><span> Return to edit mode </span>
-      </button>
-    <% end %>
-  </div>
+<div class="d-flex flex-row-reverse me-4 mb-3">
+  <%= link_to edit_order_path(@order), class:"text-decoration-none" do %>
+    <button class="switch-button mb-3 mt-3" style="vertical-align:middle"><span> Selling Mode </span>
+    </button>
+  <% end %>
+</div>
 <div class="main-container">
   <h2 class="text-center my-3">Order History</h2>
   <div class="row justify-content-center">
@@ -12,24 +12,26 @@
       <!-- table headers -->
         <div class="table-header-container px-3 ms-1">
             <div class="table-header-event"><p>Date  </p></div>
-            <div class="table-header-price"><p>Total_Price </p></div>
+            <div class="table-header-price"><p>Total Price </p></div>
             <div class="table-header-discount"><p>Discounts </p></div>
             <div class="table-header-status"><p>Order Status</p></div>
         </div>
       <!-- table body -->
         <% @orders.each do |order| %>
-          <div class="table-body d-flex justify-content-between pt-2 px-3">
-              <div class="table-body-event"><p><%= order.updated_at.strftime("%d-%b") %></p></div>
-              <div class="table-body-price"><p><%= number_to_currency(order.total_price, { unit: '¥', precision: 0 }) %></p></div>
-              <div class="table-body-discount">
-                <% if order.order_discount.present? %>
-                  <p><%= number_to_currency(order.order_discount, { unit: '¥', precision: 0 }) %></p>
-                <% else %>
-                  <p> - </p>
-                <% end %>
-              </div>
-              <div class="<%= order.status == 'incomplete' ? 'table-body-red' : 'table-body-green' %>"><p><%= order.status.capitalize %></p></div>
-          </div>
+          <% if order.status == "completed" %>
+            <div class="table-body d-flex justify-content-between pt-2 px-3">
+                <div class="table-body-event"><p><%= order.updated_at.strftime("%d-%b") %></p></div>
+                <div class="table-body-price"><p><%= number_to_currency(order.total_price, { unit: '¥', precision: 0 }) %></p></div>
+                <div class="table-body-discount">
+                  <% if order.order_discount.present? %>
+                    <p><%= number_to_currency(order.order_discount, { unit: '¥', precision: 0 }) %></p>
+                  <% else %>
+                    <p> - </p>
+                  <% end %>
+                </div>
+                <div class="<%= order.status == 'incomplete' ? 'table-body-red' : 'table-body-green' %>"><p><%= order.status.capitalize %></p></div>
+            </div>
+          <% end %>
         <% end %>
       </div>
       <!-- table ends -->
