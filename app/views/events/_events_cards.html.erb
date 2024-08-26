@@ -1,5 +1,13 @@
 <% @events.each do |event| %>
-  <div class="event">
-    <h3><%= event.event_name %></h3>
+  <div class="card-product d-flex">
+    <%# image goes here %>
+    <% if product.photo.attached? %>
+      <%= cl_image_tag product.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and qualitity here -->
+    <% else %>
+      <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg"%>
+    <% end %>
+    <div class="card-product-infos">
+      <h3><%= event.event_name %></h3>
+    </div>
   </div>
 <% end %>
