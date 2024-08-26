@@ -7,4 +7,20 @@ class EventsController < ApplicationController
     @events = Event.all
     @new_event = Event.new
   end
+
+  def update
+    assign
+  end
+
+  def create
+    assign
+  end
+
+  private
+
+  def assign
+    # todo
+    # iterate through the events
+    # calls order instance method
+  end
 end
