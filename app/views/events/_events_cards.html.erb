@@ -7,7 +7,8 @@
       <%= image_tag asset_path('event_default_image.png') %>
     <% end %>
     <div class="card-product-infos">
-      <h3><%= event.event_name %></h3>
+      <h2><%= event.event_name %></h2>
+      <p><%= event.start_date%> to <%= event.end_date %></p>
     </div>
   </div>
 <% end %>
