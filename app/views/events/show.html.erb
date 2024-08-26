@@ -1,22 +1,28 @@
 <h1 class="text-center my-3">Lemonade Stand</h1>
 <div class="dashboard-cards">
   <p><%= @event.event_name %><br>
-    <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %></p>
-  <div class="dashboard-card overview">
-    <h2>You sold X units,<br>
-      and earned a total of <%= number_to_currency(20000, { unit: '¥', precision: 0 }) %>
-    </h2>
-  </div>
-  <div class="dashboard-card top-products">
-    <p>Your Top Selling Products are<br>
+    <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %>
+  </p>
+  <% if @event.orders.any? %>
+    <div class="dashboard-card overview">
+      <h2>You sold X units,<br>
+        and earned a total of <%= number_to_currency(20000, { unit: '¥', precision: 0 }) %>
+      </h2>
+    </div>
+    <div class="dashboard-card top-products">
+      <p>Your Top Selling Products are</p>
       <ol class="text-center">
         <li><%= @event.orders.first.products.first.name %></li>
         <li><%= @event.orders.first.products.second.name %></li>
         <li><%= @event.orders.first.products.third.name %></li>
       </ol>
-    </p>
-  </div>
-  <div class="dashboard-card chart">
-    <%= render "day_chart" %>
-  </div>
+    </div>
+    <div class="dashboard-card chart">
+      <%= render "day_chart" %>
+    </div>
+  <% else %>
+    <div class="dashboard-card">
+      <p><small>You have no orders for this event yet.</small></p>
+    </div>
+  <% end %>
 </div>

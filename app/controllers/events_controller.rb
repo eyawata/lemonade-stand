@@ -2,6 +2,8 @@ class EventsController < ApplicationController
   def show
     @event = Event.find(params[:id])
     @orders = @event.orders
+    @cats = @orders.pluck
+    raise
   end
 
   def index
