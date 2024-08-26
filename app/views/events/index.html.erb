@@ -3,4 +3,12 @@
     <h2>Events Dashboard</h2>
   </div>
   <%= render partial: 'events/events_cards' %>
+  <!-- create button -->
+  <div class="card-create">
+    <button type="button" class="fa-solid fa-circle-plus plus-btn-create" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateEventModal">
+    </button>
+  </div>
+  <%= render partial: "events/new_modal" %>
+  <div>
+  </div>
 </div>
