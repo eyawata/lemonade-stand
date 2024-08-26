@@ -17,18 +17,15 @@
   position: relative;
   transition: transform 0.3s, box-shadow 0.3s;
   padding: 20px 10px 20px 10px;
-  height: 20vh;
+  height: fit-content;
   margin-bottom: 20px;
 }
 
-.overview {
+.dashboard-card:hover {
+  box-shadow: 0 0 15px rgba(251, 255, 123, 0.265);
 }
 
 .overview h2 {
-  position: absolute;
-  bottom: 0;
-  right: 0;
   text-align: right;
-  font-size:200%;
-  font-weight: 500;
+  margin-top: 20px;
 }

@@ -1,0 +1,1 @@
+<%= line_chart @orders.group_by_day(:created_at).count, colors: ["#E2AB2D", "#3048EA", "#F9F9F9","#9596FF", "#E67E22"] %>

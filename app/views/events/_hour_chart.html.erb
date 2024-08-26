@@ -1,0 +1,1 @@
+<%= line_chart @orders.group_by_hour(:created_at).count, colors: ["$primary-yellow", "#primary-blue", "#secondary-yellow","#secondary-blue", "#E67E22"] %>

@@ -4,15 +4,19 @@
     <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %></p>
   <div class="dashboard-card overview">
     <h2>You sold X units,<br>
-      total earnings of <%= number_to_currency(20000, { unit: '¥', precision: 0 }) %><br>
+      and earned a total of <%= number_to_currency(20000, { unit: '¥', precision: 0 }) %>
     </h2>
   </div>
-  <div class="dashboard-card overview">
-    You sold X units,<br>
-    total earnings of <%= number_to_currency(20000, { unit: '¥', precision: 0 }) %><br>
+  <div class="dashboard-card top-products">
+    <p>Your Top Selling Products are<br>
+      <ol class="text-center">
+        <li><%= @event.orders.first.products.first.name %></li>
+        <li><%= @event.orders.first.products.second.name %></li>
+        <li><%= @event.orders.first.products.third.name %></li>
+      </ol>
+    </p>
   </div>
-  <div class="dashboard-card overview">
-    You sold X units,<br>
-    total earnings of <%= number_to_currency(20000, { unit: '¥', precision: 0 }) %><br>
+  <div class="dashboard-card chart">
+    <%= render "day_chart" %>
   </div>
 </div>
