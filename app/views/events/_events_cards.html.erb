@@ -8,7 +8,9 @@
     <% end %>
     <div class="card-product-infos">
       <h2><%= event.event_name %></h2>
-      <p><%= event.start_date%> to <%= event.end_date %></p>
+      <p>
+        <%= event.start_date.strftime("%B %d,") %> to <%= event.end_date.strftime("%B %d, %Y") %>
+      </p>
     </div>
   </div>
 <% end %>

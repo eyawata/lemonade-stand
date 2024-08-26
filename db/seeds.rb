@@ -91,7 +91,7 @@ puts "Created #{Product.count} products"
 # Orders #
 puts "Creating orders!"
 if Order.any? == false
-  5.times do
+  15.times do
     Order.create!(
       total_price: rand(500..2000)
     )
