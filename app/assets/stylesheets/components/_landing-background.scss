@@ -9,6 +9,12 @@ body {
   height: 100vh;
 }
 
+#background-image {
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
 .home-background {
   display: grid;
   justify-content: center;
@@ -21,6 +27,7 @@ body {
 #header-first {
   font-size: 320%;
   font-weight: 700;
+  margin-top: 15%;
 }
 
 .home-text h1 {
