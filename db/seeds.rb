@@ -130,24 +130,24 @@ orders_except_last.each do |order|
   order.update(status: "completed")
 end
 
+# Events Seeds
+
 puts "Completed updating status"
-# events = [
-#   "Clay Creations Expo",
-#   "Pottery Passion Fest",
-#   "Ceramic Art Showcase",
-#   "Wheel Throwing Workshop",
-#   "Glaze & Fire Festival"
-# ]
+events = [
+  "Clay Creations Expo",
+  "Pottery Passion Fest",
+  "Ceramic Art Showcase",
+  "Wheel Throwing Workshop",
+  "Glaze & Fire Festival"
+]
 
-# puts "Creating events!"
+puts "Creating events!"
 
-# 5.times do
-#   events.each do |event|
-#     Event.create!(
-#       event_name: event,
-#       user: user
-#   )
-#   end
-# end
+events.each do |event|
+  Event.create!(
+    event_name: event,
+    user: user
+  )
+end
 
-# puts "Created #{Event.count} events"
+puts "Created #{Event.count} events"
