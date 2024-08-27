@@ -16,6 +16,7 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all
     @order = Order.where(status: "incomplete").last
+    @transaction = params[:order][:merchantPaymentId]
   end
 
   def edit
@@ -40,7 +41,7 @@ class OrdersController < ApplicationController
       return
       # redirect_to controller: :controller_name, action: :action_name
     end
-    raise
+
 
     @order = Order.find(params[:id])
 
