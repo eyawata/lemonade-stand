@@ -15,9 +15,13 @@
   <body>
     <%= render "shared/navbar" %>
     <%= render "shared/flashes" %>
-    <%= yield %>
-    <% if user_signed_in? %>
-      <%= render "shared/bottom_navbar", order: @order, orders: @orders %>
-    <% end %>
+    <div class="content">
+      <%= yield %>
+    </div>
+    <footer class="footer">
+      <% if user_signed_in? %>
+        <%= render "shared/bottom_navbar", order: @order, orders: @orders %>
+      <% end %>
+    </footer>
   </body>
 </html>
