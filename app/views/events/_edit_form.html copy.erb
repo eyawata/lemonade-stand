@@ -1,0 +1,18 @@
+<div class="container" > <!--- add a target here -->
+  <%# <% edit_product = Product.find(id) %>
+  <%= simple_form_for(product) do |f| %>
+    <%= f.input :name %>
+    <%= f.input :price, label: "Price (¥)" %>
+    <div>
+      <div class="row">
+        <div class="col">
+          <%= f.input :category %>
+        </div>
+        <div class="col">
+          <%= f.input :quantity %>
+        </div>
+      </div>
+    </div>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>
