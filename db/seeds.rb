@@ -189,8 +189,9 @@ orders_except_last.each do |order|
   order.update(updated_at: order_date, created_at: order_date)
 end
 
-Event.all do |event|
+Event.all.each do |event|
   event.assign_to_event
 end
+
 
 puts "Changed the dates for all completed orders!"
