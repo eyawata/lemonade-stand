@@ -1,0 +1,15 @@
+<div data-controller="cart">
+  <div class="centered-button">
+    <button class="btn btn-outline-warning btn-block btn-stretch mb-3" data-action="click->cart#show" >
+      <i class="fa-solid fa-cart-shopping"></i>
+    </button >
+  </div>
+  <div class="d-none" data-cart-target="showProductOrder" >
+    <div id="show_order">
+      <%= render "show_order", order: @order %>
+    </div>
+    <div class="d-flex justify-content-center">
+      <%= link_to "Confirm Order", order_path(@order), class:"btn btn-primary my-2", style:"color:white" %>
+    </div>
+  </div>
+</div>
