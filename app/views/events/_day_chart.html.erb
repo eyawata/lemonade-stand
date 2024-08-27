@@ -1,0 +1,1 @@
+<%= column_chart @orders.group_by_day(:updated_at).count, colors: ["#E2AB2D", "#3048EA","#9596FF", "#E67E22"] %>

@@ -177,7 +177,7 @@ events.each do |event|
 
   # Adjust the start_date and end_date for the next event
   start_date -= 5
-  end_date -= rand(5..7)
+  end_date -= rand(5..6)
 end
 
 puts "Created #{Event.count} events"
@@ -189,8 +189,9 @@ orders_except_last.each do |order|
   order.update(updated_at: order_date, created_at: order_date)
 end
 
-Event.all do |event|
+Event.all.each do |event|
   event.assign_to_event
 end
+
 
 puts "Changed the dates for all completed orders!"
