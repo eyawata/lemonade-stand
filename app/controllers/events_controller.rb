@@ -27,6 +27,7 @@ class EventsController < ApplicationController
   def index
     @events = Event.all
     @new_event = Event.new
+    @order = Order.where(status: "incomplete").last
   end
 
   def update

@@ -10,3 +10,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+// Application CSS
+html, body {
+  height: 100%;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  flex-grow: 1;
+}
+.footer {
+  flex-shrink: 0;
+}
