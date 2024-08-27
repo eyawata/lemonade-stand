@@ -1,15 +1,4 @@
 // product-card
-.card-edit {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-}
-
-.card-create {
-  position: fixed;
-  bottom: 1vh;
-  right: 1vh;
-}
 
 .cards {
   width: 100%;
@@ -19,6 +8,7 @@
   grid-gap: 40px;
   padding: 0 40px;
   border-radius: 5px;
+  padding-bottom: 50px;
 }
 
 .card-trip {
@@ -125,7 +115,7 @@
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
-
+}
 
 // Different screen size design
 @media screen and (max-width: 1200px) {
@@ -150,4 +140,42 @@
   .cards {
     grid-template-columns: 1fr 1fr;
   }
+}
+
+// Style for the Card product Le Wagon UI Element
+
+.card-product {
+  border-radius: 10px;
+  overflow: hidden;
+  height: 280px;
+  width: 90%;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  margin-bottom: 30px;
+}
+
+.card-product img {
+  height: auto;
+  width: 130px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
 }
