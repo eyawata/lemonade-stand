@@ -31,7 +31,14 @@ class EventsController < ApplicationController
   end
 
   def update
-    assign
+    @edit_event = Event.find(params[:id])
+    if @edit_event.update(event_params)
+      assign
+      redirect_to events_path, notice: "Event was successfully updated"
+    else
+      redirect_to events_path, notice: "Event was not successfully updated"
+      #todo: build a standalon edit page for the redirect
+    end
   end
 
   def create
