@@ -9,6 +9,7 @@
       </button>
     <% end %>
   </div>
+  <%= render "orders/cart", order: @order %>
   <div class="cards">
     <% @products.each do |product| %>
       <div class="row">

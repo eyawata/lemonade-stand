@@ -29,7 +29,7 @@ export default class extends Controller {
     console.log(screenWidth);
     console.log(circleWidth);
 
-    this.circleTarget.style.left = `${((circleWidth) + ((circleWidth * value) - 75)) / screenWidth * 100}%`;
+    this.circleTarget.style.left = `${((circleWidth) + ((circleWidth * value) - 73)) / screenWidth * 100}%`;
     this.circleTarget.innerHTML = link.innerHTML;
     link.style.opacity = 0;
   }

@@ -48,7 +48,7 @@
 .btn-outline-warning {
   color: #f0e68c;
   border-color: #f0e68c;
-  background-color: transparent;
+  background-color: $primary-yellow;
   transition: background-color 0.3s, color 0.3s, border-color 0.3s;
   width: 250px;
   border-radius: 12px;
@@ -101,25 +101,31 @@
   background-color: #858789;
 }
 
+.card-create-product {
+  display: inline-block;
+  border-radius: 5px;
+  background-color: $primary-yellow;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 35%;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding-top: 8px;
+}
+
 .card-create {
   position: fixed;
-  bottom: 11vh;
+  top: 10vh;
   padding: 0;
   margin: 0;
   right: 0;
 }
 
-.card-create-product {
-  background-color: $primary-yellow;
-  border-radius: 50%;
-  height: 38px;
-  width: 38px;
-  text-align: center;
-  align-items: center;
-}
 
 .plus-btn-create {
-  font-size: 200%;
+  font-size: 300%;
   border-color: transparent;
   background-color: transparent;
   padding: 0;
