@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :edit, :show, :new, :create, :update] do
     resources :order_products, only: [:new, :create, :update, :edit, :destroy]
     member do
-      post 'create_qr_code', to: 'payments#create_qr_code'
+      get 'create_qr_code', to: 'orders#create_qr_code'
     end
   end
   resources :events, only: [:index, :edit, :show, :new, :create]
