@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-12">
       <div class="card-trip position-relative">
+        <%#= link_to "", "#", class: "card-trip-link", style: "text-decoration: none", data: { bs_toggle:"modal" bs_target:"#EditProductModal-#{product.i}" }%>
         <% if product.photo.attached? %>
           <%= cl_image_tag product.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and qualitity here -->
         <% else %>
@@ -20,9 +21,9 @@
         <div class="card-edit">
           <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" > <!--data-action="click->product-modal#fetchProductData", data-index-value="<%product.id%>" -->
           </div>
-      </div>
+        </div>
         <%= render "edit_modal", product: product %>
+      </div>
     </div>
-  </div>
     <%# <%  edit_product = product %>
-<% end %>
+  <% end %>

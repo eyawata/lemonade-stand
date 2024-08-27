@@ -1,4 +1,6 @@
 class OrdersController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @order = Order.find(params[:id])
     @products = Product.all
@@ -13,6 +15,7 @@ class OrdersController < ApplicationController
 
   def index
     @orders = Order.all
+    @order = Order.where(status: "incomplete").last
   end
 
   def edit

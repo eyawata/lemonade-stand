@@ -21,7 +21,17 @@ urls = {
   "Shell and Handmade Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724156722/pexels-karolina-grabowska-6958755_z8j4hx.jpg",
   "Grey Short Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724125280/pexels-cup-of-couple-7302795_jiovse.jpg",
   "White Rounded Vase" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145336/pexels-karolina-grabowska-4207892_a5bklk.jpg",
-  "Black Short Japanese Teapot" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145336/pexels-eva-bronzini-6945183_v5osvh.jpg"
+  "Black Short Japanese Teapot" => "https://res.cloudinary.com/dxarsyyur/image/upload/v1724145336/pexels-eva-bronzini-6945183_v5osvh.jpg",
+  "Red Clay Pot" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724659846/pexels-jill-burrow-6069736_rbfvoa.jpg",
+  "Green Glass Vase" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724660046/pexels-teona-swift-6913149_unlwpa.jpg",
+  "Brown Earthenware Jug" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724659920/pexels-olga-volkovitskaia-131638009-10744184_nwysyx.jpg",
+  "Pink Porcelain Teapot" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724660099/pexels-dariusz-duchiewicz-299516704-27818674_kbjd2c.jpg",
+  "Orange Ceramic Bowl" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724660128/pexels-anna-nekrashevich-7214824_ruk3sh.jpg",
+  "Purple Glass Bottle" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724660159/pexels-kaboompics-5893_o1gwcx.jpg",
+  "Silver Metal Vase" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724660220/pexels-revac-film-s-photography-10400-108443_v3riii.jpg",
+  "Gold Plated Teapot" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724660251/pexels-elena-galas-498255061-16828689_vjsd65.jpg",
+  "Blue and White Porcelain Vase" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724660286/pexels-skylar-kang-6045200_fdeclv.jpg",
+  "Black and Gold Ceramic Pot" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724662646/pexels-tima-miroshnichenko-6827341_jwryil.jpg"
 }
 
 items = [
@@ -34,7 +44,17 @@ items = [
   "Shell and Handmade Vase",
   "Grey Short Vase",
   "White Rounded Vase",
-  "Black Short Japanese Teapot"
+  "Black Short Japanese Teapot",
+  "Red Clay Pot",
+  "Green Glass Vase",
+  "Brown Earthenware Jug",
+  "Pink Porcelain Teapot",
+  "Orange Ceramic Bowl",
+  "Purple Glass Bottle",
+  "Silver Metal Vase",
+  "Gold Plated Teapot",
+  "Blue and White Porcelain Vase",
+  "Black and Gold Ceramic Pot"
 ]
 
 # User seeds #
@@ -91,7 +111,7 @@ puts "Created #{Product.count} products"
 # Orders #
 puts "Creating orders!"
 if Order.any? == false
-  5.times do
+  15.times do
     Order.create!(
       total_price: rand(500..2000)
     )
@@ -121,7 +141,7 @@ Order.all.each do |order|
 end
 puts "Created #{OrderProduct.count} order_products!"
 
-puts "Adding random status to orders"
+puts "Adding completed status to all orders except last"
 
 total_orders = Order.count
 orders_except_last = Order.limit(total_orders - 1)
@@ -130,24 +150,47 @@ orders_except_last.each do |order|
   order.update(status: "completed")
 end
 
+# Events Seeds
+
 puts "Completed updating status"
-# events = [
-#   "Clay Creations Expo",
-#   "Pottery Passion Fest",
-#   "Ceramic Art Showcase",
-#   "Wheel Throwing Workshop",
-#   "Glaze & Fire Festival"
-# ]
+events = [
+  "Clay Creations Expo",
+  "Pottery Passion Fest",
+  "Ceramic Art Showcase",
+  "Wheel Throwing Workshop",
+  "Glaze & Fire Festival"
+]
 
-# puts "Creating events!"
+puts "Creating events!"
 
-# 5.times do
-#   events.each do |event|
-#     Event.create!(
-#       event_name: event,
-#       user: user
-#   )
-#   end
-# end
+start_date = Date.today - 10
+end_date = Date.today - 5
 
-# puts "Created #{Event.count} events"
+events.each do |event|
+  Event.create!(
+    event_name: event,
+    user: user,
+    estimated_event_cost: rand(10000..35000),
+    start_date: start_date,
+    end_date: end_date
+  )
+
+  # Adjust the start_date and end_date for the next event
+  start_date -= 5
+  end_date -= rand(5..7)
+end
+
+puts "Created #{Event.count} events"
+
+puts "Updating dates for orders..."
+
+orders_except_last.each do |order|
+  order_date = Date.today - rand(10..15)
+  order.update(updated_at: order_date, created_at: order_date)
+end
+
+Event.all do |event|
+  event.assign_to_event
+end
+
+puts "Changed the dates for all completed orders!"

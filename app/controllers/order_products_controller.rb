@@ -1,4 +1,6 @@
 class OrderProductsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @order_product = OrderProduct.find(params[:id])
   end

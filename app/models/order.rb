@@ -1,5 +1,5 @@
 class Order < ApplicationRecord
-  # belongs_to :event
+  belongs_to :event, optional: true
   has_many :order_products
   has_many :products, through: :order_products
 
@@ -26,5 +26,8 @@ class Order < ApplicationRecord
     end
   end
 
-
+  # def self.assign_to_event(event)
+  #   orders_to_assign = where('created_at >= ? AND created_at <= ?', event.start_date, event.end_date)
+  #   orders_to_assign.update_all(event_id: event.id)
+  # end
 end
