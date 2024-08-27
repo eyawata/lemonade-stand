@@ -1,3 +1,9 @@
 <div>
-<%= @qr_code_url %>
+  <% if @qr_code_url.present? %>
+    <%= link_to "Please click here to access PayPay", @qr_code_url, class: "btn btn-outline-warning", target: "_blank", rel: "noopener noreferrer" %>
+  <% else %>
+    <p>QR code URL is not available.</p>
+  <% end %>
 </div>
+<div>
+  <%= link_to "Return to selling page", edit_order_path(@order), class: "btn btn-outline-warning", target: "_blank", rel: "noopener noreferrer" %>
