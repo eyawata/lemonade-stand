@@ -22,6 +22,11 @@ class EventsController < ApplicationController
     end
     @product_quantities.sort_by! {|pair| pair[1]}.reverse!
     @top_three = @product_quantities.take(3)
+
+    @net_profit = @total_earnings - @event.estimated_event_cost
+
+    @out_of_stock = @products.select { |product| product.quantity == 0 }
+    raise
   end
 
   def index
