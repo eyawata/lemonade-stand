@@ -16,10 +16,10 @@
       <li data-bottom-navbar-value="3" data-bottom-navbar-target="links <%= "active" if params[:controller] == 'orders' && params[:action] == 'edit' %>"><i class="fa-solid fa-money-bill-transfer"></i></li>
     <% end %>
 
-    <%= link_to "#", class:"text-decoration-none" do %>
-      <li data-bottom-navbar-value="4" data-bottom-navbar-target="links <%= "active" if params[:controller] == '#' && params[:action] == '#' %>"><i class="fa-solid fa-chart-pie"></i></li>
+    <%= link_to events_path, class:"text-decoration-none" do %>
+      <li data-bottom-navbar-value="4" data-bottom-navbar-target="links <%= "active" if params[:controller] == 'events' && params[:action] == 'index' %>"><i class="fa-solid fa-chart-pie"></i></li>
     <% end %>
-    
+
     <div id="circle" data-bottom-navbar-target="circle"><i class="fa-solid fa-book"></i></div>
   </ul>
 </div>
