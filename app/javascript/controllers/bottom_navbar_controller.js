@@ -2,36 +2,33 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="bottom-navbar"
 export default class extends Controller {
-  static targets = ['links', 'circle', 'active' ]
-  static values = { value: Number }
-
+  static targets = ['links', 'active' ]
   connect() {
     console.log("connected!");
-    this.move(this.activeTarget);
+    this.changeColor(this.activeTarget);
+  }
+
+  changeColor(event) {
     this.linksTargets.forEach(link => {
-      link.addEventListener('click', this.moveCircle.bind(this));
+      link.style.color = 'black';
     });
+
+    const element = event.currentTarget;
+    element.style.color = '$primary-yellow';
+    // this.linksTargets.forEach(link => {
+    //   link.style.color = 'black';
+    //   link.addEventListener('click', colorChange);
+    // });
+
+    // this.move(this.activeTarget);
+
+    // const value = link.getAttribute('data-bottom-navbar-value');
+    // this.linksTargets.forEach(link => {
+    //   link.style.opacity = 1;
+    // });
+
+    // this.circleTarget.style.left = `${((circleWidth) + ((circleWidth * value) - 73)) / screenWidth * 100}%`;
+    // this.circleTarget.innerHTML = link.innerHTML;
+    // link.style.opacity = 0;
   }
-
-  moveCircle(event) {
-    const link = event.currentTarget;
-    move(link)
-  }
-
-  move(link) {
-    const value = link.getAttribute('data-bottom-navbar-value');
-    this.linksTargets.forEach(link => {
-      link.style.opacity = 1;
-    });
-    const screenWidth = window.innerWidth;
-    const circleWidth = screenWidth / 5;
-
-    console.log(screenWidth);
-    console.log(circleWidth);
-
-    this.circleTarget.style.left = `${((circleWidth) + ((circleWidth * value) - 73)) / screenWidth * 100}%`;
-    this.circleTarget.innerHTML = link.innerHTML;
-    link.style.opacity = 0;
-  }
-
 }
