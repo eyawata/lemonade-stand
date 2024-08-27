@@ -6,27 +6,33 @@
   <% if @event.orders.any? %>
     <div class="dashboard-card overview">
       <div class="overview-earnings">
-        <h2><%= number_to_currency(20000, { unit: '¥', precision: 0 }) %></h2>
-        <p>earned today</p>
+        <h2><%= number_to_currency(@total_earnings, { unit: '¥', precision: 0 }) %></h2>
+        <p>earnings</p>
       </div>
       <div class="overview-products">
-        <p>52<br>
-          products</p>
+        <p><strong><%= @products.count %></strong><br>
+          <small>products</small></p>
       </div>
     </div>
-    <div class="dashboard-card day-chart">
+    <div class="dashboard-card chart">
       <p>Sales Breakdown by Day</p>
       <%= render "day_chart" %>
     </div>
     <div class="dashboard-card top-products">
-      <p>Your Top Selling Products are</p>
-      <ol class="text-center">
-        <li><%= @event.orders.first.products.first.name %></li>
-        <li><%= @event.orders.first.products.second.name %></li>
-        <li><%= @event.orders.first.products.third.name %></li>
-      </ol>
+      <p class="fw-bold">Your Top Selling Products are</p>
+      <ul class="top-products-list">
+        <% @top_three.each do |product| %>
+          <li>
+            <div class="d-flex justify-content-between">
+              <strong><%= product[0].name %></strong>
+              <small><%= product[1] %> units</small>
+            </div>
+          </li>
+        <% end %>
+      </ul>
     </div>
     <div class="dashboard-card chart">
+      <p>Sales Breakdown by Hour</p>
       <%= render "hour_chart" %>
     </div>
   <% else %>
