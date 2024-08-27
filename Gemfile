@@ -77,5 +77,7 @@ group :test do
 end
 
 # Team Add-ons
+gem "chartkick"
 gem "cloudinary"
 gem "faker"
+gem "groupdate"
