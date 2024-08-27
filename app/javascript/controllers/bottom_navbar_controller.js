@@ -23,8 +23,13 @@ export default class extends Controller {
     this.linksTargets.forEach(link => {
       link.style.opacity = 1;
     });
+    const screenWidth = window.innerWidth;
+    const circleWidth = screenWidth / 5;
 
-    this.circleTarget.style.left = `${21 * value}vw`;
+    console.log(screenWidth);
+    console.log(circleWidth);
+
+    this.circleTarget.style.left = `${((circleWidth) + ((circleWidth * value) - 74)) / screenWidth * 100}%`;
     this.circleTarget.innerHTML = link.innerHTML;
     link.style.opacity = 0;
   }
