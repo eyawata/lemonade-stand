@@ -1,5 +1,5 @@
 <% @events.each do |event| %>
-  <div class="card-product d-flex">
+  <div class="card-product d-flex position-relative">
     <% if event.photo.attached? %>
       <%= cl_image_tag event.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and qualitity here -->
     <% else %>
@@ -11,6 +11,9 @@
         <%= event.start_date.strftime("%B %d,") %> to <%= event.end_date.strftime("%B %d, %Y") %>
       </p>
     </div>
-    <!-- Edit Button -->
-  </div>
-<% end %>
+    <div class="card-edit">
+      <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff">
+      </div>
+      <!-- Edit Button -->
+    </div>
+  <% end %>
