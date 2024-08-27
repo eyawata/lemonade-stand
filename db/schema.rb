@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_08_27_005719) do
+ActiveRecord::Schema[7.1].define(version: 2024_08_27_100908) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -71,7 +71,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_005719) do
     t.string "status", default: "incomplete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id", null: false
     t.index ["event_id"], name: "index_orders_on_event_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "products", force: :cascade do |t|
@@ -104,5 +106,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_005719) do
   add_foreign_key "order_products", "orders"
   add_foreign_key "order_products", "products"
   add_foreign_key "orders", "events"
+  add_foreign_key "orders", "users"
   add_foreign_key "products", "users"
 end
