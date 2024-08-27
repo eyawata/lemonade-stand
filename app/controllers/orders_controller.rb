@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   def show
     @order = Order.find(params[:id])
-    @products = Product.all
+    @products = current_user.products
 
     # subtotal is an instance method in order.rb
     @order_subtotal = @order.subtotal

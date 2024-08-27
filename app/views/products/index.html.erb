@@ -5,9 +5,9 @@
   <!-- product cards -->
   <% if Product.any? %>
     <!-- selling mode button -->
-    <div class="d-flex justify-content-between mx-5 mb-3">
-      <div class="card-create-product">
-        <button type="button" class="fa-solid fa-plus plus-btn-create" style="color: #fff" data-bs-toggle="modal" data-bs-target="#CreateProductModal"></button>
+    <div class="d-flex justify-content-end mx-4 mb-3">
+      <div class="card-create-product me-2">
+        <button type="button" class="plus-btn-create" style="color: #fff" data-bs-toggle="modal" data-bs-target="#CreateProductModal">Add Product</button>
       </div>
       <%= link_to edit_order_path(@order), class:"text-decoration-none" do %>
         <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>

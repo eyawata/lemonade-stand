@@ -2,6 +2,7 @@ class Order < ApplicationRecord
   belongs_to :event, optional: true
   has_many :order_products
   has_many :products, through: :order_products
+  belongs_to :user
 
   validates :total_price, presence: true
   validates :status, presence: true
