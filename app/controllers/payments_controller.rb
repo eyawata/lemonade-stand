@@ -14,7 +14,7 @@ class PaymentsController < ApplicationController
     client = PayPay::Client.new(ENV['API_KEY'], ENV['API_SECRET'], ENV['MERCHANT_ID'])
     response = client.qr_code_create(builder.finish)
     response_body = JSON.parse(response.body)
-    qr_code_url = response_body.dig("data", "url")
+    @qr_code_url = response_body.dig("data", "url")
     redirect_to order_path(@order, qr_code_url: qr_code_url)
 
     render json: response.body

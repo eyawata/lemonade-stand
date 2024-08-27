@@ -38,7 +38,10 @@
         }
       }
     %>
-      <%= f.submit "Checkout", class: "btn btn-primary w-100", style:"color:white" %>
+      <%= link_to "Checkout", create_qr_code_payment_path(@order), class: "btn btn-primary w-100 d-none", style: "color:white", data: { discount_target: "paypayCheckout" } %>
+      <%= f.submit "Checkout", class: "btn btn-primary w-100 ", style:"color:white",  data: {
+          discount_target: "cashCheckout"
+        } %>
     <% end %>
   </div>
 </div>
