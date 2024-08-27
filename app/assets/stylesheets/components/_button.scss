@@ -110,12 +110,17 @@
 }
 
 .card-create-product {
+  display: inline-block;
+  border-radius: 5px;
   background-color: $primary-yellow;
-  border-radius: 50%;
-  height: 38px;
-  width: 38px;
+  border: none;
+  color: #FFFFFF;
   text-align: center;
-  align-items: center;
+  font-size: 35%;
+  width: 100px;
+  transition: all 0.5s;
+  cursor: pointer;
+  padding-top: 8px;
 }
 
 .plus-btn-create {
