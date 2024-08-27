@@ -109,8 +109,17 @@
   right: 0;
 }
 
+.card-create-product {
+  background-color: $primary-yellow;
+  border-radius: 50%;
+  height: 38px;
+  width: 38px;
+  text-align: center;
+  align-items: center;
+}
+
 .plus-btn-create {
-  font-size: 500%;
+  font-size: 200%;
   border-color: transparent;
   background-color: transparent;
   padding: 0;
