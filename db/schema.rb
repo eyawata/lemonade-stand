@@ -65,12 +65,13 @@ ActiveRecord::Schema[7.1].define(version: 2024_08_27_005719) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.float "total_price"
+    t.float "total_price", default: 0.0
     t.bigint "event_id"
     t.integer "order_discount"
     t.string "status", default: "incomplete"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "payment_option"
     t.index ["event_id"], name: "index_orders_on_event_id"
   end
 
