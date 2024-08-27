@@ -1,0 +1,11 @@
+<div class="container" > <!--- add a target here -->
+  <%# <% edit_product = Product.find(id) %>
+  <%= simple_form_for(event) do |f| %>
+    <%= f.input :event_name %>
+    <%= f.input :start_date %>
+    <%= f.input :end_date %>
+    <%= f.input :estimated_event_cost %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit, class: "btn btn-primary" %>
+  <% end %>
+</div>

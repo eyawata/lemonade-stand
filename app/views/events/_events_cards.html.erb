@@ -1,16 +1,22 @@
 <% @events.each do |event| %>
-  <div class="card-product d-flex">
-    <% if event.photo.attached? %>
-      <%= cl_image_tag event.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and qualitity here -->
-    <% else %>
-      <%= image_tag asset_path('event_default_image.png') %>
+  <div class="card-product position-relative">
+    <%= link_to event_path(event), class: "d-flex  text-decoration-none text-dark" do %>
+      <% if event.photo.attached? %>
+        <%= cl_image_tag event.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and quality here -->
+      <% else %>
+        <%= image_tag asset_path('event_default_image.png') %>
+      <% end %>
+      <div class="card-product-infos">
+        <h2><%= event.event_name %></h2>
+        <p>
+          <%= event.start_date.strftime("%B %d,") %> to <%= event.end_date.strftime("%B %d, %Y") %>
+        </p>
+      </div>
     <% end %>
-    <div class="card-product-infos">
-      <h2><%= event.event_name %></h2>
-      <p>
-        <%= event.start_date.strftime("%B %d,") %> to <%= event.end_date.strftime("%B %d, %Y") %>
-      </p>
+    <div class="card-edit">
+      <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditEventModal-<%=event.id%>">
+      </button>
     </div>
-    <!-- Edit Button -->
   </div>
+  <%= render "edit_modal", event: event %>
 <% end %>

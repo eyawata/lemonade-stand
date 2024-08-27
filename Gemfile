@@ -77,7 +77,12 @@ group :test do
 end
 
 # Team Add-ons
+gem "chartkick"
 gem "cloudinary"
 gem "faker"
 # For PayPay
 gem 'httpclient'
+#
+
+
+gem "groupdate"

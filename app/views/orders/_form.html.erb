@@ -5,7 +5,7 @@
   </div>
   <div class="d-flex flex-row-reverse me-4 mb-3">
     <%= link_to products_path, class:"text-decoration-none" do %>
-      <button class="switch-button mb-3" style="vertical-align:middle"><span> Return to edit mode </span>
+      <button class="switch-button mb-3" style="vertical-align:middle"><span> Return to Edit </span>
       </button>
     <% end %>
   </div>
@@ -18,10 +18,10 @@
               <% if product.quantity.positive? && (order_product.nil? || order_product.product_quantity < product.quantity) %>
 
               <%= link_to "", "#", class: "card-trip-link", data: { action: "click->quantity#add", order_id: @order.id, product_id: product.id }, style: "text-decoration: none" %>
-              <% end %>
-              <%= link_to "-", "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract", order_id: @order.id, product_id: product.id  }, style: "text-decoration: none" %>
+            <% end %>
+            <%= link_to "-", "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract", order_id: @order.id, product_id: product.id  }, style: "text-decoration: none" %>
             <% if product.photo.attached? %>
-              <%= cl_image_tag product.photo.key, class:"" %>
+              <%= cl_image_tag product.photo.key, class:"", width: 300, height: 210, crop: "fit" %>
             <% else %>
               <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg" %>
             <% end %>
@@ -35,10 +35,10 @@
             </div>
           </div>
           <%# <%= link_to edit_product_path, class:"card-trip-link" do %>
-          <%# <i class="fa-solid fa-pen-to-square"></i> %>
-          <%# <% end %>
+            <%# <i class="fa-solid fa-pen-to-square"></i> %>
+            <%# <% end %>
+          </div>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
   </div>
-</div>
