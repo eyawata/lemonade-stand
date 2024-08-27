@@ -5,9 +5,18 @@
   </p>
   <% if @event.orders.any? %>
     <div class="dashboard-card overview">
-      <h2>You sold X units,<br>
-        and earned a total of <%= number_to_currency(20000, { unit: '¥', precision: 0 }) %>
-      </h2>
+      <div class="overview-earnings">
+        <h2><%= number_to_currency(20000, { unit: '¥', precision: 0 }) %></h2>
+        <p>earned today</p>
+      </div>
+      <div class="overview-products">
+        <p>52<br>
+          products</p>
+      </div>
+    </div>
+    <div class="dashboard-card day-chart">
+      <p>Sales Breakdown by Day</p>
+      <%= render "day_chart" %>
     </div>
     <div class="dashboard-card top-products">
       <p>Your Top Selling Products are</p>
@@ -16,9 +25,6 @@
         <li><%= @event.orders.first.products.second.name %></li>
         <li><%= @event.orders.first.products.third.name %></li>
       </ol>
-    </div>
-    <div class="dashboard-card chart">
-      <%= render "day_chart" %>
     </div>
     <div class="dashboard-card chart">
       <%= render "hour_chart" %>

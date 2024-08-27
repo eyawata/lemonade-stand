@@ -6,9 +6,12 @@
   padding-bottom: 50px;
 }
 
-.dashboard-cards p {
-  text-align: center;
-  margin: 0 auto 20px;
+.overview p {
+  margin-bottom: 0;
+}
+
+.dashboard-cards h2 {
+  margin-top: 20px;
 }
 
 .dashboard-card {
@@ -19,13 +22,38 @@
   padding: 20px 10px 20px 10px;
   height: fit-content;
   margin-bottom: 20px;
+  border-radius: 8px;
 }
 
-.dashboard-card:hover {
-  background-color: $secondary-yellow;
+
+.overview {
+  background-color: $primary-blue;
+  color: white;
+  display: flex;
+  justify-content: space-between;
 }
 
 .overview h2 {
-  text-align: right;
+  text-align: left;
   margin-top: 20px;
+  font-size: 2rem;
+}
+
+
+.day-chart {
+  background-color:$secondary-yellow;
+  color: $primary-blue;
+}
+
+.day-chart p {
+  text-align: center;
+  font-weight: 600;
+}
+
+.overview-products {
+  background-color: $secondary-blue;
+  border-radius: 50%;
+  width: 100px;
+  height:100px;
+  justify-content: center;
 }
