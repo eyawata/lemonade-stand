@@ -104,11 +104,15 @@
 .card-create {
   position: fixed;
   bottom: 10vh;
-  right: 1vh;
+  padding: 0;
+  margin: 0;
+  right: 0;
 }
 
 .plus-btn-create {
-  font-size: 900%;
+  font-size: 500%;
   border-color: transparent;
   background-color: transparent;
+  padding: 0;
+  margin: 0;
 }
