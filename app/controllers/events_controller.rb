@@ -1,7 +1,27 @@
 class EventsController < ApplicationController
   before_action :authenticate_user!
   def show
+    if Order.last&.status == "incomplete"
+      @order = Order.last
+    else
+      @order = Order.new
+      @order.save
+    end
+
     @event = Event.find(params[:id])
+    @orders = @event.orders
+
+    @total_earnings = @orders.sum{ |order| order.total_price }
+
+    # get top three selling products (by qty sold)
+    # all products in event
+    @products = Product.joins(order_products: { order: :event }).where(events: { id: @event.id }).uniq
+    # iterate over products
+    @product_quantities = @products.map do |product|
+      [product, product.order_products.sum {|op| op.product_quantity }]
+    end
+    @product_quantities.sort_by! {|pair| pair[1]}.reverse!
+    @top_three = @product_quantities.take(3)
   end
 
   def index

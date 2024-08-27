@@ -177,7 +177,7 @@ events.each do |event|
 
   # Adjust the start_date and end_date for the next event
   start_date -= 5
-  end_date -= rand(5..7)
+  end_date -= rand(5..6)
 end
 
 puts "Created #{Event.count} events"

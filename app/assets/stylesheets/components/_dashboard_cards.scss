@@ -1,0 +1,92 @@
+.dashboard-cards {
+  width: 100%;
+  justify-content: center;
+  padding: 0 40px;
+  border-radius: 8px;
+  padding-bottom: 50px;
+}
+
+.overview p {
+  margin-bottom: 0;
+}
+
+.circle-text {
+  text-align: center;
+}
+
+.dashboard-cards h2 {
+  margin-top: 20px;
+}
+
+.dashboard-card {
+  background: white;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  position: relative;
+  transition: transform 0.3s, box-shadow 0.3s;
+  padding: 20px 10px 20px 10px;
+  height: fit-content;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+
+.overview {
+  background-color: $primary-blue;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+}
+
+.overview h2 {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 2rem;
+}
+
+
+.chart {
+  background-color:$secondary-yellow;
+  color: $primary-blue;
+}
+
+.chart p {
+  text-align: center;
+  font-weight: 600;
+}
+
+.overview-products {
+  background-color: $secondary-blue;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height:100px;
+  justify-content: center;
+}
+
+.overview-products p {
+  margin:0;
+  text-align: center;
+}
+
+.top-products {
+  box-shadow: 0 0 5px $primary-blue;
+}
+
+.top-products p {
+  color: $primary-blue;
+}
+
+.top-products-list {
+  list-style-type: none;
+  padding-left: 0;
+}
+
+.top-products-list li {
+  color: $primary-blue
+}
+
+.top-products-list strong {
+  font-size: smaller;
+}
