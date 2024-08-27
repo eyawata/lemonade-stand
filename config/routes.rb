@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   resources :orders, only: [:index, :edit, :show, :new, :create, :update] do
     resources :order_products, only: [:new, :create, :update, :edit, :destroy]
   end
+
   resources :events, only: [:index, :edit, :show, :new, :create]
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
