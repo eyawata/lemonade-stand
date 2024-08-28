@@ -82,7 +82,8 @@ gem "cloudinary"
 gem "faker"
 # For PayPay
 gem 'httpclient'
-#
+# For csv file upload
+gem "activerecord-import"
 
 
 gem "groupdate"

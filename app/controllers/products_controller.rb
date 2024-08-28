@@ -29,9 +29,10 @@ class ProductsController < ApplicationController
     end
   end
 
-  # def new
-  #   @product = Product.new
-  # end
+  def import
+    Product.my_import(params[:file])
+    redirect_to products_path, notice: 'Products imported.'
+  end
 
   def create
     @products = Product.all
