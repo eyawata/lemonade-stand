@@ -4,14 +4,8 @@
   </div>
   <!-- product cards -->
   <% if Product.any? %>
-    <!-- selling mode button -->
-    <div class="d-flex justify-content-end mx-4 mb-3">
-      <%= link_to edit_order_path(@order), class:"text-decoration-none" do %>
-        <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
-      <% end %>
-    </div>
     <!-- cards display -->
-    <div class="cards">
+    <div class="cards mt-5">
       <%= render 'product_cards', products: @products %>
     </div>
   <% else %>
