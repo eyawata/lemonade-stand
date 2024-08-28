@@ -8,7 +8,7 @@
   padding: 0;
   width: 100%;
   max-width: none;
-  height: auto;
+  height: 70%;
   min-height: 50%;
   display: flex;
   flex-direction: column;
@@ -37,7 +37,7 @@
 
 .slide-up-modal .modal-body {
   flex-grow: 1;
-  overflow-y: auto;
+  // overflow-y: auto;
   padding: 1rem;
 }
 
@@ -67,4 +67,8 @@
 .slide-up-modal .modal-footer {
   margin-bottom: 0;
   padding-bottom: 0;
+}
+
+.scrollable-modal{
+  overflow-y: scroll;
 }
