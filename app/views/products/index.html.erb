@@ -6,9 +6,6 @@
   <% if Product.any? %>
     <!-- selling mode button -->
     <div class="d-flex justify-content-end mx-4 mb-3">
-      <div class="card-create-product me-2">
-        <button type="button" class="plus-btn-create" style="color: #fff" data-bs-toggle="modal" data-bs-target="#CreateProductModal">Add Product</button>
-      </div>
       <%= link_to edit_order_path(@order), class:"text-decoration-none" do %>
         <button class="switch-button" style="vertical-align:middle"><span> Sell Now! </span></button>
       <% end %>
@@ -22,5 +19,8 @@
       <p class="no-product">There are no products yet. Let's create one! </p>
     </div>
   <% end %>
+    <div class="card-create">
+      <button type="button" class="fa-solid fa-circle-plus plus-btn-create" data-bs-toggle="modal" data-bs-target="#CreateProductModal"></button>
+    </div>
     <%= render 'shared/modal' %>
 </div>
