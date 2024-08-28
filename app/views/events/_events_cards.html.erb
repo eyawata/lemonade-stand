@@ -1,11 +1,13 @@
 <% @events.each do |event| %>
   <div class="card-product-event position-relative">
     <%= link_to event_path(event), class: "d-flex  text-decoration-none text-dark" do %>
-      <% if event.photo.attached? %>
-        <%= cl_image_tag event.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and quality here -->
-      <% else %>
-        <%= image_tag asset_path('event_default_image.png') %>
-      <% end %>
+      <div class="image-container" style="width: 130px; height: 130px;">
+        <% if event.photo.attached? %>
+          <%= cl_image_tag event.photo.key, width: 130, height: 130, crop: "fit" %> <!-- We can change picture size and quality here -->
+        <% else %>
+          <%= image_tag asset_path('event_default_image.png'), width: 130, height: 130 %>
+        <% end %>
+      </div>
       <div class="card-product-infos ps-2 pt-4">
         <h2><%= event.event_name %></h2>
         <p>
