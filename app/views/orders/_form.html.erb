@@ -16,10 +16,12 @@
         <div class="col-12">
           <div class="card-trip"  data-controller="quantity">
             <% order_product = @order.order_products.find_by(product: product) %>
-            <% if product.quantity.positive? && order_product.nil? || order_product.product_quantity < product.quantity %>
+            <% if product.quantity.positive? && (order_product.nil? || order_product.product_quantity < product.quantity) %>
               <%= link_to "", "#", class: "card-trip-link", data: { action: "click->quantity#add", order_id: @order.id, product_id: product.id }, style: "text-decoration: none" %>
             <% end %>
+            <% if order_product.present? && order_product.product_quantity > 0 %>
             <%= link_to "-", "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract", order_id: @order.id, product_id: product.id  }, style: "text-decoration: none" %>
+            <% end %>
             <% if product.photo.attached? %>
               <%= cl_image_tag product.photo.key, class:"", width: 300, height: 210, crop: "fit" %>
             <% else %>
