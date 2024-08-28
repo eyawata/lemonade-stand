@@ -8,8 +8,8 @@
           <span class="col"><i class="fa-solid fa-caret-down fa-3x" style="color: #ec5555;"></i></span>
         <% end %>
         <h2 class="col" id="net-profit"><%= number_to_currency(@net_profit.abs, { unit: '¥', precision: 0 }) %></h2>
+        <p class="small-label">Net Profit</p>
       </div>
-      <p class="small-label">Net Profit</p>
     </div>
     <div class="overview-earnings">
       <h3><%= number_to_currency(@total_earnings, { unit: '¥', precision: 0 }) %></h3>
@@ -41,9 +41,9 @@
   <%#= render "hour_chart" %>
   <%# </div> %>
 </div>
-<div class="dashboard-card overview">
-  <div class="overview-products">
-    <p><strong><%= @products.count %></strong><br>
-      <small>products</small></p>
-  </div>
-</div>
+<%# <div class="dashboard-card overview"> %>
+<%# <div class="overview-products"> %>
+<%# <p><strong>= @products.count</strong><br> %>
+<%# <small>products</small></p> %>
+<%# </div> %>
+<%# </div> %>
