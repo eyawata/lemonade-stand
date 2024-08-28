@@ -4,7 +4,7 @@
 <%# discount controller applies discount to total if dropdown is selected %>
 <div data-controller="discount">
   <%= render "show_order" %>
-  <div class="order-total row justify-content-center">
+  <div class="order-total row justify-content-center no-gutter">
     <h3 class="col-3 fw-bold" style="color: #E2AB2D;">Total</h3>
     <h3 class="col-6 text-end fw-bold" style="color: #E2AB2D;" data-discount-target="total">
       <%= number_to_currency(@order.subtotal, { unit: '¥', precision: 0 }) %>
@@ -25,7 +25,7 @@
         }
       }
     %>
-    <%= f.input :payment_option,
+      <%= f.input :payment_option,
       collection: @payment_options,
       label_method: :first,
       value_method: :last,
