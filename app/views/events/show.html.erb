@@ -4,6 +4,19 @@
     <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %>
   </p>
   <% if @event.orders.any? %>
+    <div class="dashboard-card overview justify-content-center">
+      <div class="overview-earnings">
+        <div class="row">
+          <% if @net_profit.positive? %>
+            <span class="col"><i class="fa-solid fa-caret-up fa-5x" style="color: #63E6BE;"></i></span>
+          <% else %>
+            <span class="col"><i class="fa-solid fa-caret-down fa-5x" style="color: #ec5555;"></i></span>
+          <% end %>
+          <h2 class="col"><%= number_to_currency(@net_profit.abs, { unit: '¥', precision: 0 }) %></h2>
+        </div>
+        <p class="text-center">Net Profit</p>
+      </div>
+    </div>
     <div class="dashboard-card overview">
       <div class="overview-earnings">
         <h2><%= number_to_currency(@total_earnings, { unit: '¥', precision: 0 }) %></h2>

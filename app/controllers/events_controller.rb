@@ -26,7 +26,6 @@ class EventsController < ApplicationController
     @net_profit = @total_earnings - @event.estimated_event_cost
 
     @out_of_stock = @products.select { |product| product.quantity == 0 }
-    raise
   end
 
   def index
