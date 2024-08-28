@@ -1,15 +1,19 @@
-<div class="modal fade slide-up-modal" id="CreateProductModal" tabindex="-1" aria-labelledby="CreateProductModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-slide-up modal-dialog-bottom">
-    <div class="modal-content">
-      <div class="modal-header">
+<div class="modal fade custom-slide-up-modal" id="CreateProductModal" tabindex="-1" aria-labelledby="CreateProductModalLabel" aria-hidden="true">
+  <div class="modal-dialog custom-modal-dialog">
+    <div class="modal-content custom-modal-content">
+      <div class="modal-header custom-modal-header">
         <h1 class="modal-title fs-5" id="CreateProductModalLabel">Create Product</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body custom-modal-body">
         <%= render 'new_form' %>
+        <div class="text-center">
+          <p>- OR -</p>
+          <p>Upload CSV file below</p>
+        </div>
         <%= render "csv_form" %>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer custom-modal-footer">
         <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
       </div>
     </div>

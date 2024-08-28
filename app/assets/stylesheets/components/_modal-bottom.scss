@@ -80,3 +80,45 @@
 .scrollable-modal{
   overflow-y: scroll;
 }
+
+// Modal for products page
+
+/* Custom Styles for Create Product Modal */
+.custom-slide-up-modal .custom-modal-dialog {
+  position: fixed !important;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  min-height: 50%; /* Allows it to expand if needed */
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s ease-in-out;
+  transform: translateY(100%); /* Start off-screen */
+}
+
+.custom-slide-up-modal.show .custom-modal-dialog {
+  transform: translateY(0); /* Move into view */
+}
+
+.custom-slide-up-modal .custom-modal-content {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  width: 100%;
+  margin: 0;
+  height: auto; /* Ensure it's auto to allow dynamic resizing */
+  max-height: 100vh; /* Prevent overflow outside the viewport */
+  overflow-y: auto;
+}
+
+.custom-slide-up-modal .custom-modal-header,
+.custom-slide-up-modal .custom-modal-footer {
+  flex-shrink: 0;
+}
+
+.custom-slide-up-modal .custom-modal-body {
+  flex-grow: 1;
+  padding: 1rem;
+}
