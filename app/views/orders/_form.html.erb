@@ -16,9 +16,8 @@
               <%= link_to "", "#", class: "card-trip-link", data: { action: "click->quantity#add", order_id: @order.id, product_id: product.id }, style: "text-decoration: none" %>
             <% end %>
             <% if order_product.present? && order_product.product_quantity > 0 %>
-
-            <%= link_to "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract",  order_id: @order.id, product_id: product.id }, style: "text-decoration: none" do %>
-             <i class="fas fa-minus"></i>
+              <%= link_to "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract",  order_id: @order.id, product_id: product.id }, style: "text-decoration: none" do %>
+                <i class="fas fa-minus"></i>
             <% end %>
             <% end %>
             <% if product.photo.attached? %>
