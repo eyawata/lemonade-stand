@@ -2,7 +2,7 @@
   <% if order.order_products.count == 0 %>
     <p class="text-center">No items in this order yet</p>
   <% else %>
-    <% order.order_products.each do |order_product| %>
+    <% @order.order_products.where.not("product_quantity <= 0").each do |order_product| %>
       <div class="order-products row justify-content-center no-gutter">
         <p class="col-3"><%= order_product.product.name %></p>
         <p class="col-3">X <%= order_product.product_quantity %></p>

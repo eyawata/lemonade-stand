@@ -36,6 +36,14 @@ class OrdersController < ApplicationController
   end
 
   def update
+    @order = Order.find(params[:id])
+    @order.order_products.each do |op|
+      if op.product_quantity <= 0
+        op.destroy
+      end
+    @order.save
+    end
+
     @payment_option = params[:order][:payment_option]
     if @payment_option == "paypay"
       redirect_to action: :create_qr_code
@@ -43,7 +51,6 @@ class OrdersController < ApplicationController
       # redirect_to controller: :controller_name, action: :action_name
     end
 
-    @order = Order.find(params[:id])
 
     # update_inventory is an instance method in order.rb
     @order.update_inventory
