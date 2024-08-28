@@ -1,23 +1,33 @@
 <div class="bottom-navbar" data-controller="bottom-navbar">
   <ul>
     <%= link_to root_path, class:"text-decoration-none" do %>
-      <li data-bottom-navbar-target="links <%= "active" if params[:controller] == 'pages' && params[:action] == 'home' %>", data-action="click->bottom-navbar#changeColor", class="fa-solid fa-house"></li>
+      <li data-action="click->bottom-navbar#changeColor">
+        <i class="fa-solid fa-house" data-bottom-navbar-target="links <%= "active" if params[:controller] == 'pages' && params[:action] == 'home' %>"></i>
+      </li>
     <% end %>
 
     <%= link_to products_path, class:"text-decoration-none" do %>
-      <li data-bottom-navbar-target="links <%= "active" if params[:controller] == 'products' && params[:action] == 'index' %>", data-action="click->bottom-navbar#changeColor", class="fa-solid fa-pencil"></li>
+      <li data-action="click->bottom-navbar#changeColor">
+        <i class="fa-solid fa-pencil" data-bottom-navbar-target="links <%= "active" if params[:controller] == 'products' && params[:action] == 'index' %>"></i>
+      </li>
+    <% end %>
+    
+    <%= link_to edit_order_path(@order), class:"text-decoration-none" do %>
+      <li data-action="click->bottom-navbar#changeColor">
+        <i class="fa-solid fa-money-bill-transfer", data-bottom-navbar-target="links <%= "active" if params[:controller] == 'orders' && params[:action] == 'edit' %>"></i>
+      </li>
     <% end %>
 
     <%= link_to orders_path, class:"text-decoration-none" do %>
-      <li data-bottom-navbar-target="links <%= "active" if params[:controller] == 'orders' && params[:action] == 'index' %>", data-action="click->bottom-navbar#changeColor", class="fa-solid fa-book"></li>
-    <% end %>
-
-    <%= link_to edit_order_path(@order), class:"text-decoration-none" do %>
-      <li data-bottom-navbar-target="links <%= "active" if params[:controller] == 'orders' && params[:action] == 'edit' %>", data-action="click->bottom-navbar#changeColor", class="fa-solid fa-money-bill-transfer"></li>
+      <li data-action="click->bottom-navbar#changeColor">
+        <i class="fa-solid fa-book", data-bottom-navbar-target="links <%= "active" if params[:controller] == 'orders' && params[:action] == 'index' %>"></i>
+      </li>
     <% end %>
 
     <%= link_to events_path, class:"text-decoration-none" do %>
-      <li data-bottom-navbar-target="links <%= "active" if params[:controller] == 'events' && params[:action] == 'index' %>", data-action="click->bottom-navbar#changeColor", class="fa-solid fa-chart-pie"></li>
+      <li data-action="click->bottom-navbar#changeColor">
+        <i class="fa-solid fa-chart-pie", data-bottom-navbar-target="links <%= "active" if params[:controller] == 'events' && params[:action] == 'index' %>"></i>
+      </li>
     <% end %>
   </ul>
 </div>
