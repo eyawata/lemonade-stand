@@ -1,0 +1,9 @@
+<div class="container">
+  <%= flash[:notice] %>
+  <div>
+    <%= form_tag import_products_path, multipart: true do %>
+      <%= file_field_tag :file, class:"form-control" %>
+      <%= submit_tag "Import Products", class: "btn btn-primary mt-3" %>
+    <% end %>
+  </div>
+</div>
