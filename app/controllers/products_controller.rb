@@ -30,7 +30,7 @@ class ProductsController < ApplicationController
   end
 
   def import
-    Product.my_import(params[:file])
+    current_user.my_import(params[:file])
     redirect_to products_path, notice: 'Products imported.'
   end
 

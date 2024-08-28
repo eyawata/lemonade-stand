@@ -1,7 +1,9 @@
-<%= flash[:notice] %>
-<div>
-  <%= form_tag import_products_path, multipart: true do %>
-    <%= file_field_tag :file %>
-    <%= submit_tag "Import File" %>
-  <% end %>
+<div class="container">
+  <%= flash[:notice] %>
+  <div>
+    <%= form_tag import_products_path, multipart: true do %>
+      <%= file_field_tag :file %>
+      <%= submit_tag "Import File" %>
+    <% end %>
+  </div>
 </div>
