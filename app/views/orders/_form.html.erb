@@ -16,8 +16,8 @@
               <%= link_to "", "#", class: "card-trip-link", data: { action: "click->quantity#add", order_id: @order.id, product_id: product.id }, style: "text-decoration: none" %>
             <% end %>
             <% if order_product.present? && order_product.product_quantity > 0 %>
-            <%= link_to "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract",  order_id: @order.id, product_id: product.id }, style: "text-decoration: none" do %>
-             <i class="fas fa-minus"></i>
+              <%= link_to "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract",  order_id: @order.id, product_id: product.id }, style: "text-decoration: none" do %>
+                <i class="fas fa-minus"></i>
             <% end %>
             <% end %>
             <% if product.photo.attached? %>
@@ -25,11 +25,20 @@
             <% else %>
               <%= image_tag "https://cdn.vectorstock.com/i/preview-1x/65/30/default-image-icon-missing-picture-page-vector-40546530.jpg" %>
             <% end %>
+            <div class="cart-icon">
+              <div class="product-quantity">
+                  <% if order_product.present? && order_product.product_quantity > product.quantity %>
+                    <%= product.quantity %>
+                  <% else %>
+                    <%= order_product&.product_quantity || 0 %>
+                  <% end %>
+                  <i class="fa-solid fa-cart-shopping cart-icon-color"></i>
+                  </div>
+            </div>
             <div class="row">
               <div class="card-trip-info-details">
                 <h2 class="card-trip-info-name"><%= product.name %></h2>
                 <h2 class="card-trip-pricing m-sm-1 m-t-1"><%= number_to_currency(product.price, { unit: '¥', precision: 0 }) %></h2>
-                <div class="product-quantity"><%= order_product&.product_quantity || 0 %></div>
                 <small class="text-secondary"><%= product.quantity %> in stock</small>
               </div>
             </div>
