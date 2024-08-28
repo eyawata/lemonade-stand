@@ -3,12 +3,6 @@
   <div class="d-flex justify-content-center text-align-center my-2">
     <h3><strong>Selling page</strong></h3>
   </div>
-  <div class="d-flex flex-row-reverse me-4 mb-3">
-    <%= link_to products_path, class:"text-decoration-none" do %>
-      <button class="switch-button mb-3" style="vertical-align:middle"><span> Return to Edit </span>
-      </button>
-    <% end %>
-  </div>
   <%= render "orders/cart", order: @order %>
   <div class="cards">
     <% @products.each do |product| %>
@@ -20,7 +14,7 @@
               <%= link_to "", "#", class: "card-trip-link", data: { action: "click->quantity#add", order_id: @order.id, product_id: product.id }, style: "text-decoration: none" %>
             <% end %>
             <% if order_product.present? && order_product.product_quantity > 0 %>
-            <%= link_to "-", "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract", order_id: @order.id, product_id: product.id  }, style: "text-decoration: none" %>
+              <%= link_to "-", "#", class: "btn-ghost left-button", data: { action: "click->quantity#subtract", order_id: @order.id, product_id: product.id  }, style: "text-decoration: none" %>
             <% end %>
             <% if product.photo.attached? %>
               <%= cl_image_tag product.photo.key, class:"", width: 300, height: 210, crop: "fit" %>
