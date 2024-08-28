@@ -1,0 +1,49 @@
+<div class="dashboard-cards">
+  <div class="dashboard-card overview justify-content-center" id="event-summary">
+    <div class="overview-earnings">
+      <div class="row" id="profit-header">
+        <% if @net_profit.positive? %>
+          <span class="col"><i class="fa-solid fa-caret-up fa-3x" style="color: #63E6BE"></i></span>
+        <% else %>
+          <span class="col"><i class="fa-solid fa-caret-down fa-3x" style="color: #ec5555;"></i></span>
+        <% end %>
+        <h2 class="col" id="net-profit"><%= number_to_currency(@net_profit.abs, { unit: '¥', precision: 0 }) %></h2>
+        <p class="small-label">Net Profit</p>
+      </div>
+    </div>
+    <div class="overview-earnings">
+      <h3><%= number_to_currency(@total_earnings, { unit: '¥', precision: 0 }) %></h3>
+      <p class="small-label">earnings</p>
+      <hr>
+      <h3><%= number_to_currency(@event.estimated_event_cost, { unit: '¥', precision: 0 }) %></h3>
+      <p class="small-label">est. cost</p>
+    </div>
+  </div>
+  <div class="dashboard-card chart">
+    <p>Sales Breakdown by Day</p>
+    <%= render "day_chart" %>
+  </div>
+  <div class="dashboard-card top-products">
+    <p class="fw-bold">Your Top Selling Products are</p>
+    <ul class="top-products-list">
+      <% @top_three.each do |product| %>
+        <li>
+          <div class="d-flex justify-content-between">
+            <strong><%= product[0].name %></strong>
+            <small><%= product[1] %> units</small>
+          </div>
+        </li>
+      <% end %>
+    </ul>
+  </div>
+  <%# <div class="dashboard-card chart"> %>
+  <%# <p>Sales Breakdown by Hour</p> %>
+  <%#= render "hour_chart" %>
+  <%# </div> %>
+</div>
+<%# <div class="dashboard-card overview"> %>
+<%# <div class="overview-products"> %>
+<%# <p><strong>= @products.count</strong><br> %>
+<%# <small>products</small></p> %>
+<%# </div> %>
+<%# </div> %>
