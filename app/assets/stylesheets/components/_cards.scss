@@ -167,7 +167,7 @@
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   display: flex;
-  align-items: center;
+  // align-items: center;
   margin-bottom: 30px;
 }
 
@@ -175,6 +175,8 @@
   height: auto;
   width: 130px;
   object-fit: cover;
+  border-radius: 10px;
+  border-radius: 10px;
 }
 
 .card-product h2 {
@@ -193,6 +195,7 @@
 
 .card-product .card-product-infos {
   padding: 16px;
+  align-items: center;
 }
 
 .image-container {
@@ -215,7 +218,7 @@
   justify-content: center;
   font-weight: bold;
   align-items: center;
-  background-color: rgba(133, 135, 137, 0.5);
+  background-color: rgba(133, 135, 137, 0.2);
   padding: 8px;
   border-radius: 50%;
   color: whitesmoke;
@@ -229,6 +232,6 @@
 }
 
 .cart-icon-color {
-  color: yellow;
+  color: #FFF375;
   margin-left: 4px;
 }
