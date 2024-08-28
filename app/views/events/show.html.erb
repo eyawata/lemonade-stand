@@ -1,57 +1,15 @@
-<h1 class="text-center my-3"><%= @event.event_name %></h1>
-<div class="dashboard-cards">
-  <p>2-11-13 Meguro, Meguro-ku, Tokyo<br>
-    〒153-0063<br>
-    <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %>
-  </p>
-  <% if @event.orders.any? %>
-    <div class="dashboard-card overview justify-content-center">
-      <div class="overview-earnings">
-        <div class="row">
-          <% if @net_profit.positive? %>
-            <span class="col"><i class="fa-solid fa-caret-up fa-5x" style="color: #63E6BE;"></i></span>
-          <% else %>
-            <span class="col"><i class="fa-solid fa-caret-down fa-5x" style="color: #ec5555;"></i></span>
-          <% end %>
-          <h2 class="col"><%= number_to_currency(@net_profit.abs, { unit: '¥', precision: 0 }) %></h2>
-        </div>
-        <p class="text-center">Net Profit</p>
-      </div>
-    </div>
-    <div class="dashboard-card overview">
-      <div class="overview-earnings">
-        <h2><%= number_to_currency(@total_earnings, { unit: '¥', precision: 0 }) %></h2>
-        <p>earnings</p>
-      </div>
-      <div class="overview-products">
-        <p><strong><%= @products.count %></strong><br>
-          <small>products</small></p>
-      </div>
-    </div>
-    <div class="dashboard-card chart">
-      <p>Sales Breakdown by Day</p>
-      <%= render "day_chart" %>
-    </div>
-    <div class="dashboard-card top-products">
-      <p class="fw-bold">Your Top Selling Products are</p>
-      <ul class="top-products-list">
-        <% @top_three.each do |product| %>
-          <li>
-            <div class="d-flex justify-content-between">
-              <strong><%= product[0].name %></strong>
-              <small><%= product[1] %> units</small>
-            </div>
-          </li>
-        <% end %>
-      </ul>
-    </div>
-    <div class="dashboard-card chart">
-      <p>Sales Breakdown by Hour</p>
-      <%= render "hour_chart" %>
-    </div>
-  <% else %>
-    <div class="dashboard-card">
-      <p><small>You have no orders for this event yet.</small></p>
-    </div>
-  <% end %>
+<div class="text-center my-3">
+  <h1 class="text-center"><%= @event.event_name %></h1>
+  <p><small>📍2-11-13 Meguro, Meguro-ku, Tokyo<br>
+      〒153-0063<br>
+      <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %>
+    </small></p>
 </div>
+<% if @event.orders.any? %>
+  <%= render "dashboard" %>
+<% else %>
+  <div class="no-event-order-container">
+    <p class="text-center">You have no orders for this event yet. <br>
+      Make it rain!</p>
+  </div>
+<% end %>

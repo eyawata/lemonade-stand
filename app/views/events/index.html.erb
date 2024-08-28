@@ -1,17 +1,15 @@
-<div class="d-flex flex-column justify-content-center align-items-center vh-100">
-  <!-- See all Data button below -->
-  <%#   <div class="card-product mt-5"> %>
-  <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
-  <%# <div class="card-product-infos">
+<h1 class="text-center my-3">Events Dashboard</h1>
+<% if current_user.events.any? %>
+  <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+    <!-- See all Data button below -->
+    <%#   <div class="card-product mt-5"> %>
+    <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
+    <%# <div class="card-product-infos">
       <h2> See all Data</h2>
       <p>All Data :)</p>
     </div>
   </div> %>
-  <!-- Card iteration below -->
-  <div class="text-center my-2">
-    <h2>Events Dashboard</h2>
-  </div>
-  <% if current_user.events.any? %>
+    <!-- Card iteration below -->
     <%= render partial: 'events/events_cards' %>
     <!-- create button -->
     <div class="card-create">
@@ -21,9 +19,9 @@
     <%= render partial: "events/new_modal" %>
     <div>
     </div>
-  <% else %>
-    <div class="no-event-container">
-      <p class="no-event">There are no events yet. Let's create one! </p>
-    </div>
-  <% end %>
-</div>
+  </div>
+<% else %>
+  <div class="no-event-container">
+    <p class="no-event">There are no events yet. Let's create one! </p>
+  </div>
+<% end %>

@@ -37,10 +37,22 @@
   justify-content: space-between;
 }
 
+#event-summary {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
 .overview h2 {
   text-align: left;
-  margin-top: 20px;
   font-size: 2rem;
+}
+
+#net-profit {
+  margin-top: 0;
+}
+
+.row span {
+  padding-left: 32%
 }
 
 
@@ -89,4 +101,10 @@
 
 .top-products-list strong {
   font-size: smaller;
+}
+
+
+.small-label {
+  font-size: 70%;
+  color: lightgrey;
 }
