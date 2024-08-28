@@ -54,7 +54,7 @@ class OrdersController < ApplicationController
     @order.update(status: "completed", total_price: @order_total_price, order_discount: @discount)
 
     # create a new empty order
-    @last_order = Order.new(total_price: 0)
+    @last_order = Order.new(total_price: 0, user: current_user)
     @last_order.save
 
     # flash message in redirected page
