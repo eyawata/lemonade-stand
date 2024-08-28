@@ -13,15 +13,17 @@
     <%= render 'shared/ios_pwa_links' %>
   </head>
   <body>
-    <%= render "shared/navbar" %>
-    <%= render "shared/flashes" %>
-    <div class="content">
-      <%= yield %>
-    </div>
-    <footer class="footer">
-      <% if user_signed_in? %>
-        <%= render "shared/bottom_navbar", order: @order, orders: @orders %>
-      <% end %>
+    <div class="mt-2" style="overflow-x: hidden">
+      <%= render "shared/navbar" %>
+      <%= render "shared/flashes" %>
+      <div class="content">
+        <%= yield %>
+      </div>
+      <footer class="footer">
+        <% if user_signed_in? %>
+          <%= render "shared/bottom_navbar", order: @order, orders: @orders %>
+        <% end %>
+      </div>
     </footer>
   </body>
 </html>
