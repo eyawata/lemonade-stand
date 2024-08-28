@@ -16,7 +16,7 @@ class OrdersController < ApplicationController
   def index
     @orders = Order.all
     @order = Order.where(status: "incomplete").last
-    @transaction = params[:order][:merchantPaymentId]
+    # @transaction = params[:order][:merchantPaymentId]
   end
 
   def edit

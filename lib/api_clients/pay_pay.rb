@@ -99,7 +99,8 @@ module PayPay
       OpenSSL::HMAC.digest(
         'sha256',
         api_secret,
-        [url, method, nonce, epoch, content_type, payload].join("\n")
+        # [url, method, nonce, epoch, content_type, payload].join("\n")
+        [url, method, nonce.to_s, epoch.to_s, content_type, payload].map(&:to_s).join("\n")
       )
     )
     ["hmac OPA-Auth:#{[api_key, hashed64, nonce, epoch, payload].join(":")}", content_type]
