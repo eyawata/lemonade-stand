@@ -5,7 +5,7 @@
   </div>
   <div class="d-flex flex-row-reverse me-4 mb-3">
   </div>
-  <%= render "orders/cart", order: @order %>
+  <%= render "orders/cart_modal", order: @order %>
   <div class="cards">
     <% @products.each do |product| %>
       <div class="row">
@@ -38,5 +38,10 @@
           </div>
         </div>
       <% end %>
+    </div>
+    <div class="centered-button">
+      <button class="btn btn-outline-warning btn-block btn-stretch mb-3" data-action="click->cart#show" data-bs-toggle="modal" data-bs-target="#CartModal" >
+        <i class="fa-solid fa-cart-shopping"></i>
+      </button >
     </div>
   </div>
