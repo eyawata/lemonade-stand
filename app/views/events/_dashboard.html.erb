@@ -1,7 +1,7 @@
 <div class="dashboard-cards">
   <div class="dashboard-card overview justify-content-center" id="event-summary">
     <div class="overview-earnings">
-      <div class="row">
+      <div class="row" id="profit-header">
         <% if @net_profit.positive? %>
           <span class="col"><i class="fa-solid fa-caret-up fa-3x" style="color: #63E6BE"></i></span>
         <% else %>
