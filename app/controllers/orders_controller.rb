@@ -58,7 +58,7 @@ class OrdersController < ApplicationController
     @last_order.save
 
     # flash message in redirected page
-    flash[:notice] = "Checked out successfully!"
+    flash[:notice] = "Payment successfull!"
 
     # redirect to new order
     redirect_to edit_order_path(@last_order)
