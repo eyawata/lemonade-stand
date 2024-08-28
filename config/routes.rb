@@ -2,14 +2,16 @@ Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
 
-  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy]
+  resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy, :import] do
+    collection { post :import }
+  end
   resources :orders, only: [:index, :edit, :show, :new, :create, :update] do
     resources :order_products, only: [:new, :create, :update, :edit, :destroy]
     member do
       get 'create_qr_code', to: 'orders#create_qr_code'
     end
   end
-  
+
   resources :events, only: [:index, :edit, :show, :new, :create, :update]
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

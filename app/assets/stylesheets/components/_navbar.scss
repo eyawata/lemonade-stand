@@ -2,7 +2,7 @@
   justify-content: space-between;
   background: white;
   position: sticky;
-  top: 0;
+  top: -1px;
   height: 70px;
   z-index: 1;
 }
@@ -17,4 +17,36 @@
 
 .navbar-lewagon .border-bottom {
   border-bottom: 0.5px solid grey;
+}
+
+
+.nav-link {
+  display: block;
+  text-align: end;
+  margin-right: 5%;
+}
+
+.nav-link:hover {
+  color: $primary-blue;
+  font-weight: 300;
+}
+
+
+#login-btn {
+  margin-bottom: 0;
+  padding-top: 32%
+}
+
+
+.navbar-brand {
+  margin-left: 3%;
+  padding-top: 0;
+}
+
+.navbar-toggler {
+  margin-right: 5%;
+}
+
+#brand-name {
+  width: 100px;
 }
