@@ -3,7 +3,9 @@
   <div class="d-flex justify-content-center text-align-center my-2">
     <h3><strong>Tap to Add to Cart</strong></h3>
   </div>
-  <%= render "orders/cart", order: @order %>
+  <div class="d-flex flex-row-reverse me-4 mb-3">
+  </div>
+  <%= render "orders/cart_modal", order: @order %>
   <div class="cards">
     <% @products.each do |product| %>
       <div class="row">
@@ -36,6 +38,11 @@
             <%# <i class="fa-solid fa-pen-to-square"></i> %>
             <%# <% end %>
           </div>
+        </div>
+        <div class="fixed-button">
+          <button class="btn btn-outline-warning btn-round" data-bs-toggle="modal" data-bs-target="#CartModal">
+            <i class="fa-solid fa-cart-shopping"></i>
+          </button>
         </div>
       <% end %>
     </div>
