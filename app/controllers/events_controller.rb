@@ -28,6 +28,7 @@ class EventsController < ApplicationController
     @events = Event.all
     @new_event = Event.new
     @order = Order.where(status: "incomplete").last
+    @current_page = 'events'
   end
 
   def update
