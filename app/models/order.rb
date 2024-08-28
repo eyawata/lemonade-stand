@@ -1,4 +1,5 @@
 class Order < ApplicationRecord
+  belongs_to :user
   belongs_to :event, optional: true
   has_many :order_products
   has_many :products, through: :order_products

@@ -113,7 +113,8 @@ puts "Creating orders!"
 if Order.any? == false
   15.times do
     Order.create!(
-      total_price: rand(500..2000)
+      total_price: rand(500..2000),
+      user: User.last
     )
   end
 end
