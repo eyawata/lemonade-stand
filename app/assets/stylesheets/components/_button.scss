@@ -99,11 +99,10 @@
 
 .btn-edit {
   font-size: 16px;
-  background-color: $medium-gray;
   border-radius: 50%;
   padding: 8px;
   border-color: transparent;
-  background-color: #858789;
+  background-color: rgba(133, 135, 137, 0.5);
 }
 
 .card-create-product {
@@ -122,18 +121,21 @@
 
 .card-create {
   position: fixed;
-  bottom: 7vh;
+  bottom: 90px;
   padding: 0;
   margin: 1px;
-  right: 0;
+  right: 20px;
+  border-color: transparent;
 }
 
 
 .plus-btn-create {
-  font-size: 300%;
+  height: 80px;
+  width: 80px;
+  font-size: 510%;
   color: $primary-yellow;
   border-color: transparent;
-  background-color: transparent;
+  border-radius: 50%;
   padding: 0;
   margin: 0;
 }
@@ -156,6 +158,7 @@
 
 .btn-round i {
   font-size: 24px;
+  color: white;
 }
 
 abbr[title="required"] {
