@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy]
   resources :orders, only: [:index, :edit, :show, :new, :create, :update] do
     resources :order_products, only: [:new, :create, :update, :edit, :destroy]
+    member do
+      get 'create_qr_code', to: 'orders#create_qr_code'
+    end
   end
   
   resources :events, only: [:index, :edit, :show, :new, :create, :update]
@@ -14,6 +17,9 @@ Rails.application.routes.draw do
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   get "up" => "rails/health#show", as: :rails_health_check
+
+  # Paypay
+
 
   # Defines the root path route ("/")
   # root "posts#index"
