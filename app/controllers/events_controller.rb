@@ -15,7 +15,7 @@ class EventsController < ApplicationController
 
     # get top three selling products (by qty sold)
     # all products in event
-    @products = Product.joins(order_products: { order: :event }).where(events: { id: @event.id }).uniq
+    @products = current_user.products.joins(order_products: { order: :event }).where(events: { id: @event.id }).uniq
     # iterate over products
     @product_quantities = @products.map do |product|
       [product, product.order_products.sum {|op| op.product_quantity }]
@@ -29,7 +29,7 @@ class EventsController < ApplicationController
   end
 
   def index
-    @events = Event.all
+    @events = current_user.events
     @new_event = Event.new
     @order = Order.where(status: "incomplete").last
   end

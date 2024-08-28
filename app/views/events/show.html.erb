@@ -1,6 +1,7 @@
-<h1 class="text-center my-3">Lemonade Stand</h1>
+<h1 class="text-center my-3"><%= @event.event_name %></h1>
 <div class="dashboard-cards">
-  <p><%= @event.event_name %><br>
+  <p>2-11-13 Meguro, Meguro-ku, Tokyo<br>
+    〒153-0063<br>
     <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %>
   </p>
   <% if @event.orders.any? %>
