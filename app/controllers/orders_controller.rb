@@ -68,12 +68,14 @@ class OrdersController < ApplicationController
 
   def create_qr_code
     require './lib/api_clients/pay_pay'
+    @order = Order.last
+    redirect_url = order_url(@order, host: ENV["APP_DOMAIN"] || "localhost")
 
-    builder = PayPay::QrCodeCreateBuilder.new()
+    builder = PayPay::QrCodeCreateBuilder.new(redirect_url)
     builder.merchantPaymentId
     # addItem(name, category, quantity, product_id, unit_amount)
 
-    @order = Order.last
+
     @order.order_products.each do |op|
       builder.addItem(op.product.name, op.product.category, op.product_quantity, op.product_id, op.product_price_at_sale)
     end

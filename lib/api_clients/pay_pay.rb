@@ -11,7 +11,7 @@ module PayPay
   PERF_MODE = 'perf-api.paypay.ne.jp'
 
   class QrCodeCreateBuilder
-    def initialize()
+    def initialize(redirect_url)
       @result = {
         amount: {
           amount: 1000,
@@ -24,7 +24,7 @@ module PayPay
         storeId: '1',
         terminalId: '1',
         requestedAt: Time.now.to_i,
-        redirectUrl: 'https://paypay.ne.jp/',
+        redirectUrl: redirect_url,
         redirectType: 'WEB_LINK',
         isAuthorization: false,
         authorizationExpiry: Time.now.to_i + 60,
