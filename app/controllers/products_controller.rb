@@ -6,6 +6,7 @@ class ProductsController < ApplicationController
   end
 
   def index
+    @current_page = 'products'
     @products = current_user.products
     @product = Product.new
     if Order.any?
