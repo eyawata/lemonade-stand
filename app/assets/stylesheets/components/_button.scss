@@ -16,19 +16,24 @@
 }
 
 .btn-ghost {
-  color: white;
-  background-color: #4A4A4A;
-  border: 1px solid #4A4A4A;
+    color: #ffffff; /* White color for the icon */
+  background-color: #858789; /* Lighter gray background */
+  border: 1px solid #6c757d;
   padding: 4px;
   border-radius: 50%;
-  font-weight: lighter;
-  opacity: 0.8;
+  font-weight: bold;
+  opacity: 1.0;
+  font-size: medium;
   transition: opacity 0.3s ease;
-  width: 48px;
-  height: 48px;
+  width: 36px;
+  height: 36px;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.btn-ghost i {
+  font-size: 1.5em; /* Adjust the icon size */
 }
 
  .btn-stretch {
@@ -133,6 +138,7 @@
   margin: 0;
 }
 
+<<<<<<< HEAD
 .fixed-button {
   position: fixed;
   bottom: 90px;
@@ -151,4 +157,8 @@
 
 .btn-round i {
   font-size: 24px;
+=======
+abbr[title="required"] {
+  display: none;
+>>>>>>> master
 }
