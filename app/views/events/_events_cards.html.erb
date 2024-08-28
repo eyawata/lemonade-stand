@@ -1,12 +1,12 @@
 <% @events.each do |event| %>
-  <div class="card-product position-relative">
+  <div class="card-product-event position-relative">
     <%= link_to event_path(event), class: "d-flex  text-decoration-none text-dark" do %>
       <% if event.photo.attached? %>
         <%= cl_image_tag event.photo.key, width: 300, height: 210, crop: "fit" %> <!-- We can change picture size and quality here -->
       <% else %>
         <%= image_tag asset_path('event_default_image.png') %>
       <% end %>
-      <div class="card-product-infos">
+      <div class="card-product-infos ps-2 pt-4">
         <h2><%= event.event_name %></h2>
         <p>
           <%= event.start_date.strftime("%B %d,") %> to <%= event.end_date.strftime("%B %d, %Y") %>
