@@ -14,12 +14,14 @@ class OrdersController < ApplicationController
   end
 
   def index
+    @current_page = 'orders'
     @orders = Order.all
     @order = Order.where(status: "incomplete").last
     # @transaction = params[:order][:merchantPaymentId]
   end
 
   def edit
+    @current_page = 'edit_order'
     @products = current_user.products
     @orders = Order.all
     @order = Order.find(params[:id])
@@ -30,7 +32,6 @@ class OrdersController < ApplicationController
       @order = Order.new
       @order.save
     end
-
     # redirect_to order_path(@orders.last) if @orders.last&.status == "incomplete"
   end
 
@@ -41,7 +42,6 @@ class OrdersController < ApplicationController
       return
       # redirect_to controller: :controller_name, action: :action_name
     end
-
 
     @order = Order.find(params[:id])
 
@@ -66,7 +66,7 @@ class OrdersController < ApplicationController
 
 
 
-   def create_qr_code
+  def create_qr_code
     require './lib/api_clients/pay_pay'
 
     builder = PayPay::QrCodeCreateBuilder.new()
