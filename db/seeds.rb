@@ -100,10 +100,11 @@ puts "Completed updating status"
 puts "Creating event!"
 
 user.events.create!(
-    event_name: "Meguro Art Market",
+    event_name: "Koenji Art Market",
     estimated_event_cost: 25000,
     start_date: Date.today - 7,
-    end_date: Date.today - 4
+    end_date: Date.today - 4,
+    location: "3-48-8 Horinouchi, Suginami-ku, Tokyo 166-0013"
   )
 
 puts "Created #{user.events.last.event_name} event"

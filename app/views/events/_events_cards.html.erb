@@ -10,9 +10,12 @@
       </div>
       <div class="card-product-infos ps-2 pt-4">
         <h2><%= event.event_name %></h2>
-        <p>
-          <%= event.start_date.strftime("%B %d,") %> to <%= event.end_date.strftime("%B %d, %Y") %>
+        <p class="card-event-date">
+          📅 <%= event.start_date.strftime("%B %d") %> to <%= event.end_date.strftime("%B %d, %Y") %>
         </p>
+        <% if event.location.present? %>
+          <p class="card-event-location">📍<%= event.location %></p>
+        <% end %>
       </div>
     <% end %>
     <div class="card-edit">
