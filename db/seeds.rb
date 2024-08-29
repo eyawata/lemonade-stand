@@ -132,6 +132,6 @@ end
 
 puts "Changed the dates for all completed orders!"
 
-event.assign_to_event
+event.assign_to_event_seeds
 
 puts "Event now has relevant orders assigned correctly!"
