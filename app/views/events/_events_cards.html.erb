@@ -13,7 +13,9 @@
         <p class="card-event-date">
           📅 <%= event.start_date.strftime("%B %d") %> to <%= event.end_date.strftime("%B %d, %Y") %>
         </p>
-        <p class="card-event-location">📍<%= event.location %></p>
+        <% if event.location.present? %>
+          <p class="card-event-location">📍<%= event.location %></p>
+        <% end %>
       </div>
     <% end %>
     <div class="card-edit">
