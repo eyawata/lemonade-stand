@@ -210,6 +210,19 @@
   align-items: center;
 }
 
+.card-event-location {
+  font-size: 67%;
+  inline-size: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-event-date {
+  font-size: 67%;
+  margin-bottom:8px;
+}
+
 .image-container {
   position: relative;
   display: inline-block;
