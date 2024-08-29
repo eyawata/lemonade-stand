@@ -54,7 +54,6 @@ class OrdersController < ApplicationController
       # redirect_to controller: :controller_name, action: :action_name
     end
 
-
     # update_inventory is an instance method in order.rb
     @order.update_inventory
 
@@ -73,8 +72,6 @@ class OrdersController < ApplicationController
     # redirect to new order
     redirect_to edit_order_path(@last_order)
   end
-
-
 
   def create_qr_code
     require './lib/api_clients/pay_pay'
