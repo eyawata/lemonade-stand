@@ -9,7 +9,7 @@
       📅 <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %>
     </small></p>
 </div>
-<% if @event.orders.where(status:"complete").any? %>
+<% if @event.orders.where(status:"completed").any? %>
   <%= render "dashboard" %>
 <% else %>
   <div class="no-event-order-container">
