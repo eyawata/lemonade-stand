@@ -167,3 +167,52 @@
   flex-shrink: 0;
   padding: 1rem;
 }
+
+/* Fixed Footer Modal Classes used for cart modal */
+.fixed-footer-modal .fixed-footer-dialog {
+  position: fixed !important;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s ease-in-out;
+  max-height: 80vh; /* Limit modal height to 80% of the viewport */
+  height: auto;
+}
+
+.fixed-footer-modal.show .fixed-footer-dialog {
+  transform: translateY(0);
+}
+
+.fixed-footer-content {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  width: 100%;
+  margin: 0;
+  height: auto;
+  max-height: 80vh; /* Limit content height to 80% of the viewport */
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.fixed-footer-body {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: calc(80vh - 120px); /* Adjust based on header/footer height */
+}
+
+.fixed-footer {
+  flex-shrink: 0;
+  padding: 1rem;
+  position: sticky;
+  bottom: 0;
+  background-color: white; /* Ensure the button area is always visible */
+  z-index: 10;
+  border-top: 1px solid #ddd;
+}
