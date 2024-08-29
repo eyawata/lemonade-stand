@@ -26,7 +26,7 @@ class PagesController < ApplicationController
       github_username: "Sadanan-V",
       name: "Mint",
       cute_name: "Sadanan(Mint)ʕ•ᴥ•ʔ",
-      image_url: "https://res.cloudinary.com/dxarsyyur/image/upload/v1724902166/DSC01569_zx3otu.jpg",
+      image_url: "https://res.cloudinary.com/dxarsyyur/image/upload/v1724902591/DSC01569_fcdopq.jpg",
       title: "Frontend Lead",
       linkedin: "https://www.linkedin.com/in/%F0%9F%AA%90sadanan-vorlaruxtara%F0%9F%AA%90-071a39110/"
     }
@@ -44,7 +44,7 @@ class PagesController < ApplicationController
       github_username: "Jonas-09",
       name: "Jonas",
       cute_name: "Jonas ૮ ˙Ⱉ˙ ა",
-      image_url: "https://collection.cloudinary.com/dizzbqrfl/8675d5b4c22448cf8fc855c44fe47c72?",
+      image_url: "https://res.cloudinary.com/dxarsyyur/image/upload/v1724911441/798CE1B1-B165-41E1-8FF2-95623CFDBFAB_1_105_c_udfhuv_fhmacj.jpg",
       title: "Project Manager",
       linkedin: "https://www.linkedin.com/in/jonas-al-taher/"
     }
