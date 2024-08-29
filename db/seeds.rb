@@ -13,7 +13,7 @@ Event.destroy_all
 
 urls = {
   "Spotty Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg",
-  "Northern Lights Planter" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887893/production/qyasht76ajhxpx7p1whm2zt0q36b.jpg",
+  "Northern Lights Planter" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724927167/development/fcw1538q2q03vui7fqi168aqc34b.jpg",
   "Aurora Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724888012/production/0gn2oro44tus75la3q7lrp5bw5n8.jpg"
 }
 
@@ -44,7 +44,7 @@ items.each do |item|
       category: item.include?("Cup") ? "Cup" : "Planter",
       quantity: rand(20..40)
     )
-    url = urls[product.name]
+    p url = urls[product.name]
     file = URI.open(url)
     product.photo.attach(io: file, filename: "#{item}.jpeg", content_type: 'image/jpeg')
 end
