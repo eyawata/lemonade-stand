@@ -1,6 +1,7 @@
 class Event < ApplicationRecord
   belongs_to :user
   has_many :orders
+  has_many :order_products, through: :orders
   has_one_attached :photo
 
   validates :event_name, uniqueness: true

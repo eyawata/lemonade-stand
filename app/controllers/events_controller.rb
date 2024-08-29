@@ -18,7 +18,7 @@ class EventsController < ApplicationController
     @products = current_user.products.joins(order_products: { order: :event }).where(events: { id: @event.id }).uniq
     # iterate over products
     @product_quantities = @products.map do |product|
-      [product, product.order_products.sum {|op| op.product_quantity }]
+      [product, @event.order_products.where(product: product).sum {|op| op.product_quantity }]
     end
     @product_quantities.sort_by! {|pair| pair[1]}.reverse!
     @top_three = @product_quantities.take(3)
@@ -28,7 +28,6 @@ class EventsController < ApplicationController
     else
       @net_profit = @total_earnings - @event.estimated_event_cost
     end
-
     @out_of_stock = @products.select { |product| product.quantity == 0 }
   end
 
