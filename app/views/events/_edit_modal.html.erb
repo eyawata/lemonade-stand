@@ -1,14 +1,14 @@
-<div class="modal fade slide-up-modal" id="EditEventModal-<%=event.id%>" tabindex="-1" aria-labelledby="EditEventModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-slide-up modal-dialog-bottom">
-    <div class="modal-content">
+<div class="modal fade slide-up-modal dynamic-height-modal" id="EditEventModal-<%=event.id%>" tabindex="-1" aria-labelledby="EditEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-slide-up modal-dialog-bottom dynamic-height-dialog">
+    <div class="modal-content dynamic-height-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="EditEventModalLabel">Edit Event</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
-        <%= render 'edit_form', event: event%>
+      <div class="modal-body dynamic-height-body">
+        <%= render 'edit_form', event: event %>
       </div>
-      <div class="modal-footer">
+      <div class="modal-footer dynamic-height-footer">
         <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
       </div>
     </div>

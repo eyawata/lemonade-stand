@@ -49,4 +49,7 @@ class Order < ApplicationRecord
   #   orders_to_assign = where('created_at >= ? AND created_at <= ?', event.start_date, event.end_date)
   #   orders_to_assign.update_all(event_id: event.id)
   # end
+  def assign_to_event(event)
+    self.update(event_id: event.id)
+  end
 end

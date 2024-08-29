@@ -81,7 +81,7 @@
   overflow-y: scroll;
 }
 
-// Modal for products page
+// Modal for products page (new product)
 
 /* Custom Styles for Create Product Modal */
 .custom-slide-up-modal .custom-modal-dialog {
@@ -120,5 +120,50 @@
 
 .custom-slide-up-modal .custom-modal-body {
   flex-grow: 1;
+  padding: 1rem;
+}
+
+
+/* Dynamic Height Modal Classes for New/Edit Event Modal */
+.dynamic-height-modal .dynamic-height-dialog {
+  position: fixed !important;
+  bottom: 0;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  max-width: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  transition: transform 0.3s ease-in-out;
+  max-height: 100vh;
+  height: auto; /* Remove fixed height */
+}
+
+.dynamic-height-modal.show .dynamic-height-dialog {
+  transform: translateY(0);
+}
+
+.dynamic-height-content {
+  border-top-left-radius: 40px;
+  border-top-right-radius: 40px;
+  width: 100%;
+  margin: 0;
+  height: auto; /* Remove fixed height */
+  max-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.dynamic-height-body {
+  flex-grow: 1;
+  padding: 1rem;
+  overflow-y: auto;
+  max-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+}
+
+.dynamic-height-footer {
+  flex-shrink: 0;
   padding: 1rem;
 }
