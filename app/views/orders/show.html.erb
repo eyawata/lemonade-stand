@@ -33,12 +33,13 @@
       label: "Payment Method",
       input_html: {
         data: {
-          discount_target: "payment"
+          discount_target: "payment",
+          action: "change->discount#selectPayment"
         }
       }
     %>
-      <%# <%= link_to "Checkout", create_qr_code_payment_path(@order), class: "btn btn-primary w-100 d-none", style: "color:white", data: { discount_target: "paypayCheckout" } %>
-      <%= f.submit "Confirm Order", class: "btn btn-primary w-100 ", style:"color:white" %>
+    <%= f.submit "Confirm Order", class: "btn btn-primary w-100", style: "color:white", data: { discount_target: "cashCheckout" } %>
+    <%= link_to "Click to access PayPay", @qr_code_url, class: "btn btn-primary w-100 d-none", style: "color:white", data: { discount_target: "paypayCheckout" }, target: "_blank", rel: "noopener noreferrer" %>
     <% end %>
   </div>
 </div>

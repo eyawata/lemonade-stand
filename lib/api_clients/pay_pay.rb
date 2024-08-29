@@ -14,7 +14,7 @@ module PayPay
     def initialize(redirect_url)
       @result = {
         amount: {
-          amount: 1000,
+          amount: 0,
           currency: 'JPY',
         },
         orderItems: [],
