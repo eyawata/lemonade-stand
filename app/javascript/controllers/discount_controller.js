@@ -7,6 +7,7 @@ static targets = ["discount", "total", "subtotal", "payment", "cashCheckout","pa
 
   connect() {
     this.observeDOMChanges();
+
   }
 
   updateTotal() {
@@ -25,16 +26,16 @@ static targets = ["discount", "total", "subtotal", "payment", "cashCheckout","pa
 
   selectPayment() {
     const paymentOptionElement = this.paymentTarget;
+    console.log(paymentOptionElement.value)
     if (paymentOptionElement.value == "paypay") {
-      this.paypayCheckoutTarget.classList.remove("d-none")
-      this.cashCheckoutTarget.classList.add("d-none")
-       }
-      else {
-      this.paypayCheckoutTarget.classList.add("d-none")
-      this.cashCheckoutTarget.classList.remove("d-none")
-      }
-
+      this.paypayCheckoutTarget.classList.remove("d-none");
+      this.cashCheckoutTarget.classList.add("d-none");
+    } else if (paymentOptionElement.value == "cash") {
+      this.paypayCheckoutTarget.classList.add("d-none");
+      this.cashCheckoutTarget.classList.remove("d-none");
+    }
   }
+
 
   observeDOMChanges() {
     const observer = new MutationObserver(() => {

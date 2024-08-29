@@ -6,8 +6,7 @@ class Order < ApplicationRecord
 
   validates :total_price, presence: true
   validates :status, presence: true
-  OPTIONS = ["incomplete", "completed"]
-  validates :status, inclusion: { in: OPTIONS }
+  enum status: { incomplete: "incomplete" , completed: "completed"}
 
   def subtotal
     subtotal = 0
@@ -19,7 +18,7 @@ class Order < ApplicationRecord
   end
 
   def update_inventory
-    self.order_products.each do |op|
+    order_products.each do |op|
       qty_bought = op.product_quantity
       product_to_update = op.product
       qty_to_update = product_to_update.quantity
@@ -27,6 +26,29 @@ class Order < ApplicationRecord
     end
   end
 
+
+  def process!
+    return unless incomplete?
+
+      # update_inventory is an instance method in order.rb
+      update_inventory
+
+      # mark order as complete and order's total price (inclusive of discount selected)
+      # discount = order_discount.to_i.fdiv(100) * subtotal
+      # total_price = subtotal - order_discount
+      update(status: "completed")
+
+
+      # create a new empty order
+      last_order = Order.new(total_price: 0, user: user)
+      last_order.save
+      last_order
+
+  end
+  # def self.assign_to_event(event)
+  #   orders_to_assign = where('created_at >= ? AND created_at <= ?', event.start_date, event.end_date)
+  #   orders_to_assign.update_all(event_id: event.id)
+  # end
   def assign_to_event(event)
     self.update(event_id: event.id)
   end

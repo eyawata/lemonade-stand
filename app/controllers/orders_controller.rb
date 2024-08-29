@@ -11,6 +11,8 @@ class OrdersController < ApplicationController
 
     # Payment options
     @payment_options = [['Cash', 'cash'], ['PayPay', 'paypay']]
+    @qr_code_url = create_qr_code
+
   end
 
   def index
@@ -23,8 +25,13 @@ class OrdersController < ApplicationController
   def edit
     @current_page = 'edit_order'
     @products = current_user.products
-    @orders = Order.all
+
     @order = current_user.orders.where(status: "incomplete").order(:created_at).last || Order.create(user: current_user)
+    @success_status = params[:success] == "true"
+    @order = @order.process! if @success_status
+    flash[:notice] = "Payment successfull!"
+    @orders = Order.all
+
     # if @orders.last&.status == "incomplete"
     #   @order = @orders.last
     # else
@@ -73,27 +80,30 @@ class OrdersController < ApplicationController
     redirect_to edit_order_path(@last_order)
   end
 
+
+  private
+
   def create_qr_code
     require './lib/api_clients/pay_pay'
+    @order = Order.last
+    redirect_url = edit_order_url(@order, host: ENV["APP_DOMAIN"] || "localhost", params: {success: true})
 
-    builder = PayPay::QrCodeCreateBuilder.new()
+
+    builder = PayPay::QrCodeCreateBuilder.new(redirect_url)
     builder.merchantPaymentId
     # addItem(name, category, quantity, product_id, unit_amount)
 
-    @order = Order.last
-    @order.order_products.each do |op|
+
+    @order.order_products.where.not(product_quantity: 0).each do |op|
       builder.addItem(op.product.name, op.product.category, op.product_quantity, op.product_id, op.product_price_at_sale)
     end
+
 
     client = PayPay::Client.new(ENV['API_KEY'], ENV['API_SECRET'], ENV['MERCHANT_ID'])
     response = client.qr_code_create(builder.finish)
     response_body = JSON.parse(response.body)
-    @qr_code_url = response_body.dig("data", "url")
+    response_body.dig("data", "url")
     # redirect_to @qr_code_url, allow_other_host: true
-    render "paypay"
-
-    # render json: response.body
-    # JSON.parse(response.body).dig("data", "url")
   end
 
 end
