@@ -27,5 +27,6 @@ class User < ApplicationRecord
       product.photo.attach(io: file, filename: "#{product.name}.jpg", content_type: 'image/jpg')
       products << product
     end
+    { success: true, message: "Import successful. #{products.count} products were added." }
   end
 end
