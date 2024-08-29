@@ -3,7 +3,7 @@
   "description": "Easy Peasy Lemonade Stand Squeezy",
   "display": "fullscreen",
   "name": "Lemonade Stand",
-  "icons": [
+ "icons": [
   {
    "src": "\/android-icon-36x36.png",
    "sizes": "36x36",

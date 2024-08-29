@@ -15,8 +15,8 @@ class OrdersController < ApplicationController
 
   def index
     @current_page = 'orders'
-    @orders = Order.all
-    @order = Order.where(status: "incomplete").last
+    @orders = current_user.orders
+    @order = @orders.where(status: "incomplete").last
     # @transaction = params[:order][:merchantPaymentId]
   end
 
@@ -24,18 +24,25 @@ class OrdersController < ApplicationController
     @current_page = 'edit_order'
     @products = current_user.products
     @orders = Order.all
-    @order = Order.find(params[:id])
-
-    if @orders.last&.status == "incomplete"
-      @order = @orders.last
-    else
-      @order = Order.new
-      @order.save
-    end
+    @order = current_user.orders.where(status: "incomplete").order(:created_at).last || Order.create(user: current_user)
+    # if @orders.last&.status == "incomplete"
+    #   @order = @orders.last
+    # else
+    #   @order = Order.new
+    #   @order.save
+    # end
     # redirect_to order_path(@orders.last) if @orders.last&.status == "incomplete"
   end
 
   def update
+    @order = Order.find(params[:id])
+    @order.order_products.each do |op|
+      if op.product_quantity <= 0
+        op.destroy
+      end
+    @order.save
+    end
+
     @payment_option = params[:order][:payment_option]
     if @payment_option == "paypay"
       redirect_to action: :create_qr_code
@@ -43,7 +50,6 @@ class OrdersController < ApplicationController
       # redirect_to controller: :controller_name, action: :action_name
     end
 
-    @order = Order.find(params[:id])
 
     # update_inventory is an instance method in order.rb
     @order.update_inventory

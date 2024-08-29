@@ -1,6 +1,6 @@
 <h1 class="text-center my-3">Events Dashboard</h1>
 <% if current_user.events.any? %>
-  <div class="d-flex flex-column justify-content-center align-items-center vh-100">
+  <div class="d-flex flex-column align-items-center vh-100 mt-3">
     <!-- See all Data button below -->
     <%#   <div class="card-product mt-5"> %>
     <%# <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" /> %>
@@ -11,12 +11,6 @@
   </div> %>
     <!-- Card iteration below -->
     <%= render partial: 'events/events_cards' %>
-    <!-- create button -->
-    <div class="card-create">
-      <button type="button" class="fa-solid fa-circle-plus plus-btn-create" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateEventModal">
-      </button>
-    </div>
-    <%= render partial: "events/new_modal" %>
     <div>
     </div>
   </div>
@@ -25,3 +19,9 @@
     <p class="no-event">There are no events yet. Let's create one! </p>
   </div>
 <% end %>
+<!-- create button -->
+<div class="card-create">
+  <button type="button" class="fa-solid fa-circle-plus plus-btn-create" style="color: #E2AB2D" data-bs-toggle="modal" data-bs-target="#CreateEventModal">
+  </button>
+</div>
+<%= render partial: "events/new_modal" %>
