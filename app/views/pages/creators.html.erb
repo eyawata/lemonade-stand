@@ -1,0 +1,24 @@
+<div>
+  <% @members.each do |member| %>
+    <div class="row">
+      <div class="col-6">
+        <div class="card-trip">
+          <%= image_tag member[:image_url], alt: member[:name] %>
+        <div class="card-trip-infos">
+          <div>
+            <h2><%= member[:cute_name] %></h2>
+            <p><%= member[:title] %></p>
+          </div>
+          <%= link_to member[:linkedin] do %>
+            <i class="fab fa-linkedin"></i>
+          <% end %>
+          <%= link_to member[:github_url] do %>
+            <i class="fa-brands fa-github"></i>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  <% end %>
+</div>
+
+</div>
