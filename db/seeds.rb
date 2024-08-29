@@ -13,21 +13,21 @@ Event.destroy_all
 
 urls = {
   "Spotty Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg",
-  "Northern Lights PLanter" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887893/production/qyasht76ajhxpx7p1whm2zt0q36b.jpg",
+  "Northern Lights Planter" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887893/production/qyasht76ajhxpx7p1whm2zt0q36b.jpg",
   "Aurora Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724888012/production/0gn2oro44tus75la3q7lrp5bw5n8.jpg"
 }
 
 items = [
   "Spotty Cup",
   "Northern Lights Planter",
-  "Aurora Cup",
+  "Aurora Cup"
 ]
 
 # User seeds #
 puts "Creating user seed"
 if User.any?
   user = User.last
-  user.update(shop_name: "Lemonade Stand")
+  user.update(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
 else
   user = User.create!(email: "team@gmail.com", password: "123456", shop_name: "Lemonade Stand")
 end
@@ -38,18 +38,15 @@ puts "Created/Updated account: #{user.email}"
 puts "Creating products"
 
 items.each do |item|
-  if user.products.exists?(name: item) == false
-    product = Product.create!(
+    product = user.products.create!(
       name: item,
       price: rand(1500..3000),
       category: item.include?("Cup") ? "Cup" : "Planter",
-      quantity: rand(20..40),
-      user: user
+      quantity: rand(20..40)
     )
     url = urls[product.name]
     file = URI.open(url)
     product.photo.attach(io: file, filename: "#{item}.jpeg", content_type: 'image/jpeg')
-  end
 end
 puts "Created #{user.products.count} products"
 
@@ -62,9 +59,13 @@ puts "Creating orders!"
 end
 puts "Created #{user.orders.count} orders!"
 
+total_orders = user.orders.count
+orders_except_last = user.orders.limit(total_orders - 1)
+
 # Order_products #
-puts "Creating order_products!"
-user.orders.each do |order|
+puts "Creating order_products for all orders except the last!"
+
+orders_except_last.each do |order|
   1..2.times do
     @product = user.products.sample
     # if order already has sampled product, then add qty to that op
@@ -88,9 +89,6 @@ puts "Created #{user.order_products.count} order_products!"
 
 puts "Adding completed status to all orders except last"
 
-total_orders = user.orders.count
-orders_except_last = user.orders.limit(total_orders - 1)
-
 orders_except_last.each do |order|
   order.update(status: "completed")
 end
@@ -108,33 +106,32 @@ user.events.create!(
     end_date: Date.today - 4
   )
 
-puts "Created #{user.events.last.name} event"
+puts "Created #{user.events.last.event_name} event"
 
 puts "Updating dates for orders..."
 
 event = user.events.last
 event_days = (event.start_date..event.end_date).to_a
 
-# segment past orders and change their date
-order_segments = [
-  orders_except_last[0..5],
-  orders_except_last[6..10],
-  orders_except_last[11..(orders_except_last.size - 1)]
-]
+# segment past orders and change their timestamps
 
-counter = 0
-
-order_segments.each do |order|
+orders_except_last[0..5].each do |order|
   order_date = event_days[0]
   order.update(updated_at: order_date, created_at: order_date)
-  counter += 1
+end
+
+orders_except_last[6..10].each do |order|
+  order_date = event_days[1]
+  order.update(updated_at: order_date, created_at: order_date)
+end
+
+orders_except_last[11..(orders_except_last.size - 1)].each do |order|
+  order_date = event_days[2]
+  order.update(updated_at: order_date, created_at: order_date)
 end
 
 puts "Changed the dates for all completed orders!"
 
-event.all.each do |event|
-  event.assign_to_event
-end
+event.assign_to_event
 
-
-puts "Event also has the orders assigned correctly!"
+puts "Event now has relevant orders assigned correctly!"
