@@ -9,11 +9,11 @@
               <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body fixed-footer-body">
-              <%= render "orders/show_order", order: @order %>
+              <%= render "orders/show_order", order: order %>
             </div>
             <div class="fixed-footer">
               <div class="d-flex justify-content-center">
-                <%= link_to "Confirm Order", order_path(@order), class:"btn btn-primary my-2", style:"color:white" %>
+                <%= link_to "Confirm Order", order_path(order), class:"btn btn-primary my-2", style:"color:white" %>
               </div>
             </div>
             <div class="modal-footer">
