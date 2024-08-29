@@ -11,17 +11,17 @@ Product.destroy_all
 puts "Updating and deleting all events"
 Event.destroy_all
 
-urls = {
-  "Spotty Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg",
-  "Northern Lights Planter" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg",
-  "Aurora Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg"
-}
+# urls = {
+#   "Spotty Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg",
+#   "Northern Lights Planter" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg",
+#   "Aurora Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg"
+# }
 
-items = [
-  "Spotty Cup",
-  "Northern Lights Planter",
-  "Aurora Cup"
-]
+# items = [
+#   "Spotty Cup",
+#   "Northern Lights Planter",
+#   "Aurora Cup"
+# ]
 
 # User seeds #
 puts "Creating user seed"
@@ -37,18 +37,56 @@ puts "Created/Updated account: #{user.email}"
 # Product seeds #
 puts "Creating products"
 
-items.each do |item|
-    product = user.products.create!(
-      name: item,
+# items.each do |item|
+#     product = user.products.create!(
+#       name: item,
+#       price: rand(1500..3000),
+#       category: item.include?("Cup") ? "Cup" : "Planter",
+#       quantity: rand(20..40)
+#     )
+#     p url = urls[product.name]
+#     file = URI.open(url)
+#     product.photo.attach(io: file, filename: "#{item}.jpeg", content_type: 'image/jpeg')
+# end
+# puts "Created #{user.products.count} products"
+
+user.products.create!(
+      name: "Spotty Cup",
       price: rand(1500..3000),
-      category: item.include?("Cup") ? "Cup" : "Planter",
-      quantity: rand(20..40)
+      category: "Cup",
+      quantity: rand(20..40),
     )
-    p url = urls[product.name]
-    file = URI.open(url)
-    product.photo.attach(io: file, filename: "#{item}.jpeg", content_type: 'image/jpeg')
-end
-puts "Created #{user.products.count} products"
+user.products.last.photo.attach(
+  io: File.open(Rails.root.join('app/assets/images/products/spottycup.jpg')),
+  filename: 'spottycup.jpg',
+  content_type: 'image/jpg'
+)
+
+user.products.create!(
+      name: "Aurora Cup",
+      price: rand(1500..3000),
+      category: "Cup",
+      quantity: rand(20..40),
+    )
+user.products.last.photo.attach(
+  io: File.open(Rails.root.join('app/assets/images/products/auroracup.jpg')),
+  filename: 'auroracup.jpg',
+  content_type: 'image/jpg'
+)
+
+
+user.products.create!(
+      name: "Northen Lights Planter",
+      price: rand(1500..3000),
+      category: "Planter",
+      quantity: rand(20..40),
+    )
+user.products.last.photo.attach(
+  io: File.open(Rails.root.join('app/assets/images/products/northernlightsplanter.jpg')),
+  filename: 'northernlightsplanter.jpg',
+  content_type: 'image/jpg'
+)
+
 
 # Orders #
 puts "Creating orders!"
