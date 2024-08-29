@@ -36,6 +36,10 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
+    @event = Event.where('start_date >= ? AND end_date <= ?', @order.updated_at.beginning_of_day, @order.updated_at.end_of_day)[0]
+
+    @order.event = @event unless @event.nil?
+
     @order.order_products.each do |op|
       if op.product_quantity <= 0
         op.destroy

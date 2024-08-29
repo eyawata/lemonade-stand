@@ -33,13 +33,13 @@ class EventsController < ApplicationController
     @new_event = Event.new
     @order = Order.where(status: "incomplete").last
     @current_page = 'events'
-    assign #added assign method to be called whenever events index is being rendered.
+    # assign #added assign method to be called whenever events index is being rendered.
   end
 
   def update
     @edit_event = Event.find(params[:id])
     if @edit_event.update(event_params)
-      assign
+      assign(@edit_event)
       redirect_to events_path, notice: "Event was successfully updated"
     else
       redirect_to events_path, notice: "Event was not successfully updated"
@@ -51,7 +51,7 @@ class EventsController < ApplicationController
     @event = Event.new(event_params)
     @event.user = current_user
     if @event.save
-      assign
+      assign(@event)
       redirect_to events_path, notice: "Event was successfully created"
     else
       render :new, status: :unprocessable_entity
@@ -60,11 +60,8 @@ class EventsController < ApplicationController
 
   private
 
-  def assign
-    @events = Event.all
-    @events.each do |event|
-      event.assign_to_event
-    end
+  def assign(event)
+    event.assign_to_event
   end
 
   def event_params
