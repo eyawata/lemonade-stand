@@ -8,7 +8,7 @@
             <%= image_tag member[:image_url], alt: member[:name] %>
             <div class="card-trip-infos mt-2">
               <div class="text-center">
-                <h2><%= member[:cute_name] %></h2>
+                <h2><%= member[:cute_name].html_safe %></h2>
                 <p><%= member[:title] %></p>
                 <%= link_to member[:linkedin], class:"text-decoration-none" do %>
                   <i class="fab fa-linkedin"></i>
