@@ -85,7 +85,7 @@ class OrdersController < ApplicationController
 
   def create_qr_code
     require './lib/api_clients/pay_pay'
-    @order = Order.last
+    @order = Order.find(params[:id])
     redirect_url = edit_order_url(@order, host: ENV["APP_DOMAIN"] || "localhost", params: {success: true})
 
 
@@ -98,11 +98,14 @@ class OrdersController < ApplicationController
       builder.addItem(op.product.name, op.product.category, op.product_quantity, op.product_id, op.product_price_at_sale)
     end
 
-
-    client = PayPay::Client.new(ENV['API_KEY'], ENV['API_SECRET'], ENV['MERCHANT_ID'])
-    response = client.qr_code_create(builder.finish)
-    response_body = JSON.parse(response.body)
-    response_body.dig("data", "url")
+    begin
+      client = PayPay::Client.new(ENV['API_KEY'], ENV['API_SECRET'], ENV['MERCHANT_ID'])
+      response = client.qr_code_create(builder.finish)
+      response_body = JSON.parse(response.body)
+      response_body.dig("data", "url")
+    rescue JSON::ParserError => e
+      p "JSON parsing failed: #{e.message}"
+    end
     # redirect_to @qr_code_url, allow_other_host: true
   end
 
