@@ -15,4 +15,9 @@ class Event < ApplicationRecord
       end
     end
   end
+
+  def assign_to_event_seeds
+    orders_to_assign = Order.where('updated_at >= ? AND updated_at <= ?', self.start_date, self.end_date)
+    orders_to_assign.update_all(event_id: self.id)
+  end
 end
