@@ -44,7 +44,7 @@ items.each do |item|
       category: item.include?("Cup") ? "Cup" : "Planter",
       quantity: rand(20..40)
     )
-    url = urls[product.name]
+    p url = urls[product.name]
     file = URI.open(url)
     product.photo.attach(io: file, filename: "#{item}.jpeg", content_type: 'image/jpeg')
 end
