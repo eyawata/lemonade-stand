@@ -33,7 +33,6 @@ class EventsController < ApplicationController
     @new_event = Event.new
     @order = Order.where(status: "incomplete").last
     @current_page = 'events'
-    # assign #added assign method to be called whenever events index is being rendered.
   end
 
   def update
