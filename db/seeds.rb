@@ -14,7 +14,7 @@ Event.destroy_all
 urls = {
   "Spotty Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg",
   "Northern Lights Planter" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg",
-  "Aurora Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724888012/production/0gn2oro44tus75la3q7lrp5bw5n8.jpg"
+  "Aurora Cup" => "https://res.cloudinary.com/djqladxhq/image/upload/v1724887832/production/37xd7p8imi78sjsz9ybvbo59gz6l.jpg"
 }
 
 items = [
