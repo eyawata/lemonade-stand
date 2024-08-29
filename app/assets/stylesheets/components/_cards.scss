@@ -260,3 +260,76 @@
   color: #FFF375;
   margin-left: 4px;
 }
+
+// Creator Page
+.creator-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  text-align: center;
+  padding: 20px 0px;
+}
+
+.creator-cards .row{
+  justify-content: center;
+  margin: 0;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.card-trip-creator {
+  overflow: hidden;
+  background: transparent;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+  background-color: rgba(250, 240, 155, 0.2);
+}
+
+.card-trip-creator > img {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip-creator h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip-creator p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip-creator .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-creator .card-trip-infos a {
+  color: $medium-blue;
+  font-size: 20px;
+  margin: 2px;
+}
+
+// the avatar
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
+}
+
+.card-trip-infos-right p {
+  font-size: 12px;
+  font-weight: bold;
+  color: $primary-blue;
+}

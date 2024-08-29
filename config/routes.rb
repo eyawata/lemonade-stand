@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   devise_for :users
   root to: "pages#home"
+  get 'creators', to: 'pages#creators'
 
   resources :products, only: [:index, :show, :new, :create, :edit, :update, :destroy, :import] do
     collection { post :import }

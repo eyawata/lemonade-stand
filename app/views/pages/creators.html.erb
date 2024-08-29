@@ -1,0 +1,26 @@
+<div class="creator-container">
+  <h1 class="text-center mt-4">The Lemonade Team</h1>
+  <div class="creator-cards">
+    <% @members.each do |member| %>
+      <div class="row">
+        <div class="col-12">
+          <div class="card-trip-creator">
+            <%= image_tag member[:image_url], alt: member[:name] %>
+            <div class="card-trip-infos mt-2">
+              <div class="text-center">
+                <h2><%= member[:cute_name].html_safe %></h2>
+                <p><%= member[:title] %></p>
+                <%= link_to member[:linkedin], class:"text-decoration-none" do %>
+                  <i class="fab fa-linkedin"></i>
+                <% end %>
+                <%= link_to member[:github_url], class:"text-decoration-none" do %>
+                  <i class="fa-brands fa-github"></i>
+                <% end %>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
