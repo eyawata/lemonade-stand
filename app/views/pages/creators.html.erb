@@ -1,4 +1,5 @@
 <div class="creator-container">
+  <h1 class="text-center mt-4">The Lemonade Team</h1>
   <div class="creator-cards">
     <% @members.each do |member| %>
       <div class="row">
@@ -6,17 +7,15 @@
           <div class="card-trip-creator">
             <%= image_tag member[:image_url], alt: member[:name] %>
             <div class="card-trip-infos mt-2">
-              <div>
+              <div class="text-center">
                 <h2><%= member[:cute_name] %></h2>
                 <p><%= member[:title] %></p>
-              </div>
-              <div class="card-trip-infos-right text-end">
-                <p><%= link_to member[:linkedin], class:"text-decoration-none" do %>
+                <%= link_to member[:linkedin], class:"text-decoration-none" do %>
                   <i class="fab fa-linkedin"></i>
-                <% end %></p>
-                <p><%= link_to member[:github_url], class:"text-decoration-none" do %>
+                <% end %>
+                <%= link_to member[:github_url], class:"text-decoration-none" do %>
                   <i class="fa-brands fa-github"></i>
-                <% end %></p>
+                <% end %>
               </div>
             </div>
           </div>
