@@ -1,15 +1,15 @@
-<div class="modal fade slide-up-modal" id="CreateEventModal" tabindex="-1" aria-labelledby="CreateEventModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-slide-up modal-dialog-bottom">
-    <div class="modal-content">
+<div class="modal fade slide-up-modal dynamic-height-modal" id="CreateEventModal" tabindex="-1" aria-labelledby="CreateEventModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-slide-up modal-dialog-bottom dynamic-height-dialog">
+    <div class="modal-content dynamic-height-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="CreateEventModalLabel">Create Event</h1>
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div class="modal-body">
+      <div class="modal-body dynamic-height-body">
         <%= render 'new_form' %>
       </div>
-      <div class="modal-footer">
-        <%# <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button> %>
+      <div class="modal-footer dynamic-height-footer">
+        <!-- Optional footer content or buttons -->
       </div>
     </div>
   </div>
