@@ -8,7 +8,7 @@ class EventsController < ApplicationController
       @order.save
     end
 
-    @event = Event.find(params[:id])
+    @event = current_user.events.find(params[:id])
     @orders = @event.orders
 
     @total_earnings = @orders.sum{ |order| order.total_price }
@@ -64,6 +64,6 @@ class EventsController < ApplicationController
   end
 
   def event_params
-    params.require(:event).permit(:start_date, :end_date, :estimated_event_cost, :event_name, :photo)
+    params.require(:event).permit(:start_date, :end_date, :estimated_event_cost, :event_name, :location, :photo)
   end
 end

@@ -1,11 +1,15 @@
 <div class="text-center my-3">
   <h1 class="text-center"><%= @event.event_name %></h1>
-  <p><small>📍2-11-13 Meguro, Meguro-ku, Tokyo<br>
-      〒153-0063<br>
-      <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %>
+  <p><small>📍
+      <% if @event.location.empty? %>
+        No Location Set
+      <% else %>
+        <%= @event.location %>
+      <% end %><br>
+      📅 <%= @event.start_date.strftime("%d-%b") %> to <%= @event.end_date.strftime("%d-%b") %>
     </small></p>
 </div>
-<% if @event.orders.any? %>
+<% if @event.orders.where(status:"complete").any? %>
   <%= render "dashboard" %>
 <% else %>
   <div class="no-event-order-container">
