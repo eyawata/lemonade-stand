@@ -29,7 +29,6 @@ class OrdersController < ApplicationController
     @order = current_user.orders.where(status: "incomplete").order(:created_at).last || Order.create(user: current_user)
     @success_status = params[:success] == "true"
     @order = @order.process! if @success_status
-    flash[:notice] = "Payment successfull!"
     @orders = Order.all
 
     # if @orders.last&.status == "incomplete"

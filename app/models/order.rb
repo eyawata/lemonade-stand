@@ -34,9 +34,9 @@ class Order < ApplicationRecord
       update_inventory
 
       # mark order as complete and order's total price (inclusive of discount selected)
-      # discount = order_discount.to_i.fdiv(100) * subtotal
-      # total_price = subtotal - order_discount
-      update(status: "completed")
+      discount = order_discount.to_i.fdiv(100) * subtotal
+      total_price = subtotal - discount
+      update(status: "completed", total_price: total_price)
 
 
       # create a new empty order
