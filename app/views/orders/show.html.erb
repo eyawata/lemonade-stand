@@ -39,7 +39,7 @@
       }
     %>
     <%= f.submit "Confirm Order", class: "btn btn-primary w-100", style: "color:white", data: { discount_target: "cashCheckout" } %>
-    <%= link_to "Click to access PayPay", @qr_code_url, class: "btn btn-primary w-100 d-none", style: "color:white", data: { discount_target: "paypayCheckout" }, target: "_blank", rel: "noopener noreferrer" %>
+    <%= link_to "Click to access PayPay", @qr_code_url, class: "btn btn-primary w-100 d-none", style: "color:white", data: { discount_target: "paypayCheckout" }, target: "_self"%>
     <% end %>
   </div>
 </div>
