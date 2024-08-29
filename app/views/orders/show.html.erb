@@ -3,7 +3,7 @@
 <% end %>
 <%# discount controller applies discount to total if dropdown is selected %>
 <div data-controller="discount">
-  <%= render "show_order" %>
+  <%= render "show_order", order: @order %>
   <div class="order-total row justify-content-center no-gutter">
     <h3 class="col-3 fw-bold" style="color: #E2AB2D;">Total</h3>
     <h3 class="col-6 text-end fw-bold" style="color: #E2AB2D;" data-discount-target="total">
@@ -38,8 +38,8 @@
         }
       }
     %>
-    <%= f.submit "Confirm Order", class: "btn btn-primary w-100", style: "color:white", data: { discount_target: "cashCheckout" } %>
-    <%= link_to "Click to access PayPay", @qr_code_url, class: "btn btn-primary w-100 d-none", style: "color:white", data: { discount_target: "paypayCheckout" }, target: "_self"%>
+      <%= f.submit "Confirm Order", class: "btn btn-primary w-100", style: "color:white", data: { discount_target: "cashCheckout" } %>
+      <%= link_to "Click to access PayPay", @qr_code_url, class: "btn btn-primary w-100 d-none", style: "color:white", data: { discount_target: "paypayCheckout" }, target: "_self"%>
     <% end %>
   </div>
 </div>
