@@ -180,7 +180,7 @@
   flex-direction: column;
   justify-content: flex-start;
   transition: transform 0.3s ease-in-out;
-  max-height: 100vh;
+  max-height: 80vh; /* Limit modal height to 80% of the viewport */
   height: auto;
 }
 
@@ -194,7 +194,7 @@
   width: 100%;
   margin: 0;
   height: auto;
-  max-height: 100vh;
+  max-height: 80vh; /* Limit content height to 80% of the viewport */
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -204,7 +204,7 @@
   flex-grow: 1;
   padding: 1rem;
   overflow-y: auto;
-  max-height: calc(100vh - 120px); /* Adjust based on header/footer height */
+  max-height: calc(80vh - 120px); /* Adjust based on header/footer height */
 }
 
 .fixed-footer {
