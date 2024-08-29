@@ -1,6 +1,7 @@
 <div class="bg-white position-relative" data-controller="product-modal">
   <div class="text-center my-3">
-    <h2>Click + to Create Product</h2>
+    <h1>Inventory</h1>
+    <h6 class="instruction mt-2">Press <strong>+</strong> to add product to inventory</h6>
   </div>
   <!-- product cards -->
   <% if Product.any? %>
@@ -10,7 +11,7 @@
     </div>
   <% else %>
     <div class="no-product-container">
-      <p class="no-product">There are no products yet. Let's create one! </p>
+      <p class="no-product">There are no products yet. Let's squeeze some lemons! 🍋</p>
     </div>
   <% end %>
     <div class="card-create">
