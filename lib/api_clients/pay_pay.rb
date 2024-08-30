@@ -95,7 +95,6 @@ module PayPay
         content_type
       ]
     end
-
     hashed64 = Base64.strict_encode64(
       OpenSSL::HMAC.digest(
         'sha256',
