@@ -51,39 +51,39 @@ puts "Creating products"
 # puts "Created #{user.products.count} products"
 
 user.products.create!(
-      name: "Spotty Cup",
+      name: "Aurora Mug",
       price: rand(1500..3000),
-      category: "Cup",
+      category: "Mug",
       quantity: rand(20..40),
     )
 user.products.last.photo.attach(
-  io: File.open(Rails.root.join('app/assets/images/products/spottycup.jpg')),
-  filename: 'spottycup.jpg',
+  io: File.open(Rails.root.join('app/assets/images/products/auroramug.jpg')),
+  filename: 'auroramug.jpg',
   content_type: 'image/jpg'
 )
 
 user.products.create!(
-      name: "Aurora Cup",
+      name: "Swirl Plate",
       price: rand(1500..3000),
-      category: "Cup",
+      category: "Plate",
       quantity: rand(20..40),
     )
 user.products.last.photo.attach(
-  io: File.open(Rails.root.join('app/assets/images/products/auroracup.jpg')),
-  filename: 'auroracup.jpg',
+  io: File.open(Rails.root.join('app/assets/images/products/swirlplate.jpg')),
+  filename: 'swirlplate.jpg',
   content_type: 'image/jpg'
 )
 
 
 user.products.create!(
-      name: "Northen Lights Planter",
+      name: "Spotty Bowl",
       price: rand(1500..3000),
-      category: "Planter",
+      category: "Bowl",
       quantity: rand(20..40),
     )
 user.products.last.photo.attach(
-  io: File.open(Rails.root.join('app/assets/images/products/northernlightsplanter.jpg')),
-  filename: 'northernlightsplanter.jpg',
+  io: File.open(Rails.root.join('app/assets/images/products/spottybowl.jpg')),
+  filename: 'spottybowl.jpg',
   content_type: 'image/jpg'
 )
 
