@@ -5,7 +5,7 @@ export default class extends Controller {
   static targets = ['links', 'active' ]
   connect() {
     console.log("connected!");
-    this.changeColor(this.activeTarget);
+    // this.changeColor(this.activeTarget);
   }
 
   changeColor(event) {
