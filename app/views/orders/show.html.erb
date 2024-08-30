@@ -1,6 +1,7 @@
 <%= link_to edit_order_path(@order) do %>
   <i class="fa-solid fa-arrow-left fa-lg mt-3 ms-3" style="color: #e2ab2d;"></i>
 <% end %>
+<h1 class="text-center my-3">Confirm Order</h1>
 <%# discount controller applies discount to total if dropdown is selected %>
 <div data-controller="discount">
   <%= render "show_order", order: @order %>
