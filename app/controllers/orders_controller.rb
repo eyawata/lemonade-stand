@@ -42,15 +42,16 @@ class OrdersController < ApplicationController
 
   def update
     @order = Order.find(params[:id])
-    @last_complete_order = Order.find(params[:id].to_i - 1)
+    # @last_complete_order = Order.find(params[:id].to_i - 1)
     # @event = Event.where('start_date >= ? AND end_date <= ?', @last_complete_order.updated_at.beginning_of_day, @last_complete_order.updated_at.end_of_day)[0]
     @event = Event.where('start_date <= ? AND end_date >= ?', @order.updated_at, @order.updated_at).first
-    @last_complete_order.update(event: @event)
+    # @last_complete_order.update(event: @event)
 
     @order.order_products.each do |op|
       if op.product_quantity <= 0
         op.destroy
       end
+    @order.event = @event
     @order.save
     end
 
