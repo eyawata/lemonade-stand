@@ -40,3 +40,10 @@ Whether you're a small vendor or managing multiple stalls, this system provides 
   <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725349055/1_ifggr1.png" alt="screens1" />
   <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725349065/2_xftanh.png" alt="screens2" />
 </p>
+
+## ✏️Authors 
+[Eyawata](https://github.com/eyawata)<br>
+[Alinumbercrunch](https://github.com/alinumbercrunch)<br>
+[Sadanan-V](https://github.com/Sadanan-V)<br>
+[Jonas-09](https://github.com/Jonas-09)<br>
+
