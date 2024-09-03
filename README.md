@@ -1,5 +1,7 @@
 # <p align="center">Point-of-Sale System<br> for Vendors in Flea/Craft Markets</p>
-  
+<p align="center">
+  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725350616/Copy_of_lemonadestand_meta_tuqzpq.png" alt="brandlogo" />
+</p>
 Rails-based application is designed to help vendors at flea markets efficiently manage their sales, inventory, and customer interactions. Whether you're a small vendor or managing multiple stalls, this system provides the tools needed to keep track of your business.
 
 ## 🧐 Features    
@@ -30,4 +32,10 @@ Rails-based application is designed to help vendors at flea markets efficiently 
 
 <p align="center">
   <img src="https://img.shields.io/badge/heroku-%23430098.svg?style=for-the-badge&logo=heroku&logoColor=white" alt="heroku" />
+</p>
+
+## 📱Screens 
+<p align="center">
+  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725349055/1_ifggr1.png" alt="screens1" />
+  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725349065/2_xftanh.png" alt="screens2" />
 </p>
