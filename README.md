@@ -2,7 +2,8 @@
 <p align="center">
   <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1725350710/Copy_of_lemonadestand_meta_1_likgky.png" alt="brandlogo" />
 </p>
-Rails-based application is designed to help vendors at flea markets efficiently manage their sales, inventory, and customer interactions. Whether you're a small vendor or managing multiple stalls, this system provides the tools needed to keep track of your business.
+Rails-based application designed to help vendors at flea markets efficiently manage their sales, inventory, and customer interactions. 
+Whether you're a small vendor or managing multiple stalls, this system provides the tools needed to keep track of your business.
 
 ## 🧐 Features    
 - **Sales Tracking**: Record and manage all sales transactions in real-time.
