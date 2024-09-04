@@ -63,3 +63,10 @@
     align-items: center;
   }
 }
+
+@media screen and (max-width: 600px) {
+  .nav-item {
+    display:flex;
+    justify-content: end;
+  }
+}
