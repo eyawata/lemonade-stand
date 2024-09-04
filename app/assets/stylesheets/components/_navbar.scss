@@ -50,3 +50,16 @@
 #brand-name {
   width: 100px;
 }
+
+// Different screen size design
+@media screen and (max-width: 1200px) {
+  .nav-link {
+    text-align: center;
+    text-wrap: nowrap;
+  }
+
+  .nav-item {
+    display:flex;
+    align-items: center;
+  }
+}
