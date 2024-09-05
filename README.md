@@ -45,8 +45,12 @@ Whether you're a small vendor or managing multiple stalls, this system provides 
 <p align="center">
   <img src="https://res.cloudinary.com/djqladxhq/image/upload/c_pad,w_400,h_400/v1725503217/LS_group_sogetj.jpg" alt="contributer team" /><br>
   L-R:<br>
+</p>
+<div align="center">
+  
   [Sadanan-V](https://github.com/Sadanan-V)<br>
   [Alinumbercrunch](https://github.com/alinumbercrunch)<br>
   [Jonas-09](https://github.com/Jonas-09)<br>
   [Eyawata](https://github.com/eyawata)<br>
-</p>
+  
+</div>
