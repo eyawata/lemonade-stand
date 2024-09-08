@@ -19,18 +19,18 @@
         </div>
         <%# edit button %>
         <div class="card-edit">
-          <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%=product.id%>" >
-          </div>
+          <button type="button" class="btn-edit text-decoration-none fa-solid fa-pencil" style="color: #ffffff" data-bs-toggle="modal" data-bs-target="#EditProductModal-<%= product.id %>"></button>
         </div>
         <div class="card-delete">
-          <div class="btn-delete">
-            <%= link_to product_path(product), data: { turbo_method: :delete, turbo_confirm: "Delete #{product.name} from the list?" } do %>
-              <i class="fa-solid fa-trash-can" style="color: #ffffff;"></i>
-            <% end %>
-          </div>
+          <%= link_to product_path(product), data: { turbo_method: :delete, turbo_confirm: "Delete #{product.name} from the list?" } do %>
+            <i class=" btn-delete fa-solid fa-trash-can" style="color: #ffffff;"></i>
+          <% end %>
         </div>
-        <%= render "edit_modal", product: product %>
       </div>
-      <%# <%  edit_product = product %>
+      <%# delete button %>
+      <%# edit modal %>
+      <%= render "edit_modal", product: product %>
     </div>
-  <% end %>
+    <%# <%  edit_product = product %>
+  </div>
+<% end %>
