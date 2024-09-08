@@ -105,6 +105,21 @@
   background-color: rgba(133, 135, 137, 0.5);
 }
 
+.card-delete {
+  position: absolute;
+  top: -10px;
+  left: -10px;
+}
+
+.btn-delete {
+  font-size: 16px;
+  border-radius: 50%;
+  padding: 8px;
+  border-color: transparent;
+  background-color: rgba(133, 135, 137, 0.5);
+}
+
+
 .card-create-product {
   display: inline-block;
   border-radius: 5px;
