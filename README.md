@@ -37,8 +37,8 @@ Whether you're a small vendor or managing multiple stalls, this system provides 
 
 ## 📱Screens 
 <p align="center">
-  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1726045676/Lemonade-Show-1_rsmjft.png" alt="screens1" />
-  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1726045676/Lemonade-Show-2_tztzy0.png" alt="screens2" />
+  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1726045972/Lemonadeshow1_efwyvj.png" alt="screens1" />
+  <img src="https://res.cloudinary.com/djqladxhq/image/upload/v1726045971/Lemonadeshow2_njzznc.png" alt="screens2" />
 </p>
 
 ## ✏️Authors 
