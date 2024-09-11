@@ -54,3 +54,36 @@ Whether you're a small vendor or managing multiple stalls, this system provides 
   [Eyawata](https://github.com/eyawata)<br>
   
 </div>
+
+## Getting Started
+### Setup
+
+Install gems
+```
+bundle install
+```
+
+### ENV Variables
+Create `.env` file
+```
+touch .env
+```
+Inside `.env`, set these variables. For any APIs, see group Slack channel.
+```
+CLOUDINARY_URL=your_own_cloudinary_url_key
+API_KEY=your_paypay_dev_api_key
+API_SECRET=your_paypay_dev_api_secret
+MERCHANT_ID=your_paypay_merchant_key
+```
+
+### DB Setup
+```
+rails db:create
+rails db:migrate
+rails db:seed
+```
+
+### Run a server
+```
+rails s
+```
