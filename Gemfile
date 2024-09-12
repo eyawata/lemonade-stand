@@ -80,10 +80,13 @@ end
 gem "chartkick"
 gem "cloudinary"
 gem "faker"
-# For PayPay
-gem 'httpclient'
 # For csv file upload
 gem "activerecord-import"
 
 
 gem "groupdate"
+
+# For PayPay
+gem 'httpclient'
+# For stripe
+gem 'stripe'
